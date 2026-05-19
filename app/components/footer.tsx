@@ -87,6 +87,17 @@ export default function Footer() {
             className="footer-link flex items-center transition-all hover:underline underline-offset-2 decoration-[0.1em]"
             rel="noopener noreferrer"
             target="_blank"
+            href="https://scholar.google.com/citations?user=wyuSCNgAAAAJ&hl=en"
+          >
+            <ArrowIcon />
+            <p className="ml-2 h-7">scholar</p>
+          </a>
+        </li>
+        <li>
+          <a
+            className="footer-link flex items-center transition-all hover:underline underline-offset-2 decoration-[0.1em]"
+            rel="noopener noreferrer"
+            target="_blank"
             href="https://linkedin.com/in/chandelshubham"
           >
             <ArrowIcon />
