@@ -57,9 +57,9 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className="antialiased max-w-6xl mx-8 mt-4 lg:mx-auto relative">
+      <body className="antialiased max-w-6xl mx-4 md:mx-8 mt-4 lg:mx-auto relative">
         <Background />
-        <div className="flex-auto min-w-0 mt-2 flex flex-col px-6 md:px-8 relative z-10">
+        <div className="flex-auto min-w-0 mt-2 flex flex-col px-2 md:px-8 relative z-10">
           <div className="flex justify-end items-center gap-3 mb-8">
             <TopRight />
           </div>
