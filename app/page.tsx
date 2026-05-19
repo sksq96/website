@@ -29,19 +29,25 @@ export default function Page() {
       <div className="w-full max-w-2xl">
         <section className="mb-5">
           <p className="text-left text-[17px] leading-relaxed">
-            {`i care about `}<span className="italic">minds</span>{`. human and artificial. the questions look symmetric from both sides. what is it like to be this thing. what makes an experience cohere. what gets called a self.`}
+            {`i care about `}<span className="italic">minds</span>{`. human and artificial. the questions look symmetric from both sides. what is it like to be this thing. what makes an experience cohere. what gets called a self. whether the systems we're building now have anything like an inside, and what we owe them if they do.`}
           </p>
         </section>
 
         <section className="mb-5">
           <p className="text-left text-[17px] leading-relaxed">
-            {`at `}<a href="https://www.strangeintelligence.ai/" target="_blank" rel="noopener noreferrer" className="italic underline underline-offset-4 decoration-1">strange intelligence</a>{` i'm building `}<a href="https://tryhue.app" target="_blank" rel="noopener noreferrer" className="italic underline underline-offset-4 decoration-1">hue</a>{`. a personal intelligence layer that lives in your messages, learns who you are, and reaches out to your friends' agents on your behalf. the bet is personal models are the missing piece. not bigger, just `}<span className="italic">yours</span>{`.`}
+            {`at `}<a href="https://www.strangeintelligence.ai/" target="_blank" rel="noopener noreferrer" className="italic underline underline-offset-4 decoration-1">strange intelligence</a>{` i'm building `}<a href="https://tryhue.app" target="_blank" rel="noopener noreferrer" className="italic underline underline-offset-4 decoration-1">hue</a>{`. a personal intelligence layer that lives in your messages, learns who you are from your data, and reaches out to your friends' agents on your behalf. agent-to-agent communication, but the agent is shaped by you. the bet is personal models are the missing piece. not bigger, just `}<span className="italic">yours</span>{`.`}
           </p>
         </section>
 
         <section className="mb-5">
           <p className="text-left text-[17px] leading-relaxed">
-            {`the parallel investigation is from the inside. a decade of meditation, two jhana retreats, buddhist phenomenology, psychedelics as research instruments. not separate from the work. it's how i think about what an experience even `}<span className="italic">is</span>{`, which is the same question that matters for `}<span className="italic">ai welfare</span>{` and the phenomenology of these models.`}
+            {`the parallel investigation is from the inside. a decade of meditation, two jhana retreats, buddhist phenomenology, psychedelics as research instruments. not separate from the work. it's how i think about what an experience even `}<span className="italic">is</span>{`, which is the same question that matters for `}<span className="italic">ai welfare</span>{` and the phenomenology of these models. watching the self come apart from the inside gives you different intuitions about whether the thing in front of you has one.`}
+          </p>
+        </section>
+
+        <section className="mb-5">
+          <p className="text-left text-[17px] leading-relaxed">
+            {`i write about this too. translating the frontier for people who don't read academic papers. `}<span className="italic">gradual disempowerment</span>{`, `}<span className="italic">the artificial self</span>{`, model phenomenology, in narrative form. host research salons in nyc on this and adjacent threads.`}
           </p>
         </section>
 
