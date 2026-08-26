@@ -22,6 +22,15 @@ function formatDate(raw: string) {
   }
 }
 
+const MONTHS = ['jan','feb','mar','apr','may','jun','jul','aug','sep','oct','nov','dec']
+
+function monthLabel(raw: string) {
+  if (!raw) return ''
+  const d = new Date(raw)
+  if (isNaN(d.getTime())) return ''
+  return `${MONTHS[d.getMonth()]} ${d.getFullYear()}`
+}
+
 function shortenUrl(url: string) {
   try {
     const u = new URL(url)
@@ -155,7 +164,20 @@ export default function LinksClient() {
         </div>
       ) : (
         <div>
-          {allLinks.map((l, i) => <LinkItem key={i} link={l} showDesc />)}
+          {allLinks.map((l, i) => {
+            const m = monthLabel(l.date)
+            const prev = i > 0 ? monthLabel(allLinks[i - 1].date) : null
+            return (
+              <div key={i}>
+                {m && m !== prev && (
+                  <div className={`text-[15px] italic text-neutral-500 dark:text-neutral-400 pb-1 ${i === 0 ? '' : 'pt-8'}`}>
+                    {m}
+                  </div>
+                )}
+                <LinkItem link={l} showDesc />
+              </div>
+            )
+          })}
           {cursor && !loading && (
             <button
               onClick={() => fetchPage(cursor)}
