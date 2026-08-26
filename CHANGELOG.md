@@ -1,5 +1,21 @@
 # Changelog
 
+## 2026-08-26
+
+- GitHub repo renamed `sksq96/personal` → `sksq96/website`; Vercel git integration carried over automatically, pushes to `main` still auto-deploy.
+- Fixed mobile horizontal scroll on `/links`: `break-words` on titles/descriptions, `overflow-x: clip` on `<html>`, dropped the old `min-width: 360px`, `min-w-0` on the search input.
+- Added top nav (`home` / `links`) to the layout, opposite the clock/theme toggle. Removed dead `app/components/nav.tsx` and empty `app/photos.tsx`.
+- Removed the misleading loaded-links counter ("198+ links") while browsing; kept the accurate count on search results.
+- Raw-URL link titles now display shortened (`host/path…`); all titles clamp to 2 lines.
+- Month headers (`aug 2026 · 42`) between chronological links, with per-month counts; oldest loaded month gets a `+` while more pages remain.
+- Shuffle button (`⤮ shuffle` / `↩ by date`) on the same row as the first month header; shuffling hides month headers, unshuffle re-sorts by date desc.
+- `.env*` added to `.gitignore` (vercel link drops `.env.local`).
+
+## 2026-05-19
+
+- Expanded home bio: minds-questions specifics, phenomenology/meditation section, writing section, google scholar link.
+- Tightened mobile side margins.
+
 ## 2026-05-15
 
 - Footer attribution: "shubham.lol (stolen from idhant.xyz)" linking to the original.

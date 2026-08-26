@@ -7,10 +7,9 @@ Personal site for Shubham Chandel, deployed at https://shubham.lol. Forked from 
 ## Deployment
 
 - **Vercel project**: `sksq96s-projects/shubham-lol` (framework: `nextjs`, node: 24.x)
-- **GitHub repo**: [`sksq96/personal`](https://github.com/sksq96/personal) — pushes to `main` auto-deploy
+- **GitHub repo**: [`sksq96/website`](https://github.com/sksq96/website) (renamed from `sksq96/personal` 2026-08-26) — pushes to `main` auto-deploy
 - **Domains**: `shubham.lol`, `www.shubham.lol`
-- **Local clone for editing**: `/Users/shubham.chandel/claudecode/website` (origin → `idhantgulati/website`, the upstream fork — do **not** push here)
-- **Workflow**: edit locally, `rsync` to `/tmp/clones/personal`, commit + push there
+- **Workflow**: clone `sksq96/website`, edit, commit + push `main` directly (no rsync step anymore)
 
 ## Stack
 
@@ -25,11 +24,10 @@ Personal site for Shubham Chandel, deployed at https://shubham.lol. Forked from 
 
 ```
 app/
-  layout.tsx              root layout — pre-hydration `dark` class added inline, body bg via CSS vars
+  layout.tsx              root layout — pre-hydration `dark` class added inline, top nav (home/links), body bg via CSS vars
   page.tsx                home page — callouts + bio
-  global.css              tailwind base + dark-mode CSS variables + font-face declarations
+  global.css              tailwind base + dark-mode CSS variables + font-face declarations + overflow-x: clip on html
   not-found.tsx
-  photos.tsx              (empty file, legacy)
 
   components/
     background.tsx        dappled sunlight + blinds + swaying leaves. theme-synced via MutationObserver on documentElement.classList
@@ -40,7 +38,6 @@ app/
     footer.tsx            social links + "shubham.lol (stolen from idhant.xyz)"
     header.tsx            "shubham" h1 only
     mdx.tsx               MDX component map for blog posts
-    nav.tsx               (empty navItems for now)
     posts.tsx             blog post list
     theme-toggle.tsx      sun/moon button. defaults to dark on each load, no persistence
     top-right.tsx         Clock + ThemeToggle wrapper
@@ -52,7 +49,7 @@ app/
 
   links/
     page.tsx              /links page shell
-    links-client.tsx      client component — fetches /api/links and /api/search, renders results
+    links-client.tsx      client component — fetches /api/links and /api/search; month headers with counts, shuffle/by-date toggle, 2-line clamped titles
 
   blog/
     page.tsx              /blog list
@@ -94,11 +91,4 @@ pnpm start
 
 ## Updating the live site
 
-```bash
-# from /Users/shubham.chandel/claudecode/website
-rsync -a --delete --exclude='.git' --exclude='node_modules' --exclude='.next' --exclude='.DS_Store' ./ /tmp/clones/personal/
-cd /tmp/clones/personal
-git add -A && git commit -m "..." && git push origin main
-```
-
-Vercel auto-deploys on push to `main`.
+Commit and `git push origin main` — Vercel auto-deploys. `vercel deploy --prod` from a linked clone works too (bypasses git; keep git in sync).
