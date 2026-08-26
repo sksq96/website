@@ -73,6 +73,25 @@ export default function LinksClient() {
   const [searching, setSearching] = useState(false)
   const [results, setResults] = useState<Link[] | null>(null)
   const [error, setError] = useState<string | null>(null)
+  const [shuffled, setShuffled] = useState(false)
+
+  const shuffle = () => {
+    setAllLinks(prev => {
+      const a = [...prev]
+      for (let i = a.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1))
+        ;[a[i], a[j]] = [a[j], a[i]]
+      }
+      return a
+    })
+    setShuffled(true)
+  }
+
+  const unshuffle = () => {
+    const t = (l: Link) => { const n = new Date(l.date).getTime(); return isNaN(n) ? 0 : n }
+    setAllLinks(prev => [...prev].sort((a, b) => t(b) - t(a)))
+    setShuffled(false)
+  }
 
   const fetchPage = useCallback(async (c: string | null) => {
     if (loading) return
@@ -121,6 +140,13 @@ export default function LinksClient() {
     setResults(null)
   }
 
+  const monthCounts: Record<string, number> = {}
+  for (const l of allLinks) {
+    const m = monthLabel(l.date)
+    if (m) monthCounts[m] = (monthCounts[m] || 0) + 1
+  }
+  const lastMonth = allLinks.length > 0 ? monthLabel(allLinks[allLinks.length - 1].date) : ''
+
   return (
     <div>
       <div className="flex gap-2 mb-6">
@@ -164,14 +190,24 @@ export default function LinksClient() {
         </div>
       ) : (
         <div>
+          {allLinks.length > 0 && (
+            <div className="flex justify-end mb-1">
+              <button
+                onClick={shuffled ? unshuffle : shuffle}
+                className="text-[14px] text-neutral-500 hover:text-neutral-900 dark:hover:text-neutral-100 transition-colors"
+              >
+                {shuffled ? '↩ by date' : '⤮ shuffle'}
+              </button>
+            </div>
+          )}
           {allLinks.map((l, i) => {
             const m = monthLabel(l.date)
             const prev = i > 0 ? monthLabel(allLinks[i - 1].date) : null
             return (
-              <div key={i}>
-                {m && m !== prev && (
+              <div key={l.url + i}>
+                {!shuffled && m && m !== prev && (
                   <div className={`text-[15px] italic text-neutral-500 dark:text-neutral-400 pb-1 ${i === 0 ? '' : 'pt-8'}`}>
-                    {m}
+                    {m} <span className="not-italic text-[13px]">· {monthCounts[m]}{cursor && m === lastMonth ? '+' : ''}</span>
                   </div>
                 )}
                 <LinkItem link={l} showDesc />
