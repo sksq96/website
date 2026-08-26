@@ -70,7 +70,7 @@
 }
 
 html {
-  min-width: 360px;
+  overflow-x: clip;
 }
 
 body {

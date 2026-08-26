@@ -41,9 +41,9 @@ function LinkItem({ link, showDesc }: { link: Link; showDesc: boolean }) {
       rel="noopener noreferrer"
       className="block py-4 border-b border-neutral-200 dark:border-neutral-800 transition-colors hover:bg-neutral-50 dark:hover:bg-neutral-900/30 px-2 -mx-2"
     >
-      <div className="text-[18px] font-semibold tracking-tight leading-snug">{link.title}</div>
+      <div className="text-[18px] font-semibold tracking-tight leading-snug break-words">{link.title}</div>
       {showDesc && link.description && (
-        <div className="text-[15px] text-neutral-700 dark:text-neutral-300 mt-1.5 line-clamp-2 leading-snug">
+        <div className="text-[15px] text-neutral-700 dark:text-neutral-300 mt-1.5 line-clamp-2 leading-snug break-words">
           {link.description.slice(0, 200)}
         </div>
       )}
@@ -120,7 +120,7 @@ export default function LinksClient() {
           onChange={(e) => setQuery(e.target.value)}
           onKeyDown={(e) => e.key === 'Enter' && doSearch()}
           placeholder="search again, get different links every time..."
-          className="flex-1 px-3 py-2.5 text-[16px] bg-transparent border border-neutral-300 dark:border-neutral-700 rounded focus:outline-none focus:border-neutral-500 dark:focus:border-neutral-500"
+          className="flex-1 min-w-0 px-3 py-2.5 text-[16px] bg-transparent border border-neutral-300 dark:border-neutral-700 rounded focus:outline-none focus:border-neutral-500 dark:focus:border-neutral-500"
         />
         <button
           onClick={doSearch}
