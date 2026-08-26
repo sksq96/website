@@ -191,7 +191,12 @@ export default function LinksClient() {
       ) : (
         <div>
           {allLinks.length > 0 && (
-            <div className="flex justify-end mb-1">
+            <div className="flex justify-between items-baseline pb-1">
+              <span className="text-[15px] italic text-neutral-500 dark:text-neutral-400">
+                {!shuffled && monthLabel(allLinks[0].date) && (
+                  <>{monthLabel(allLinks[0].date)} <span className="not-italic text-[13px]">· {monthCounts[monthLabel(allLinks[0].date)]}{cursor && monthLabel(allLinks[0].date) === lastMonth ? '+' : ''}</span></>
+                )}
+              </span>
               <button
                 onClick={shuffled ? unshuffle : shuffle}
                 className="text-[14px] text-neutral-500 hover:text-neutral-900 dark:hover:text-neutral-100 transition-colors"
@@ -205,8 +210,8 @@ export default function LinksClient() {
             const prev = i > 0 ? monthLabel(allLinks[i - 1].date) : null
             return (
               <div key={l.url + i}>
-                {!shuffled && m && m !== prev && (
-                  <div className={`text-[15px] italic text-neutral-500 dark:text-neutral-400 pb-1 ${i === 0 ? '' : 'pt-8'}`}>
+                {!shuffled && i > 0 && m && m !== prev && (
+                  <div className="text-[15px] italic text-neutral-500 dark:text-neutral-400 pb-1 pt-8">
                     {m} <span className="not-italic text-[13px]">· {monthCounts[m]}{cursor && m === lastMonth ? '+' : ''}</span>
                   </div>
                 )}
