@@ -1,5 +1,6 @@
 import './global.css'
 import type { Metadata } from 'next'
+import Link from 'next/link'
 import { GeistSans } from 'geist/font/sans'
 import { GeistMono } from 'geist/font/mono'
 import { Analytics } from '@vercel/analytics/react'
@@ -60,7 +61,11 @@ export default function RootLayout({
       <body className="antialiased max-w-6xl mx-4 md:mx-8 mt-4 lg:mx-auto relative">
         <Background />
         <div className="flex-auto min-w-0 mt-2 flex flex-col px-2 md:px-8 relative z-10">
-          <div className="flex justify-end items-center gap-3 mb-8">
+          <div className="flex justify-between items-center gap-3 mb-8">
+            <nav className="flex gap-5 text-[16px] text-neutral-500 dark:text-neutral-400">
+              <Link href="/" className="hover:text-neutral-900 dark:hover:text-neutral-100 transition-colors">home</Link>
+              <Link href="/links" className="hover:text-neutral-900 dark:hover:text-neutral-100 transition-colors">links</Link>
+            </nav>
             <TopRight />
           </div>
           <main>

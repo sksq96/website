@@ -154,11 +154,6 @@ export default function LinksClient() {
         </div>
       ) : (
         <div>
-          {allLinks.length > 0 && (
-            <div className="text-[14px] font-medium text-neutral-500 mb-3">
-              {allLinks.length}{cursor ? '+' : ''} links
-            </div>
-          )}
           {allLinks.map((l, i) => <LinkItem key={i} link={l} showDesc />)}
           {cursor && !loading && (
             <button
