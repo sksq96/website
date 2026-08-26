@@ -34,6 +34,7 @@ function shortenUrl(url: string) {
 
 function LinkItem({ link, showDesc }: { link: Link; showDesc: boolean }) {
   const date = formatDate(link.date)
+  const title = link.title.startsWith('http') ? shortenUrl(link.title) : link.title
   return (
     <a
       href={link.url}
@@ -41,7 +42,7 @@ function LinkItem({ link, showDesc }: { link: Link; showDesc: boolean }) {
       rel="noopener noreferrer"
       className="block py-4 border-b border-neutral-200 dark:border-neutral-800 transition-colors hover:bg-neutral-50 dark:hover:bg-neutral-900/30 px-2 -mx-2"
     >
-      <div className="text-[18px] font-semibold tracking-tight leading-snug break-words">{link.title}</div>
+      <div className="text-[18px] font-semibold tracking-tight leading-snug break-words line-clamp-2">{title}</div>
       {showDesc && link.description && (
         <div className="text-[15px] text-neutral-700 dark:text-neutral-300 mt-1.5 line-clamp-2 leading-snug break-words">
           {link.description.slice(0, 200)}
