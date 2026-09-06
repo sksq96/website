@@ -14,6 +14,13 @@ function yearLabel(date: string) {
   return /^\d{4}$/.test(y) ? y : 'Undated'
 }
 
+// deterministic pseudo-random per photo, so the mess is stable across builds
+function hash(s: string) {
+  let h = 2166136261
+  for (let i = 0; i < s.length; i++) h = ((h ^ s.charCodeAt(i)) * 16777619) >>> 0
+  return h
+}
+
 export default function Page() {
   let photos: Photo[] = []
   try {
@@ -37,26 +44,28 @@ export default function Page() {
       ) : (
         groups.map((g) => (
           <div key={g.label} className="mb-10">
-            <h2 className="font-bold text-[18px] mb-4">{g.label}</h2>
-            <div className="grid grid-cols-2 lg:grid-cols-4 auto-rows-[8rem] md:auto-rows-[11rem] gap-3 grid-flow-dense">
-              {g.items.map((p, i) => {
-                const portrait = p.h > p.w
-                const big = !portrait && i % 7 === 3
-                const wide = !portrait && !big && i % 5 === 1
-                const span = portrait
-                  ? 'row-span-2'
-                  : big
-                  ? 'col-span-2 row-span-2'
-                  : wide
-                  ? 'col-span-2'
-                  : ''
+            <h2 className="font-bold text-[18px] mb-6">{g.label}</h2>
+            <div className="flex flex-wrap items-start justify-center md:justify-start">
+              {g.items.map((p) => {
+                const h = hash(p.name)
+                const rot = (h % 15) - 7 // -7..7 deg
+                const width = 190 + ((h >> 4) % 150) // 190..339 px
+                const mt = ((h >> 8) % 36) - 6 // -6..29 px vertical scatter
+                const mx = -14 + ((h >> 12) % 16) // -14..1 px overlap
                 return (
                   <a
                     key={p.name}
                     href={`/photos/full/${p.name}.jpg`}
                     target="_blank"
                     rel="noopener"
-                    className={`block ${span}`}
+                    style={{
+                      ['--r' as string]: `${rot}deg`,
+                      width,
+                      marginTop: mt,
+                      marginLeft: mx,
+                      marginRight: mx,
+                    }}
+                    className="block relative rotate-(--r) hover:rotate-0 hover:scale-110 hover:z-10 transition-transform duration-200 bg-white p-1.5 pb-4 shadow-[0_4px_14px_rgba(0,0,0,0.35)] mb-6"
                   >
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img
@@ -66,7 +75,7 @@ export default function Page() {
                       height={p.h}
                       loading="lazy"
                       decoding="async"
-                      className="w-full h-full object-cover"
+                      className="w-full"
                     />
                   </a>
                 )
