@@ -15,7 +15,7 @@ export default function Header() {
       <nav className="flex items-center gap-4 text-[17px] font-bold">
         <a href="/links" className="underline">links</a>
         <a href="/photos" className="underline">photos</a>
-        <a href="/projects" className="underline">projects</a>
+        <a href="/work" className="underline">work</a>
         <button
           onClick={toggle}
           aria-label="toggle black and white theme"
