@@ -39,7 +39,7 @@ export default function Page() {
         ))}
       </ul>
 
-      <section className="max-w-[52rem] text-[18px] leading-[1.5] space-y-5 md:col-start-2 md:row-start-1 md:row-span-2">
+      <section className="max-w-[48rem] text-[18px] leading-[1.5] space-y-5 md:col-start-2 md:row-start-1 md:row-span-2">
         <p>
           <A href="/">Shubham Chandel</A> cares about <b>minds</b>, human and
           artificial. The questions look symmetric from both sides. What is it

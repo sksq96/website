@@ -37,7 +37,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="antialiased">
-        <main className="p-5 md:p-6">
+        <main className="p-5 md:p-6 md:pr-16">
           {children}
         </main>
         <Analytics />

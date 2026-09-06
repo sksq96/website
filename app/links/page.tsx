@@ -7,7 +7,7 @@ export const metadata = {
 
 export default function Page() {
   return (
-    <section className="max-w-[46rem]">
+    <section className="max-w-[42rem]">
       <p className="text-[15px] mb-6">
         <span className="text-neutral-500">Home: </span>
         <a href="/" className="underline">shubham.lol</a>
