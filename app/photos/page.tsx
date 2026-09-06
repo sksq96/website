@@ -60,12 +60,12 @@ export default function Page() {
                     rel="noopener"
                     style={{
                       ['--r' as string]: `${rot}deg`,
-                      width,
+                      ['--w' as string]: `${width}px`,
                       marginTop: mt,
                       marginLeft: mx,
                       marginRight: mx,
                     }}
-                    className="block relative rotate-(--r) hover:rotate-0 hover:scale-110 hover:z-10 transition-transform duration-200 bg-white p-1.5 pb-4 shadow-[0_4px_14px_rgba(0,0,0,0.35)] mb-6"
+                    className="block relative w-[calc(var(--w)*0.72)] md:w-[calc(var(--w)*1.4)] rotate-(--r) hover:rotate-0 hover:scale-110 hover:z-10 transition-transform duration-200 bg-white p-1.5 pb-4 shadow-[0_4px_14px_rgba(0,0,0,0.35)] mb-6"
                   >
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img
