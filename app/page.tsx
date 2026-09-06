@@ -22,15 +22,15 @@ function A({ href, children }: { href: string; children: React.ReactNode }) {
 
 export default function Page() {
   return (
-    <div className="flex flex-col gap-10 md:grid md:grid-cols-[16rem_1fr] md:grid-rows-[auto_1fr] md:gap-x-20 md:gap-y-6 md:items-start">
+    <div className="flex flex-col gap-10 md:grid md:grid-cols-[20rem_1fr] md:grid-rows-[auto_1fr] md:gap-x-20 md:gap-y-6 md:items-start">
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
         src="/image/me.jpg"
         alt="Shubham Chandel"
-        className="w-56 md:w-full grayscale"
+        className="w-80 max-w-full md:w-full grayscale brightness-[.85] contrast-110"
       />
 
-      <ul className="text-[17px] leading-relaxed order-last md:order-none md:col-start-1 md:row-start-2">
+      <ul className="text-[15px] leading-relaxed order-last md:order-none md:col-start-1 md:row-start-2">
         {contacts.map((c) => (
           <li key={c.label}>
             <span className="text-neutral-500">{c.label}: </span>
