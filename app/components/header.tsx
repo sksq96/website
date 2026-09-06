@@ -11,6 +11,7 @@ export default function Header() {
 
   return (
     <header className="flex justify-between items-center p-5 md:px-6 md:pt-6">
+      <a href="/" className="text-[17px] font-bold">Shubham</a>
       <nav className="flex items-center gap-4 text-[17px] font-bold">
         <a href="/links" className="underline">links</a>
         <a href="/photos" className="underline">photos</a>
@@ -20,7 +21,6 @@ export default function Header() {
           className="w-4 h-4 mt-px rounded-full border border-current bg-current cursor-pointer"
         />
       </nav>
-      <a href="/" className="text-[17px] font-bold">Shubham</a>
     </header>
   )
 }
