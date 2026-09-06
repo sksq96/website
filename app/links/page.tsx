@@ -14,9 +14,6 @@ export default function Page() {
         <Contacts />
       </aside>
       <section className="max-w-[42rem]">
-        <p className="md:hidden text-[15px] mb-6">
-          <a href="/" className="underline">← home</a>
-        </p>
         <h1 className="font-bold text-[18px] mb-2">Links</h1>
         <p className="mb-8 text-[18px] leading-[1.5]">
           Things I&rsquo;ve read, saved, and thought about. Semantic search

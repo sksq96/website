@@ -14,16 +14,32 @@ export default function Corner() {
     } catch {}
   }
 
+  const nav = (
+    <a href={onLinks ? '/' : '/links'} className="underline font-bold text-[17px]">
+      {onLinks ? '← home' : 'links ↗'}
+    </a>
+  )
+
+  const dot = (
+    <button
+      onClick={toggle}
+      aria-label="toggle black and white theme"
+      className="w-4 h-4 rounded-full border border-current bg-current cursor-pointer"
+    />
+  )
+
   return (
-    <div className="fixed bottom-5 left-5 hidden md:flex items-center gap-4">
-      <a href={onLinks ? '/' : '/links'} className="underline font-bold text-[17px]">
-        {onLinks ? 'home' : 'links'}
-      </a>
-      <button
-        onClick={toggle}
-        aria-label="toggle black and white theme"
-        className="w-4 h-4 rounded-full border border-current bg-current cursor-pointer"
-      />
-    </div>
+    <>
+      {/* phone: top-right, visible on arrival */}
+      <div className="flex md:hidden justify-end items-center gap-4 px-5 pt-5 -mb-3">
+        {nav}
+        {dot}
+      </div>
+      {/* desktop: bottom-left corner */}
+      <div className="fixed bottom-5 left-5 hidden md:flex items-center gap-4">
+        {nav}
+        {dot}
+      </div>
+    </>
   )
 }

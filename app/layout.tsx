@@ -45,10 +45,10 @@ export default function RootLayout({
         />
       </head>
       <body className="antialiased">
+        <Corner />
         <main className="p-5 md:p-6 md:pr-16 pb-20">
           {children}
         </main>
-        <Corner />
         <Analytics />
         <SpeedInsights />
       </body>
