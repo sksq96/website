@@ -22,7 +22,7 @@ function A({ href, children }: { href: string; children: React.ReactNode }) {
 
 export default function Page() {
   return (
-    <div className="flex flex-col gap-10 md:grid md:grid-cols-[20rem_1fr] md:grid-rows-[auto_1fr] md:gap-x-20 md:gap-y-6 md:items-start">
+    <div className="flex flex-col gap-8 md:grid md:grid-cols-[24rem_1fr] md:grid-rows-[auto_1fr] md:gap-x-8 md:gap-y-4 md:items-start">
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
         src="/image/me.jpg"
@@ -30,7 +30,7 @@ export default function Page() {
         className="w-80 max-w-full md:w-full grayscale brightness-[.85] contrast-110"
       />
 
-      <ul className="text-[15px] leading-relaxed order-last md:order-none md:col-start-1 md:row-start-2">
+      <ul className="text-[13px] leading-relaxed order-last md:order-none md:col-start-1 md:row-start-2">
         {contacts.map((c) => (
           <li key={c.label}>
             <span className="text-neutral-500">{c.label}: </span>
@@ -39,7 +39,7 @@ export default function Page() {
         ))}
       </ul>
 
-      <section className="max-w-[42rem] text-[19px] leading-[1.55] space-y-7 md:col-start-2 md:row-start-1 md:row-span-2">
+      <section className="max-w-[48rem] text-[17px] leading-[1.5] space-y-5 md:col-start-2 md:row-start-1 md:row-span-2">
         <p>
           <A href="/">Shubham Chandel</A> cares about <b>minds</b>, human and
           artificial. The questions look symmetric from both sides. What is it
