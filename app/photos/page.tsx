@@ -6,34 +6,41 @@ export const metadata = {
   description: 'photographs i\'ve clicked and like.',
 }
 
+type Photo = { name: string; w: number; h: number }
+
 export default function Page() {
-  let photos: string[] = []
+  let photos: Photo[] = []
   try {
-    photos = fs
-      .readdirSync(path.join(process.cwd(), 'public', 'photos'))
-      .filter((f) => /\.(jpe?g|png|webp|gif|avif)$/i.test(f))
-      .sort()
+    photos = JSON.parse(
+      fs.readFileSync(path.join(process.cwd(), 'public', 'photos', 'manifest.json'), 'utf8')
+    )
   } catch {}
 
   return (
     <section>
-      <h1 className="font-bold text-[18px] mb-2">Photos</h1>
-      <p className="mb-8 text-[18px] leading-[1.5]">
-        Photographs I&rsquo;ve clicked and like.
-      </p>
       {photos.length === 0 ? (
         <p className="text-[15px] text-neutral-500">Coming soon.</p>
       ) : (
-        <div className="columns-1 sm:columns-2 lg:columns-3 gap-4">
-          {photos.map((f) => (
-            /* eslint-disable-next-line @next/next/no-img-element */
-            <img
-              key={f}
-              src={`/photos/${f}`}
-              alt=""
-              loading="lazy"
-              className="w-full mb-4"
-            />
+        <div className="columns-1 sm:columns-2 lg:columns-3 xl:columns-4 gap-4">
+          {photos.map((p) => (
+            <a
+              key={p.name}
+              href={`/photos/full/${p.name}.jpg`}
+              target="_blank"
+              rel="noopener"
+              className="block mb-4"
+            >
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={`/photos/thumbs/${p.name}.webp`}
+                alt=""
+                width={p.w}
+                height={p.h}
+                loading="lazy"
+                decoding="async"
+                className="w-full"
+              />
+            </a>
           ))}
         </div>
       )}
