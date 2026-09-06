@@ -1,43 +1,10 @@
-const contacts = [
-  { label: 'Email', text: 'shubhamchandel@nyu.edu', href: 'mailto:shubhamchandel@nyu.edu' },
-  { label: 'Twitter', text: 'sksq96', href: 'https://x.com/sksq96' },
-  { label: 'GitHub', text: 'sksq96', href: 'https://github.com/sksq96' },
-  { label: 'LinkedIn', text: 'chandelshubham', href: 'https://linkedin.com/in/chandelshubham' },
-  { label: 'Scholar', text: 'shubham chandel', href: 'https://scholar.google.com/citations?user=wyuSCNgAAAAJ&hl=en' },
-  { label: 'Links', text: 'shubham.lol/links', href: '/links' },
-]
-
-function A({ href, children }: { href: string; children: React.ReactNode }) {
-  const external = href.startsWith('http')
-  return (
-    <a
-      href={href}
-      className="underline"
-      {...(external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
-    >
-      {children}
-    </a>
-  )
-}
+import { A, EMAIL, Photo, Contacts } from './components/sidebar'
 
 export default function Page() {
   return (
     <div className="flex flex-col gap-8 md:grid md:grid-cols-[24rem_1fr] md:grid-rows-[auto_1fr] md:gap-x-8 md:gap-y-4 md:items-start">
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img
-        src="/image/me.jpg"
-        alt="Shubham Chandel"
-        className="w-80 max-w-full md:w-full grayscale brightness-[.85] contrast-110"
-      />
-
-      <ul className="text-[13px] leading-relaxed order-last md:order-none md:col-start-1 md:row-start-2">
-        {contacts.map((c) => (
-          <li key={c.label}>
-            <span className="text-neutral-500">{c.label}: </span>
-            <A href={c.href}>{c.text}</A>
-          </li>
-        ))}
-      </ul>
+      <Photo />
+      <Contacts className="order-last md:order-none md:col-start-1 md:row-start-2" />
 
       <section className="max-w-[48rem] text-[18px] leading-[1.5] space-y-5 md:col-start-2 md:row-start-1 md:row-span-2">
         <p>
@@ -95,7 +62,7 @@ export default function Page() {
           personal intelligence, the buddhism × ml diagram, or you want to back
           the company) he&rsquo;d love to talk.{' '}
           <A href="https://x.com/sksq96">Twitter</A> or{' '}
-          <A href="mailto:shubhamchandel@nyu.edu">email</A>.
+          <A href={`mailto:${EMAIL}`}>email</A>.
         </p>
       </section>
     </div>

@@ -3,6 +3,7 @@ import type { Metadata } from 'next'
 import { Analytics } from '@vercel/analytics/react'
 import { SpeedInsights } from '@vercel/speed-insights/next'
 import { baseUrl } from './sitemap'
+import Corner from './components/corner'
 
 export const metadata: Metadata = {
   metadataBase: new URL(baseUrl),
@@ -35,11 +36,19 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `try{if(localStorage.theme==='dark')document.documentElement.classList.add('dark')}catch(e){}`,
+          }}
+        />
+      </head>
       <body className="antialiased">
-        <main className="p-5 md:p-6 md:pr-16">
+        <main className="p-5 md:p-6 md:pr-16 pb-20">
           {children}
         </main>
+        <Corner />
         <Analytics />
         <SpeedInsights />
       </body>

@@ -1,4 +1,5 @@
 import LinksClient from './links-client'
+import { Photo, Contacts } from '../components/sidebar'
 
 export const metadata = {
   title: 'links',
@@ -7,17 +8,22 @@ export const metadata = {
 
 export default function Page() {
   return (
-    <section className="max-w-[42rem]">
-      <p className="text-[15px] mb-6">
-        <span className="text-neutral-500">Home: </span>
-        <a href="/" className="underline">shubham.lol</a>
-      </p>
-      <h1 className="font-bold text-[18px] mb-2">Links</h1>
-      <p className="mb-8 text-[18px] leading-[1.5]">
-        Things I&rsquo;ve read, saved, and thought about. Semantic search
-        across 2000+ links.
-      </p>
-      <LinksClient />
-    </section>
+    <div className="md:grid md:grid-cols-[24rem_1fr] md:gap-x-8 md:items-start">
+      <aside className="hidden md:block space-y-4">
+        <Photo />
+        <Contacts />
+      </aside>
+      <section className="max-w-[42rem]">
+        <p className="md:hidden text-[15px] mb-6">
+          <a href="/" className="underline">← home</a>
+        </p>
+        <h1 className="font-bold text-[18px] mb-2">Links</h1>
+        <p className="mb-8 text-[18px] leading-[1.5]">
+          Things I&rsquo;ve read, saved, and thought about. Semantic search
+          across 2000+ links.
+        </p>
+        <LinksClient />
+      </section>
+    </div>
   )
 }

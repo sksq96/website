@@ -1,8 +1,20 @@
 @import 'tailwindcss';
 
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  --bg: #f4f4f4;
+  --fg: #111;
+}
+
+.dark {
+  --bg: #111;
+  --fg: #f4f4f4;
+}
+
 ::selection {
-  background-color: #111;
-  color: #f4f4f4;
+  background-color: var(--fg);
+  color: var(--bg);
 }
 
 html {
@@ -12,8 +24,8 @@ html {
 body {
   font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-weight: 600;
-  background-color: #f4f4f4;
-  color: #111;
+  background-color: var(--bg);
+  color: var(--fg);
 }
 
 a {

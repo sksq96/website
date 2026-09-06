@@ -45,7 +45,7 @@ function LinkItem({ link, showDesc }: { link: Link; showDesc: boolean }) {
   const date = formatDate(link.date)
   const title = link.title.startsWith('http') ? shortenUrl(link.title) : link.title
   return (
-    <div className="py-4 border-b border-neutral-300">
+    <div className="py-4 border-b border-neutral-300 dark:border-neutral-700">
       <a
         href={link.url}
         target="_blank"
@@ -55,7 +55,7 @@ function LinkItem({ link, showDesc }: { link: Link; showDesc: boolean }) {
         {title}
       </a>
       {showDesc && link.description && (
-        <div className="text-[15px] text-neutral-600 mt-1.5 line-clamp-2 leading-snug break-words">
+        <div className="text-[15px] text-neutral-600 dark:text-neutral-400 mt-1.5 line-clamp-2 leading-snug break-words">
           {link.description.slice(0, 200)}
         </div>
       )}
@@ -158,7 +158,7 @@ export default function LinksClient() {
           onChange={(e) => setQuery(e.target.value)}
           onKeyDown={(e) => e.key === 'Enter' && doSearch()}
           placeholder="search again, get different links every time..."
-          className="flex-1 min-w-0 px-3 py-2 text-[16px] bg-transparent border border-neutral-400 focus:outline-none focus:border-neutral-900"
+          className="flex-1 min-w-0 px-3 py-2 text-[16px] bg-transparent border border-neutral-400 dark:border-neutral-600 focus:outline-none focus:border-neutral-900 dark:focus:border-neutral-100"
         />
         <button
           onClick={doSearch}
@@ -170,7 +170,7 @@ export default function LinksClient() {
         {results && (
           <button
             onClick={clearSearch}
-            className="text-[16px] underline text-neutral-500 hover:text-neutral-900"
+            className="text-[16px] underline text-neutral-500 hover:text-neutral-900 dark:hover:text-neutral-100"
           >
             clear
           </button>
@@ -201,7 +201,7 @@ export default function LinksClient() {
               </span>
               <button
                 onClick={shuffled ? unshuffle : shuffle}
-                className="text-[14px] underline text-neutral-500 hover:text-neutral-900"
+                className="text-[14px] underline text-neutral-500 hover:text-neutral-900 dark:hover:text-neutral-100"
               >
                 {shuffled ? '↩ by date' : '⤮ shuffle'}
               </button>
@@ -224,7 +224,7 @@ export default function LinksClient() {
           {cursor && !loading && (
             <button
               onClick={() => fetchPage(cursor)}
-              className="w-full py-6 text-[14px] underline text-neutral-500 hover:text-neutral-900"
+              className="w-full py-6 text-[14px] underline text-neutral-500 hover:text-neutral-900 dark:hover:text-neutral-100"
             >
               load more
             </button>
