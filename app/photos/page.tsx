@@ -45,13 +45,11 @@ export default function Page() {
         groups.map((g) => (
           <div key={g.label} className="mb-10">
             <h2 className="font-bold text-[18px] mb-6">{g.label}</h2>
-            <div className="flex flex-wrap items-start justify-center md:justify-start">
+            <div className="flex flex-wrap items-start gap-4 justify-center md:justify-start">
               {g.items.map((p) => {
                 const h = hash(p.name)
-                const rot = (h % 15) - 7 // -7..7 deg
                 const width = 190 + ((h >> 4) % 150) // 190..339 px
-                const mt = ((h >> 8) % 36) - 6 // -6..29 px vertical scatter
-                const mx = -14 + ((h >> 12) % 16) // -14..1 px overlap
+                const mt = (h >> 8) % 20 // 0..19 px gentle stagger
                 return (
                   <a
                     key={p.name}
@@ -59,13 +57,10 @@ export default function Page() {
                     target="_blank"
                     rel="noopener"
                     style={{
-                      ['--r' as string]: `${rot}deg`,
                       ['--w' as string]: `${width}px`,
                       marginTop: mt,
-                      marginLeft: mx,
-                      marginRight: mx,
                     }}
-                    className="block relative w-[calc(var(--w)*0.72)] md:w-[calc(var(--w)*1.4)] rotate-(--r) hover:rotate-0 hover:scale-110 hover:z-10 transition-transform duration-200 bg-white p-1.5 pb-4 shadow-[0_4px_14px_rgba(0,0,0,0.35)] mb-6"
+                    className="block relative w-[calc(var(--w)*0.72)] md:w-[calc(var(--w)*1.4)] hover:scale-105 hover:z-10 transition-transform duration-200 bg-white p-1.5 pb-4 shadow-[0_2px_10px_rgba(0,0,0,0.18)]"
                   >
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img
