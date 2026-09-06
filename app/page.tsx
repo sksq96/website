@@ -1,5 +1,5 @@
 const contacts = [
-  { label: 'Email', text: 'sksq96@gmail.com', href: 'mailto:sksq96@gmail.com' },
+  { label: 'Email', text: 'shubhamchandel@nyu.edu', href: 'mailto:shubhamchandel@nyu.edu' },
   { label: 'Twitter', text: 'sksq96', href: 'https://x.com/sksq96' },
   { label: 'GitHub', text: 'sksq96', href: 'https://github.com/sksq96' },
   { label: 'LinkedIn', text: 'chandelshubham', href: 'https://linkedin.com/in/chandelshubham' },
@@ -95,7 +95,7 @@ export default function Page() {
           personal intelligence, the buddhism × ml diagram, or you want to back
           the company) he&rsquo;d love to talk.{' '}
           <A href="https://x.com/sksq96">Twitter</A> or{' '}
-          <A href="mailto:sksq96@gmail.com">email</A>.
+          <A href="mailto:shubhamchandel@nyu.edu">email</A>.
         </p>
       </section>
     </div>
