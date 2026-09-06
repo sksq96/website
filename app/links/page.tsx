@@ -7,10 +7,15 @@ export const metadata = {
 
 export default function Page() {
   return (
-    <section>
-      <h1 className="text-5xl font-biro-script mb-3 text-left">links,</h1>
-      <p className="mb-8 text-[17px]">
-        things i&rsquo;ve read, saved, and thought about. semantic search across <span className="italic">2000+</span> links.
+    <section className="max-w-[42rem]">
+      <p className="text-[17px] mb-6">
+        <span className="text-neutral-500">Home: </span>
+        <a href="/" className="underline">shubham.lol</a>
+      </p>
+      <h1 className="font-bold text-[19px] mb-2">Links</h1>
+      <p className="mb-8 text-[19px] leading-[1.55]">
+        Things I&rsquo;ve read, saved, and thought about. Semantic search
+        across 2000+ links.
       </p>
       <LinksClient />
     </section>

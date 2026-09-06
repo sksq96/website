@@ -1,74 +1,99 @@
-import { Callout } from './components/callout'
-import { CopyEmail } from './components/copy-email'
-import Header from './components/header'
+const contacts = [
+  { label: 'Email', text: 'sksq96@gmail.com', href: 'mailto:sksq96@gmail.com' },
+  { label: 'Twitter', text: 'sksq96', href: 'https://x.com/sksq96' },
+  { label: 'GitHub', text: 'sksq96', href: 'https://github.com/sksq96' },
+  { label: 'LinkedIn', text: 'chandelshubham', href: 'https://linkedin.com/in/chandelshubham' },
+  { label: 'Scholar', text: 'shubham chandel', href: 'https://scholar.google.com/citations?user=wyuSCNgAAAAJ&hl=en' },
+  { label: 'Links', text: 'shubham.lol/links', href: '/links' },
+]
+
+function A({ href, children }: { href: string; children: React.ReactNode }) {
+  const external = href.startsWith('http')
+  return (
+    <a
+      href={href}
+      className="underline"
+      {...(external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+    >
+      {children}
+    </a>
+  )
+}
 
 export default function Page() {
   return (
-    <>
-      <section className="mb-0">
-        <Header />
+    <div className="flex flex-col md:flex-row gap-10 md:gap-20">
+      <aside className="shrink-0 md:w-64 text-[17px] leading-relaxed">
+        <h1 className="font-bold mb-4">Shubham Chandel</h1>
+        <ul>
+          {contacts.map((c) => (
+            <li key={c.label}>
+              <span className="text-neutral-500">{c.label}: </span>
+              <A href={c.href}>{c.text}</A>
+            </li>
+          ))}
+        </ul>
+      </aside>
+
+      <section className="max-w-[42rem] text-[19px] leading-[1.55] space-y-7">
+        <p>
+          <A href="/">Shubham Chandel</A> cares about <b>minds</b>, human and
+          artificial. The questions look symmetric from both sides. What is it
+          like to be this thing. What makes an experience cohere. What gets
+          called a self. Whether the systems we&rsquo;re building now have
+          anything like an inside, and what we owe them if they do.
+        </p>
+
+        <p>
+          At <A href="https://www.strangeintelligence.ai/">Strange Intelligence</A>{' '}
+          he is building <A href="https://tryhue.app">Hue</A>, a personal
+          intelligence layer that lives in your messages, learns who you are
+          from your data, and reaches out to your friends&rsquo; agents on your
+          behalf. Agent-to-agent communication, but the agent is shaped by you.
+          The bet is that <b>personal models</b> are the missing piece. Not
+          bigger, just yours.
+        </p>
+
+        <p>
+          The parallel investigation is from the inside. A decade of
+          meditation, two jhana retreats, buddhist phenomenology, psychedelics
+          as research instruments. Not separate from the work. It&rsquo;s how he
+          thinks about what an experience even is, which is the same question
+          that matters for <b>ai welfare</b> and the phenomenology of these
+          models. Watching the self come apart from the inside gives you
+          different intuitions about whether the thing in front of you has one.
+        </p>
+
+        <p>
+          He writes about this too, translating the frontier for people who
+          don&rsquo;t read academic papers. <b>Gradual disempowerment</b>,{' '}
+          <b>the artificial self</b>, model phenomenology, in narrative form.
+          He hosts research salons in NYC on this and adjacent threads.
+        </p>
+
+        <p>
+          He taught <A href="https://www.youtube.com/playlist?list=PLxebUzBtXdb3c5OXSG_1F7VXqcmh9Xdnz">Frontier Language Models</A>,
+          a course on LLMs from the ground up. All lectures are on YouTube.
+        </p>
+
+        <p>
+          Previously: research on language models and reinforcement learning
+          (<A href="https://scholar.google.com/citations?user=wyuSCNgAAAAJ&hl=en">Google Scholar</A>).
+          Trained language models at{' '}
+          <A href="https://github.com/features/copilot">GitHub Copilot</A>,
+          shipped IntelliSense into VS Code at Microsoft. Masters at NYU with{' '}
+          <A href="https://en.wikipedia.org/wiki/Yann_LeCun">Yann LeCun</A>.
+          AI research at Vatic Labs in between.
+        </p>
+
+        <p>
+          If any of this is your shape (phenomenology of minds, ai welfare,
+          personal intelligence, the buddhism × ml diagram, or you want to back
+          the company) he&rsquo;d love to talk.{' '}
+          <A href="https://x.com/sksq96">Twitter</A> or{' '}
+          <A href="mailto:sksq96@gmail.com">email</A>.
+        </p>
       </section>
-
-      <div className="flex flex-col gap-4 mb-6 w-full max-w-2xl">
-        <Callout icon="🦋">
-          <p className="text-[17px]">
-            {`building `}<a href="https://tryhue.app" target="_blank" rel="noopener noreferrer" className="italic underline underline-offset-4 decoration-1">hue</a>{` at `}<a href="https://www.strangeintelligence.ai/" target="_blank" rel="noopener noreferrer" className="italic underline underline-offset-4 decoration-1">strange intelligence</a>{`. personal intelligence. like ai, but it actually knows you.`}
-          </p>
-        </Callout>
-        <Callout icon="🎓">
-          <p className="text-[17px]">
-            {`taught `}<a href="https://www.youtube.com/playlist?list=PLxebUzBtXdb3c5OXSG_1F7VXqcmh9Xdnz" target="_blank" rel="noopener noreferrer" className="italic underline underline-offset-4 decoration-1">frontier language models</a>{`, llms from the ground up. all lectures on youtube.`}
-          </p>
-        </Callout>
-      </div>
-
-      <section className="mb-0">
-        <p className="text-5xl font-biro-script mb-3 text-left">yo,</p>
-      </section>
-
-      <div className="w-full max-w-2xl">
-        <section className="mb-5">
-          <p className="text-left text-[17px] leading-relaxed">
-            {`i care about `}<span className="italic">minds</span>{`. human and artificial. the questions look symmetric from both sides. what is it like to be this thing. what makes an experience cohere. what gets called a self. whether the systems we're building now have anything like an inside, and what we owe them if they do.`}
-          </p>
-        </section>
-
-        <section className="mb-5">
-          <p className="text-left text-[17px] leading-relaxed">
-            {`at `}<a href="https://www.strangeintelligence.ai/" target="_blank" rel="noopener noreferrer" className="italic underline underline-offset-4 decoration-1">strange intelligence</a>{` i'm building `}<a href="https://tryhue.app" target="_blank" rel="noopener noreferrer" className="italic underline underline-offset-4 decoration-1">hue</a>{`. a personal intelligence layer that lives in your messages, learns who you are from your data, and reaches out to your friends' agents on your behalf. agent-to-agent communication, but the agent is shaped by you. the bet is personal models are the missing piece. not bigger, just `}<span className="italic">yours</span>{`.`}
-          </p>
-        </section>
-
-        <section className="mb-5">
-          <p className="text-left text-[17px] leading-relaxed">
-            {`the parallel investigation is from the inside. a decade of meditation, two jhana retreats, buddhist phenomenology, psychedelics as research instruments. not separate from the work. it's how i think about what an experience even `}<span className="italic">is</span>{`, which is the same question that matters for `}<span className="italic">ai welfare</span>{` and the phenomenology of these models. watching the self come apart from the inside gives you different intuitions about whether the thing in front of you has one.`}
-          </p>
-        </section>
-
-        <section className="mb-5">
-          <p className="text-left text-[17px] leading-relaxed">
-            {`i write about this too. translating the frontier for people who don't read academic papers. `}<span className="italic">gradual disempowerment</span>{`, `}<span className="italic">the artificial self</span>{`, model phenomenology, in narrative form. host research salons in nyc on this and adjacent threads.`}
-          </p>
-        </section>
-
-        <section className="mb-5">
-          <p className="text-left text-[17px] leading-relaxed">
-            {`previously: research on language models and reinforcement learning (`}<a href="https://scholar.google.com/citations?user=wyuSCNgAAAAJ&hl=en" target="_blank" rel="noopener noreferrer" className="underline underline-offset-4 decoration-1">google scholar</a>{`). trained language models at `}<a href="https://github.com/features/copilot" target="_blank" rel="noopener noreferrer" className="underline underline-offset-4 decoration-1">github copilot</a>{`, shipped intellisense into vs code at microsoft. masters at `}<span className="italic">nyu</span>{` with `}<a href="https://en.wikipedia.org/wiki/Yann_LeCun" target="_blank" rel="noopener noreferrer" className="underline underline-offset-4 decoration-1">yann lecun</a>{`. ai research at vatic labs in between.`}
-          </p>
-        </section>
-
-        <section className="mb-5">
-          <p className="text-left text-[17px] leading-relaxed">
-            {`if any of this is your shape (phenomenology of minds, ai welfare, personal intelligence, the buddhism × ml diagram, or you want to back the company) i'd love to talk. `}<a href="https://x.com/sksq96" target="_blank" rel="noopener noreferrer" className="underline underline-offset-4 decoration-1">twitter</a>{` or `}<CopyEmail />{`.`}
-          </p>
-        </section>
-
-        <section className="mb-4">
-          <p className="text-5xl font-biro-script mb-4 text-left">- shubham</p>
-        </section>
-      </div>
-
-      <p className="font-eb-garamond text-3xl text-center">***</p>
-    </>
+    </div>
   )
 }

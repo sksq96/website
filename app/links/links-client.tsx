@@ -45,23 +45,25 @@ function LinkItem({ link, showDesc }: { link: Link; showDesc: boolean }) {
   const date = formatDate(link.date)
   const title = link.title.startsWith('http') ? shortenUrl(link.title) : link.title
   return (
-    <a
-      href={link.url}
-      target="_blank"
-      rel="noopener noreferrer"
-      className="block py-4 border-b border-neutral-200 dark:border-neutral-800 transition-colors hover:bg-neutral-50 dark:hover:bg-neutral-900/30 px-2 -mx-2"
-    >
-      <div className="text-[18px] font-semibold tracking-tight leading-snug break-words line-clamp-2">{title}</div>
+    <div className="py-4 border-b border-neutral-300">
+      <a
+        href={link.url}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="text-[18px] font-bold underline leading-snug break-words line-clamp-2"
+      >
+        {title}
+      </a>
       {showDesc && link.description && (
-        <div className="text-[15px] text-neutral-700 dark:text-neutral-300 mt-1.5 line-clamp-2 leading-snug break-words">
+        <div className="text-[15px] text-neutral-600 mt-1.5 line-clamp-2 leading-snug break-words">
           {link.description.slice(0, 200)}
         </div>
       )}
-      <div className="flex gap-3 mt-1.5 text-[13px] font-medium text-neutral-500 dark:text-neutral-400 flex-wrap">
+      <div className="flex gap-3 mt-1.5 text-[13px] text-neutral-500 flex-wrap">
         <span className="truncate max-w-[60%]">{shortenUrl(link.url)}</span>
         {date && <span>{date}</span>}
       </div>
-    </a>
+    </div>
   )
 }
 
@@ -149,26 +151,26 @@ export default function LinksClient() {
 
   return (
     <div>
-      <div className="flex gap-2 mb-6">
+      <div className="flex items-center gap-4 mb-6">
         <input
           type="text"
           value={query}
           onChange={(e) => setQuery(e.target.value)}
           onKeyDown={(e) => e.key === 'Enter' && doSearch()}
           placeholder="search again, get different links every time..."
-          className="flex-1 min-w-0 px-3 py-2.5 text-[16px] bg-transparent border border-neutral-300 dark:border-neutral-700 rounded focus:outline-none focus:border-neutral-500 dark:focus:border-neutral-500"
+          className="flex-1 min-w-0 px-3 py-2 text-[16px] bg-transparent border border-neutral-400 focus:outline-none focus:border-neutral-900"
         />
         <button
           onClick={doSearch}
           disabled={searching || !query.trim()}
-          className="px-4 py-2.5 text-[15px] font-medium bg-neutral-900 text-white dark:bg-neutral-100 dark:text-neutral-900 rounded disabled:opacity-40 transition-opacity"
+          className="text-[16px] underline disabled:opacity-40"
         >
           {searching ? '...' : 'search'}
         </button>
         {results && (
           <button
             onClick={clearSearch}
-            className="px-3 py-2.5 text-[15px] text-neutral-500 hover:text-neutral-900 dark:hover:text-neutral-100"
+            className="text-[16px] underline text-neutral-500 hover:text-neutral-900"
           >
             clear
           </button>
@@ -179,7 +181,7 @@ export default function LinksClient() {
 
       {results !== null ? (
         <div>
-          <div className="text-[14px] font-medium text-neutral-500 mb-3">
+          <div className="text-[14px] text-neutral-500 mb-3">
             {results.length} result{results.length === 1 ? '' : 's'} for &ldquo;{query}&rdquo;
           </div>
           {results.length === 0 ? (
@@ -192,14 +194,14 @@ export default function LinksClient() {
         <div>
           {allLinks.length > 0 && (
             <div className="flex justify-between items-baseline pb-1">
-              <span className="text-[15px] italic text-neutral-500 dark:text-neutral-400">
+              <span className="text-[15px] text-neutral-500">
                 {!shuffled && monthLabel(allLinks[0].date) && (
-                  <>{monthLabel(allLinks[0].date)} <span className="not-italic text-[13px]">· {monthCounts[monthLabel(allLinks[0].date)]}{cursor && monthLabel(allLinks[0].date) === lastMonth ? '+' : ''}</span></>
+                  <>{monthLabel(allLinks[0].date)} <span className="text-[13px]">· {monthCounts[monthLabel(allLinks[0].date)]}{cursor && monthLabel(allLinks[0].date) === lastMonth ? '+' : ''}</span></>
                 )}
               </span>
               <button
                 onClick={shuffled ? unshuffle : shuffle}
-                className="text-[14px] text-neutral-500 hover:text-neutral-900 dark:hover:text-neutral-100 transition-colors"
+                className="text-[14px] underline text-neutral-500 hover:text-neutral-900"
               >
                 {shuffled ? '↩ by date' : '⤮ shuffle'}
               </button>
@@ -211,8 +213,8 @@ export default function LinksClient() {
             return (
               <div key={l.url + i}>
                 {!shuffled && i > 0 && m && m !== prev && (
-                  <div className="text-[15px] italic text-neutral-500 dark:text-neutral-400 pb-1 pt-8">
-                    {m} <span className="not-italic text-[13px]">· {monthCounts[m]}{cursor && m === lastMonth ? '+' : ''}</span>
+                  <div className="text-[15px] text-neutral-500 pb-1 pt-8">
+                    {m} <span className="text-[13px]">· {monthCounts[m]}{cursor && m === lastMonth ? '+' : ''}</span>
                   </div>
                 )}
                 <LinkItem link={l} showDesc />
@@ -222,7 +224,7 @@ export default function LinksClient() {
           {cursor && !loading && (
             <button
               onClick={() => fetchPage(cursor)}
-              className="w-full py-6 text-[14px] font-medium text-neutral-500 hover:text-neutral-900 dark:hover:text-neutral-100"
+              className="w-full py-6 text-[14px] underline text-neutral-500 hover:text-neutral-900"
             >
               load more
             </button>
