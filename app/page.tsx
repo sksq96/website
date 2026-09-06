@@ -22,20 +22,24 @@ function A({ href, children }: { href: string; children: React.ReactNode }) {
 
 export default function Page() {
   return (
-    <div className="flex flex-col md:flex-row gap-10 md:gap-20">
-      <aside className="shrink-0 md:w-64 text-[17px] leading-relaxed">
-        <h1 className="font-bold mb-4">Shubham Chandel</h1>
-        <ul>
-          {contacts.map((c) => (
-            <li key={c.label}>
-              <span className="text-neutral-500">{c.label}: </span>
-              <A href={c.href}>{c.text}</A>
-            </li>
-          ))}
-        </ul>
-      </aside>
+    <div className="flex flex-col gap-10 md:grid md:grid-cols-[16rem_1fr] md:grid-rows-[auto_1fr] md:gap-x-20 md:gap-y-6 md:items-start">
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img
+        src="/image/me.jpg"
+        alt="Shubham Chandel"
+        className="w-56 md:w-full grayscale"
+      />
 
-      <section className="max-w-[42rem] text-[19px] leading-[1.55] space-y-7">
+      <ul className="text-[17px] leading-relaxed order-last md:order-none md:col-start-1 md:row-start-2">
+        {contacts.map((c) => (
+          <li key={c.label}>
+            <span className="text-neutral-500">{c.label}: </span>
+            <A href={c.href}>{c.text}</A>
+          </li>
+        ))}
+      </ul>
+
+      <section className="max-w-[42rem] text-[19px] leading-[1.55] space-y-7 md:col-start-2 md:row-start-1 md:row-span-2">
         <p>
           <A href="/">Shubham Chandel</A> cares about <b>minds</b>, human and
           artificial. The questions look symmetric from both sides. What is it
