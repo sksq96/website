@@ -3,7 +3,7 @@ import type { Metadata } from 'next'
 import { Analytics } from '@vercel/analytics/react'
 import { SpeedInsights } from '@vercel/speed-insights/next'
 import { baseUrl } from './sitemap'
-import Corner from './components/corner'
+import Header from './components/header'
 
 export const metadata: Metadata = {
   metadataBase: new URL(baseUrl),
@@ -45,8 +45,8 @@ export default function RootLayout({
         />
       </head>
       <body className="antialiased">
-        <Corner />
-        <main className="p-5 md:p-6 md:pr-16 pb-20">
+        <Header />
+        <main className="p-5 pt-2 md:p-6 md:pt-3 md:pr-16 pb-20">
           {children}
         </main>
         <Analytics />
