@@ -24,7 +24,7 @@ export default function Corner() {
     <button
       onClick={toggle}
       aria-label="toggle black and white theme"
-      className="w-4 h-4 rounded-full border border-current bg-current cursor-pointer"
+      className="w-4 h-4 mt-px rounded-full border border-current bg-current cursor-pointer"
     />
   )
 

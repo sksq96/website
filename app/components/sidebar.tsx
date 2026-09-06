@@ -28,7 +28,7 @@ export function Photo() {
     <img
       src="/image/me.jpg"
       alt="Shubham Chandel"
-      className="w-80 max-w-full md:w-full grayscale brightness-[.85] contrast-110"
+      className="w-full grayscale brightness-[.85] contrast-110"
     />
   )
 }
