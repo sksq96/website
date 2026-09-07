@@ -43,17 +43,19 @@ export default function Gallery({ groups }: { groups: Group[] }) {
       {sections.map((g) => (
         <div key={g.label} className="mb-10">
           <h2 className="font-bold text-[18px] mb-6">{g.label}</h2>
-          <div className="flex flex-wrap items-start gap-4 justify-center md:justify-start">
+          {/* phone: dense google-photos tiling, edge to edge. desktop: scattered prints */}
+          <div className="grid grid-cols-3 grid-flow-dense gap-0.5 -mx-5 md:mx-0 md:flex md:flex-wrap md:items-start md:gap-4">
             {g.items.map((p, i) => {
               const h = hash(p.name)
               const width = 190 + ((h >> 4) % 150)
               const mt = (h >> 8) % 20
+              const big = h % 9 < 2
               return (
                 <button
                   key={p.name}
                   onClick={() => setIdx(g.start + i)}
-                  style={{ ['--w' as string]: `${width}px`, marginTop: mt }}
-                  className="block relative w-[calc(var(--w)*0.72)] md:w-[calc(var(--w)*1.4)] hover:scale-105 hover:z-10 transition-transform duration-200 bg-white p-1.5 pb-4 shadow-[0_2px_10px_rgba(0,0,0,0.18)] cursor-pointer"
+                  style={{ ['--w' as string]: `${width}px`, ['--mt' as string]: `${mt}px` }}
+                  className={`block relative aspect-square ${big ? 'col-span-2 row-span-2' : ''} md:aspect-auto md:w-[calc(var(--w)*1.4)] md:mt-(--mt) md:hover:scale-105 md:hover:z-10 transition-transform duration-200 md:bg-white md:p-1.5 md:pb-4 md:shadow-[0_2px_10px_rgba(0,0,0,0.18)] cursor-pointer`}
                 >
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
@@ -63,7 +65,7 @@ export default function Gallery({ groups }: { groups: Group[] }) {
                     height={p.h}
                     loading="lazy"
                     decoding="async"
-                    className="w-full"
+                    className="w-full h-full object-cover md:h-auto"
                   />
                 </button>
               )
