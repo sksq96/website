@@ -43,19 +43,16 @@ export default function Gallery({ groups }: { groups: Group[] }) {
       {sections.map((g) => (
         <div key={g.label} className="mb-10">
           <h2 className="font-bold text-[18px] mb-6">{g.label}</h2>
-          {/* phone: dense google-photos tiling, edge to edge. desktop: scattered prints */}
-          <div className="grid grid-cols-3 grid-flow-dense gap-0.5 -mx-5 md:mx-0 md:flex md:flex-wrap md:items-start md:gap-4">
+          {/* dense google-photos tiling: full-bleed 3 cols on phone, 5 cols on desktop */}
+          <div className="grid grid-cols-3 md:grid-cols-5 grid-flow-dense gap-0.5 md:gap-1 -mx-5 md:mx-0">
             {g.items.map((p, i) => {
               const h = hash(p.name)
-              const width = 190 + ((h >> 4) % 150)
-              const mt = (h >> 8) % 20
               const big = h % 9 < 2
               return (
                 <button
                   key={p.name}
                   onClick={() => setIdx(g.start + i)}
-                  style={{ ['--w' as string]: `${width}px`, ['--mt' as string]: `${mt}px` }}
-                  className={`block relative aspect-square ${big ? 'col-span-2 row-span-2' : ''} md:aspect-auto md:w-[calc(var(--w)*1.4)] md:mt-(--mt) md:hover:scale-105 md:hover:z-10 transition-transform duration-200 md:bg-white md:p-1.5 md:pb-4 md:shadow-[0_2px_10px_rgba(0,0,0,0.18)] cursor-pointer`}
+                  className={`block relative aspect-square ${big ? 'col-span-2 row-span-2' : ''} cursor-pointer hover:opacity-90 transition-opacity`}
                 >
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
@@ -65,7 +62,7 @@ export default function Gallery({ groups }: { groups: Group[] }) {
                     height={p.h}
                     loading="lazy"
                     decoding="async"
-                    className="w-full h-full object-cover md:h-auto"
+                    className="w-full h-full object-cover"
                   />
                 </button>
               )
