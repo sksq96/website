@@ -1,6 +1,13 @@
 # Learnings
 
-## 2026-08-26
+## 2026-09-07
+
+- `pkill -f "next start"` matches the invoking shell's own command line and kills it mid-script (exit 144, rest of the `&&` chain never runs). Use a self-excluding pattern: `pkill -f '[n]ext-server'`.
+- Running `pnpm build` while an old `next start` is still serving leaves that server referencing dead hashed CSS chunks — pages render as unstyled HTML. Restart the server (or use a fresh port) after every rebuild before screenshotting.
+- Tailwind v4 class-based dark mode needs `@custom-variant dark (&:where(.dark, .dark *));` in the CSS — without it `dark:` variants compile against `prefers-color-scheme`, not the `.dark` class.
+- Headless screenshots without the playwright npm package: `~/.cache/ms-playwright/chromium-*/chrome-linux64/chrome --headless --no-sandbox --screenshot=out.png URL` works fine; add `--virtual-time-budget=8000` so lazy-loaded images land before capture.
+- Inline `style={{width}}` beats grid/flex sizing at every breakpoint. When a per-item value should apply only on some breakpoints, stash it in a CSS var (`style={{'--w': ...}}`) and consume it in a breakpoint-scoped arbitrary class (`md:w-[calc(var(--w)*1.4)]`).
+- Fuji X JPGs at 4896px average only ~0.66MB (already well compressed); PIL 800px WebP q72 thumbs come out ~30KB. `ImageOps.exif_transpose` before resizing, and check `getexif().get_ifd(0x8825)` for GPS before publishing originals (these had none).
 
 - Renaming a GitHub repo does not break Vercel's git integration — the link follows the rename automatically. `vercel git connect` just reports "already connected"; nothing to re-wire.
 - The Convex deployment exposes no public count function (`links:count`, `links:total`, `links:stats` all 404) — a true total for the links list can't be shown without adding one; only per-loaded-page counts are possible.

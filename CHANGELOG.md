@@ -1,6 +1,21 @@
 # Changelog
 
-## 2026-08-26
+## 2026-09-07
+
+- `/photos` layout settled after iterations (masonry → month sections → mosaic → tilted table-scatter → straight prints): Google-Photos-style dense tiling on all screens — 3-col full-bleed on phone, 5-col on desktop, hairline gaps, hash-picked 2×2 feature tiles, square crops via `object-cover`.
+- Fullscreen slideshow lightbox on `/photos`: click opens the full-res original, ‹/› buttons + arrow keys navigate (wraps), esc/backdrop/× closes, neighbors preload, "n / 245" counter.
+- Removed 10 photos on request; 245 remain, grouped under bold year headers (2025 → 2022).
+- Renamed `/projects` → `/work`; same sidebar layout as `/links`; timeline entries with small gray year labels: Hue/Strange Intelligence (2025–now), Frontier Language Models (2025), Vatic Labs (2022–24), GitHub Copilot (2020–22), Microsoft (2019–20), NYU (2017–19), pytorch-summary (2018). **Year ranges are inferred, not confirmed — Shubham should correct them.**
+
+## 2026-09-06
+
+- Full redesign in the style of bratton.info: light gray `#f4f4f4` page, system Helvetica/SF sans at weight 600, black underlined links, third-person bio. Deleted dappled-light background, clock, old theme toggle, footer, callouts, nav, and all custom fonts (Iowan Old Style, EB Garamond, Biro Script) — ~10 components + font binaries removed.
+- Two-column home: B&W profile photo (Twitter avatar at `public/image/me.jpg`, CSS `grayscale brightness-[.85]`) with contact rows beneath on the left, bio prose right. Mobile order: photo → bio → contacts.
+- Email changed to shubhamchandel@nyu.edu everywhere (was sksq96@gmail.com). A logo-icon contact row was tried and reverted the same evening.
+- Site-wide header: "Shubham" left; links / photos / work + a black-and-white theme dot right. Toggle flips `.dark` on `<html>`, persists via `localStorage.theme`, applied pre-paint by a head script. Dark theme is a pure inversion (`--bg`/`--fg` swap).
+- `/links` restyled to the theme and given the same photo+contacts sidebar on desktop; bold underlined titles, square search input, plain text buttons.
+- `/photos` created: 255 Fuji JPGs (2022–2025, 4896px) shipped as untouched originals in `public/photos/full/` (161MB) + 800px WebP thumbs (~30KB each, 7.7MB) + `manifest.json` with dimensions and EXIF dates. Verified no GPS EXIF before publishing.
+- `magic-wormhole` installed on the VM (tooling, not repo).
 
 - GitHub repo renamed `sksq96/personal` → `sksq96/website`; Vercel git integration carried over automatically, pushes to `main` still auto-deploy.
 - Fixed mobile horizontal scroll on `/links`: `break-words` on titles/descriptions, `overflow-x: clip` on `<html>`, dropped the old `min-width: 360px`, `min-w-0` on the search input.

@@ -4,6 +4,4 @@ My personal site. Next.js, deployed on Vercel.
 
 ## Attribution
 
-This is a fork of [idhantgulati/website](https://github.com/idhantgulati/website) by [Idhant Gulati](https://idhant.xyz). Huge thanks to Idhant for putting it out open-source — the dappled-light background, the typography, and the overall structure are all his work. I just changed the content and a few small things on top.
-
-If you like the look of this site, go give the original a star.
+Started as a fork of [idhantgulati/website](https://github.com/idhantgulati/website) by [Idhant Gulati](https://idhant.xyz) — thanks to Idhant for open-sourcing it. The site has since been redesigned (2026-09) in a minimal style inspired by [bratton.info](https://bratton.info), so little of the original design remains, but the Next.js plumbing traces back to his repo.
