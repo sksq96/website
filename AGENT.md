@@ -2,7 +2,7 @@
 
 ## What this is
 
-Personal site for Shubham Chandel, deployed at https://shubham.lol. Forked from [idhantgulati/website](https://github.com/idhantgulati/website).
+Personal site for Shubham Chandel, deployed at https://shubham.lol.
 
 ## Deployment
 

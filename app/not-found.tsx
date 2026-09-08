@@ -6,7 +6,7 @@ export default function NotFound() {
       <h1 className="mb-8 text-2xl font-semibold tracking-tighter">
         👀
       </h1>
-      <p className="mb-4">what you are looking for is not here. <Link href="https://idhant.xyz/" className="underline underline-offset-4 decoration-1">home</Link>?</p>
+      <p className="mb-4">what you are looking for is not here. <Link href="/" className="underline underline-offset-4 decoration-1">home</Link>?</p>
     </section>
   )
 }
