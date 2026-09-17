@@ -16,7 +16,7 @@
 .dark{--bg:#111;--fg:#f4f4f4;color-scheme:dark}
 @media(prefers-color-scheme:dark){:root:not(.light){--bg:#111;--fg:#f4f4f4;color-scheme:dark}}
 
-*{box-sizing:border-box}
+*{box-sizing:border-box}[hidden]{display:none!important}
 html{overflow-x:clip}
 body{margin:0;background:var(--bg);color:var(--fg);font:600 17px/1.5 var(--sans);-webkit-font-smoothing:antialiased}
 ::selection{background:var(--fg);color:var(--bg)}
