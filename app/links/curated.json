@@ -220,6 +220,13 @@
         "saved": "2025-09-02"
       },
       {
+        "author": "Yoav Goldberg",
+        "title": "rl-for-llms",
+        "url": "https://gist.github.com/yoavg/6bff0fecd65950898eba1bb321cfbd81",
+        "note": "why RLHF is not just supervised learning with extra steps",
+        "saved": "2024-01-15"
+      },
+      {
         "author": "Samir Yitzhak Gadre et al (arXiv)",
         "title": "Language models scale reliably with over-training",
         "url": "https://arxiv.org/abs/2403.08540",
@@ -357,6 +364,13 @@
         "url": "https://deepmind.google/discover/blog/alphaevolve-a-gemini-powered-coding-agent-for-designing-advanced-algorithms/",
         "note": "an agent that evolves new algorithms and finds real improvements",
         "saved": "2025-05-14"
+      },
+      {
+        "author": "Tal Ridnik (Qodo)",
+        "title": "State-of-the-art Code Generation with AlphaCodium",
+        "url": "https://www.codium.ai/blog/alphacodium-state-of-the-art-code-generation-for-code-contests/",
+        "note": "a test-driven iterative flow beating prompt engineering on code contests",
+        "saved": "2024-01-19"
       },
       {
         "author": "browser-use",
@@ -865,6 +879,13 @@
         "saved": "2025-01-24"
       },
       {
+        "author": "Simon Sarris",
+        "title": "How to Cook for Odysseus",
+        "url": "https://map.simonsarris.com/p/how-to-cook-for-odysseus",
+        "note": "a few stubborn beliefs about health, starting with the kitchen",
+        "saved": "2024-01-23"
+      },
+      {
         "author": "CAIS",
         "title": "Superhuman Automated Forecasting",
         "url": "https://www.safe.ai/blog/forecasting",
@@ -981,6 +1002,13 @@
         "url": "https://voiceaiandvoiceagents.com/",
         "note": "everything that has to happen in the gap before a voice replies",
         "saved": "2025-04-11"
+      },
+      {
+        "author": "Simian Luo et al (arXiv)",
+        "title": "Latent Consistency Models",
+        "url": "https://arxiv.org/abs/2310.04378",
+        "note": "high-resolution image synthesis in a handful of steps",
+        "saved": "2024-01-19"
       },
       {
         "author": "Sander Dieleman",
@@ -1529,6 +1557,13 @@
         "url": "https://poloclub.github.io/transformer-explainer/",
         "note": "a live transformer you can poke, running in the browser",
         "saved": "2025-07-20"
+      },
+      {
+        "author": "Alexander Obenauer",
+        "title": "Alexander Obenauer's lab notes",
+        "url": "https://alexanderobenauer.com/",
+        "note": "renewed ideas for what personal computing interfaces could have been",
+        "saved": "2024-01-17"
       },
       {
         "author": "The Tensor Cookbook",
