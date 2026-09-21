@@ -9,23 +9,39 @@ const OUT = path.join(process.cwd(), 'app', 'links', 'curated.json')
 
 const lines = fs.readFileSync(SRC, 'utf8').split('\n')
 
-// slice out the year section
-const start = lines.findIndex((l) => /^## The year/.test(l))
-if (start === -1) throw new Error('no "## The year" section in ' + SRC)
-let end = lines.findIndex((l, i) => i > start && /^## /.test(l))
-if (end === -1) end = lines.length
+// Curated links live either in one "## The year (...)" section (original shape) or in
+// per-year "## 2026" / "## 2025" / "## 2024" sections. Collect the body of whichever
+// exist; the year and month shown on the site always come from each line's `saved`
+// date, not from the section it sits under.
+const isCuratedHeading = (l) => /^##\s+(The year\b|\d{4}\s*$)/.test(l)
+const body = []
+for (let i = 0; i < lines.length; i++) {
+  if (!isCuratedHeading(lines[i])) continue
+  for (let j = i + 1; j < lines.length && !/^## /.test(lines[j]); j++) body.push(lines[j])
+}
+if (body.length === 0) {
+  throw new Error('no "## The year" or "## <year>" section found in ' + SRC)
+}
 
 const clusters = []
+const byName = new Map()
 let current = null
 
-for (const line of lines.slice(start + 1, end)) {
+for (const line of body) {
   const heading = line.match(/^###\s+(.+)$/)
   if (heading) {
     // "RL, post-training, evals — 78 (held, ...)" -> name, count
     const raw = heading[1]
     const m = raw.match(/^(.*?)\s+—\s+(\d+)/)
-    current = { name: (m ? m[1] : raw).trim(), count: m ? Number(m[2]) : null, items: [] }
-    clusters.push(current)
+    const name = (m ? m[1] : raw).trim()
+    // the same cluster recurs under each year section — merge into one, first-seen order
+    if (byName.has(name)) {
+      current = byName.get(name)
+    } else {
+      current = { name, count: m ? Number(m[2]) : null, items: [] }
+      clusters.push(current)
+      byName.set(name, current)
+    }
     continue
   }
   if (!current) continue

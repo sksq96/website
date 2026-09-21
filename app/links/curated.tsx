@@ -9,8 +9,7 @@ type Cluster = { name: string; count: number | null; items: Item[] }
 const MONTHS = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec']
 
 function monthLabel(saved: string) {
-  const [, m] = saved.split('-')
-  return MONTHS[parseInt(m, 10) - 1] || ''
+  return MONTHS[parseInt(saved.split('-')[1], 10) - 1] || ''
 }
 
 export default function Curated() {
@@ -18,7 +17,8 @@ export default function Curated() {
   const years = [...new Set(all.flatMap((c) => c.items.map((i) => i.saved.slice(0, 4))))].sort().reverse()
   const [year, setYear] = useState(years[0])
 
-  // clusters in READING.md order, filtered to the selected year, links newest first
+  // clusters in READING.md order but AI minds first, filtered to the selected
+  // year, links strictly newest first within each cluster
   const shown = all
     .map((c) => ({
       ...c,
@@ -27,6 +27,7 @@ export default function Curated() {
         .sort((a, b) => b.saved.localeCompare(a.saved)),
     }))
     .filter((c) => c.items.length > 0)
+    .sort((a, b) => Number(b.name === 'AI minds') - Number(a.name === 'AI minds'))
 
   return (
     <div>
@@ -47,26 +48,30 @@ export default function Curated() {
           <h2 className="font-bold text-[15px] mb-4">
             {c.name} <span className="text-neutral-500 font-normal text-[13px]">· {c.items.length}</span>
           </h2>
-          <ul className="space-y-4">
-            {c.items.map((i) => (
-              <li key={i.url} className="flex gap-3">
-                <span className="text-[13px] text-neutral-500 w-8 shrink-0 pt-1">{monthLabel(i.saved)}</span>
-                <div className="min-w-0">
+          <ul className="space-y-5">
+            {c.items.map((i, n) => {
+              const month = monthLabel(i.saved)
+              const newMonth = n === 0 || month !== monthLabel(c.items[n - 1].saved)
+              return (
+                <li key={i.url} className={newMonth && n > 0 ? 'pt-3' : undefined}>
+                  {newMonth && (
+                    <div className="text-[13px] text-neutral-500 mb-1.5">{month}</div>
+                  )}
                   <a
                     href={i.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-[17px] leading-snug break-words"
+                    className="block text-[17px] leading-snug break-words underline decoration-neutral-400 dark:decoration-neutral-600 hover:decoration-current"
                   >
-                    <span className="text-neutral-500">{i.author} — </span>
-                    <span className="underline font-bold">{i.title}</span>
+                    {i.title}
                   </a>
+                  <div className="text-[15px] text-neutral-500 leading-snug break-words">{i.author}</div>
                   {i.note && (
-                    <div className="text-[15px] text-neutral-500 leading-snug break-words mt-0.5">{i.note}</div>
+                    <div className="text-[15px] text-neutral-500 leading-snug break-words">{i.note}</div>
                   )}
-                </div>
-              </li>
-            ))}
+                </li>
+              )
+            })}
           </ul>
         </div>
       ))}
