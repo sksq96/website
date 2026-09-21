@@ -16,7 +16,6 @@ export default function Header() {
         <a href="/links" className="underline">links</a>
         <a href="/photos" className="underline">photos</a>
         <a href="/work" className="underline">work</a>
-        <a href="/projects" className="underline">projects</a>
         <button
           onClick={toggle}
           aria-label="toggle black and white theme"

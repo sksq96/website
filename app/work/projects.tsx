@@ -1,10 +1,3 @@
-import { Photo, Contacts } from '../components/sidebar'
-
-export const metadata = {
-  title: 'projects',
-  description: 'side projects.',
-}
-
 // newest first
 const projects: { name: string; href: string; date: string; desc: string }[] = [
   {
@@ -51,27 +44,18 @@ const projects: { name: string; href: string; date: string; desc: string }[] = [
   },
 ]
 
-export default function Page() {
+export default function Projects() {
   return (
-    <div className="md:grid md:grid-cols-[24rem_1fr] md:gap-x-8 md:items-start">
-      <aside className="hidden md:block space-y-4">
-        <Photo />
-        <Contacts />
-      </aside>
-      <section className="max-w-[42rem]">
-        <h1 className="font-bold text-[18px] mb-6">Projects</h1>
-        <ul className="text-[18px] leading-[1.5] space-y-6">
-          {projects.map((p) => (
-            <li key={p.href}>
-              <div className="text-[13px] text-neutral-500">{p.date}</div>
-              <a href={p.href} target="_blank" rel="noopener noreferrer" className="underline font-bold">
-                {p.name}
-              </a>
-              <span> — {p.desc}</span>
-            </li>
-          ))}
-        </ul>
-      </section>
-    </div>
+    <ul className="text-[18px] leading-[1.5] space-y-6">
+      {projects.map((p) => (
+        <li key={p.href}>
+          <div className="text-[13px] text-neutral-500">{p.date}</div>
+          <a href={p.href} target="_blank" rel="noopener noreferrer" className="underline font-bold">
+            {p.name}
+          </a>
+          <span> — {p.desc}</span>
+        </li>
+      ))}
+    </ul>
   )
 }

@@ -1,4 +1,6 @@
 import { Photo, Contacts } from '../components/sidebar'
+import Tabs from '../components/tabs'
+import Projects from './projects'
 
 export const metadata = {
   title: 'work',
@@ -58,22 +60,31 @@ export default function Page() {
         <Contacts />
       </aside>
       <section className="max-w-[42rem]">
-        <h1 className="font-bold text-[18px] mb-6">Work</h1>
-        <ul className="text-[18px] leading-[1.5] space-y-6">
-          {items.map((p) => (
-            <li key={p.name}>
-              <div className="text-[13px] text-neutral-500">{p.year}</div>
-              {p.href ? (
-                <a href={p.href} target="_blank" rel="noopener noreferrer" className="underline font-bold">
-                  {p.name}
-                </a>
-              ) : (
-                <span className="font-bold">{p.name}</span>
-              )}
-              <span> — {p.desc}</span>
-            </li>
-          ))}
-        </ul>
+        <Tabs
+          tabs={[
+            {
+              id: 'career',
+              panel: (
+                <ul className="text-[18px] leading-[1.5] space-y-6">
+                  {items.map((p) => (
+                    <li key={p.name}>
+                      <div className="text-[13px] text-neutral-500">{p.year}</div>
+                      {p.href ? (
+                        <a href={p.href} target="_blank" rel="noopener noreferrer" className="underline font-bold">
+                          {p.name}
+                        </a>
+                      ) : (
+                        <span className="font-bold">{p.name}</span>
+                      )}
+                      <span> — {p.desc}</span>
+                    </li>
+                  ))}
+                </ul>
+              ),
+            },
+            { id: 'projects', panel: <Projects /> },
+          ]}
+        />
       </section>
     </div>
   )

@@ -1,4 +1,6 @@
-import Tabs from './tabs'
+import LinksClient from './links-client'
+import Curated from './curated'
+import Tabs from '../components/tabs'
 import { Photo, Contacts } from '../components/sidebar'
 
 export const metadata = {
@@ -19,7 +21,12 @@ export default function Page() {
           Things I&rsquo;ve read, saved, and thought about. Semantic search
           across 2000+ links.
         </p>
-        <Tabs />
+        <Tabs
+          tabs={[
+            { id: 'all', panel: <LinksClient /> },
+            { id: 'curated', panel: <Curated /> },
+          ]}
+        />
       </section>
     </div>
   )
