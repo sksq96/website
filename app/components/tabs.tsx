@@ -17,6 +17,8 @@ export default function Tabs({ tabs }: { tabs: Tab[] }) {
   const select = (id: string) => {
     setActive(id)
     history.replaceState(null, '', id === tabs[0].id ? ' ' : `#${id}`)
+    // replaceState doesn't fire hashchange; analytics listens for it
+    window.dispatchEvent(new HashChangeEvent('hashchange'))
   }
 
   return (

@@ -4,6 +4,7 @@ import { Analytics } from '@vercel/analytics/react'
 import { SpeedInsights } from '@vercel/speed-insights/next'
 import { baseUrl } from './sitemap'
 import Header from './components/header'
+import PostHog from './components/analytics'
 
 export const metadata: Metadata = {
   metadataBase: new URL(baseUrl),
@@ -49,6 +50,7 @@ export default function RootLayout({
         <main className="p-5 pt-2 md:p-6 md:pt-3 md:pr-16 pb-20">
           {children}
         </main>
+        <PostHog />
         <Analytics />
         <SpeedInsights />
       </body>
