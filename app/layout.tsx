@@ -1,5 +1,5 @@
 import './global.css'
-import type { Metadata } from 'next'
+import type { Metadata, Viewport } from 'next'
 import { Analytics } from '@vercel/analytics/react'
 import { SpeedInsights } from '@vercel/speed-insights/next'
 import { baseUrl } from './sitemap'
@@ -29,6 +29,14 @@ export const metadata: Metadata = {
       'max-snippet': -1,
     },
   },
+}
+
+// phone browser chrome matches the page ground
+export const viewport: Viewport = {
+  themeColor: [
+    { media: '(prefers-color-scheme: light)', color: '#f4efec' },
+    { media: '(prefers-color-scheme: dark)', color: '#111111' },
+  ],
 }
 
 export default function RootLayout({

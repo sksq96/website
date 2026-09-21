@@ -1,10 +1,10 @@
 /* shubham.lol theme — one stylesheet, two tones. https://shubham.lol/theme.css
-   Light: #f4f4f4 on #111. Dark: the same two values swapped. Everything else is color-mix of --fg.
+   Light: #f4efec (warm sand) on #111. Dark: the same two values swapped. Everything else is color-mix of --fg.
    Use: <link rel="stylesheet" href="https://shubham.lol/theme.css"> (+ theme.js for the toggle)
    Dark applies with .dark on <html> (the site's toggle) or with prefers-color-scheme when no class is set. */
 
 :root{
-  --bg:#f4f4f4;--fg:#111;
+  --bg:#f4efec;--fg:#111;
   --mute:color-mix(in srgb,var(--fg) 45%,transparent);
   --line:color-mix(in srgb,var(--fg) 12%,transparent);
   --card:color-mix(in srgb,var(--fg) 3.5%,transparent);
@@ -13,8 +13,8 @@
   --measure:48rem;--side:24rem;
   color-scheme:light;
 }
-.dark{--bg:#111;--fg:#f4f4f4;color-scheme:dark}
-@media(prefers-color-scheme:dark){:root:not(.light){--bg:#111;--fg:#f4f4f4;color-scheme:dark}}
+.dark{--bg:#111;--fg:#f4efec;color-scheme:dark}
+@media(prefers-color-scheme:dark){:root:not(.light){--bg:#111;--fg:#f4efec;color-scheme:dark}}
 
 *{box-sizing:border-box}[hidden]{display:none!important}
 html{overflow-x:clip}
