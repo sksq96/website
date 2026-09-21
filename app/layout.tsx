@@ -34,7 +34,7 @@ export const metadata: Metadata = {
 // phone browser chrome matches the page ground
 export const viewport: Viewport = {
   themeColor: [
-    { media: '(prefers-color-scheme: light)', color: '#f4efec' },
+    { media: '(prefers-color-scheme: light)', color: '#f4f4f4' },
     { media: '(prefers-color-scheme: dark)', color: '#111111' },
   ],
 }

@@ -3,13 +3,13 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 :root {
-  --bg: #f4efec;
+  --bg: #f4f4f4;
   --fg: #111;
 }
 
 .dark {
   --bg: #111;
-  --fg: #f4efec;
+  --fg: #f4f4f4;
 }
 
 ::selection {
