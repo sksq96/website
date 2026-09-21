@@ -1,4 +1,4 @@
-import LinksClient from './links-client'
+import Tabs from './tabs'
 import { Photo, Contacts } from '../components/sidebar'
 
 export const metadata = {
@@ -19,7 +19,7 @@ export default function Page() {
           Things I&rsquo;ve read, saved, and thought about. Semantic search
           across 2000+ links.
         </p>
-        <LinksClient />
+        <Tabs />
       </section>
     </div>
   )

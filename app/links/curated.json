@@ -1,0 +1,755 @@
+[
+  {
+    "name": "RL, post-training, evals",
+    "count": 78,
+    "items": [
+      {
+        "author": "Jessy Lin",
+        "title": "The Continual Learning Problem",
+        "url": "https://jessylin.com/2025/10/20/continual-learning/",
+        "note": "the highest-scoring link of the entire year; what it would take for models to keep learning",
+        "saved": "2025-10-22"
+      },
+      {
+        "author": "Pierre-Carl Langlais (Vintage Data)",
+        "title": "Synthetic Pretraining",
+        "url": "https://vintagedata.org/blog/posts/synthetic-pretraining",
+        "note": "the case that pretraining data is now a manufactured good",
+        "saved": "2026-02-03"
+      },
+      {
+        "author": "Chroma Research",
+        "title": "Context Rot: How Increasing Input Tokens Impacts LLM Performance",
+        "url": "https://research.trychroma.com/context-rot",
+        "note": "measured degradation as context grows; the empirical answer to \"just use a bigger window\"",
+        "saved": "2026-03-11"
+      },
+      {
+        "author": "Lun Wang",
+        "title": "Your Evals Will Break and You Won't See It Coming",
+        "url": "https://wanglun1996.github.io/blog/your-evals-will-break.html",
+        "note": "eval rot as a systems problem",
+        "saved": "2026-05-18"
+      },
+      {
+        "author": "Alex L. Zhang",
+        "title": "Recursive Language Models",
+        "url": "https://alexzhang13.github.io/blog/2025/rlm/",
+        "note": "models calling themselves as a context strategy",
+        "saved": "2025-10-17"
+      },
+      {
+        "author": "arXiv",
+        "title": "SwarmWorld: Stigmergic technological evolution in societies of language-model agents",
+        "url": "https://arxiv.org/abs/2608.26081",
+        "note": "agent societies building tools for each other",
+        "saved": "2026-08-29"
+      }
+    ]
+  },
+  {
+    "name": "Agent harnesses & skills",
+    "count": 75,
+    "items": [
+      {
+        "author": "Martin Grätzer",
+        "title": "Forging a Workflow: Agentic Engineering in Practice",
+        "url": "https://mgratzer.com/posts/forging-a-workflow/",
+        "note": "one person's actual agentic engineering loop, not a vendor's",
+        "saved": "2026-02-19"
+      },
+      {
+        "author": "Anthropic",
+        "title": "When AI builds itself",
+        "url": "https://www.anthropic.com/institute/recursive-self-improvement",
+        "note": "recursive self-improvement treated soberly",
+        "saved": "2026-06-04"
+      },
+      {
+        "author": "Steve Ruiz",
+        "title": "product-description: a Claude Code skill",
+        "url": "https://gist.github.com/steveruizok/83ae5c53f2784ebf8f5fe0a3fb94480f",
+        "note": "outside-in behaviour spec of a product from its code, then verified against the running thing",
+        "saved": "2026-08-24"
+      },
+      {
+        "author": "Daniele Procida",
+        "title": "Diátaxis",
+        "url": "https://diataxis.fr/",
+        "note": "the four-quadrant documentation framework; the most durable non-AI thing in this cluster",
+        "saved": "2026-02-09"
+      },
+      {
+        "author": "Cursor",
+        "title": "Scaling long-running autonomous coding",
+        "url": "https://cursor.com/blog/scaling-agents",
+        "note": "",
+        "saved": "2026-01-15"
+      },
+      {
+        "author": "Anthropic",
+        "title": "Prompting Claude Fable 5.1",
+        "url": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/prompting-claude-fable-5-1",
+        "note": "",
+        "saved": "2026-09-02"
+      }
+    ]
+  },
+  {
+    "name": "Systems & engineering craft",
+    "count": 63,
+    "items": [
+      {
+        "author": "Edward Z. Yang",
+        "title": "DeepSeek-V3: from roofline to reality",
+        "url": "https://deepseek-v3.ezyang.com/",
+        "note": "a full-stack read of one model's performance, annotated",
+        "saved": "2026-08-25"
+      },
+      {
+        "author": "arXiv",
+        "title": "A visual introduction to information theory",
+        "url": "https://arxiv.org/abs/2206.07867",
+        "note": "",
+        "saved": "2026-07-09"
+      },
+      {
+        "author": "historyofsoftware.org",
+        "title": "History of Software Design",
+        "url": "https://historyofsoftware.org/",
+        "note": "",
+        "saved": "2026-02-28"
+      },
+      {
+        "author": "Historical Tech Tree",
+        "title": "Historical Tech Tree",
+        "url": "https://www.historicaltechtree.com/",
+        "note": "every invention as a dependency graph",
+        "saved": "2026-04-14"
+      },
+      {
+        "author": "Parse",
+        "title": "Turn Any Website Into a Structured API",
+        "url": "https://www.parse.bot/",
+        "note": "",
+        "saved": "2026-03-04"
+      }
+    ]
+  },
+  {
+    "name": "AI minds",
+    "count": 60,
+    "items": [
+      {
+        "author": "Blaise Agüera y Arcas (Antikythera)",
+        "title": "The Silicon Interior",
+        "url": "https://antikythera.substack.com/p/the-silicon-interior",
+        "note": "what do agents believe",
+        "saved": "2026-09-05"
+      },
+      {
+        "author": "Anil Seth (NOEMA)",
+        "title": "The Mythology Of Conscious AI",
+        "url": "https://www.noemamag.com/the-mythology-of-conscious-ai/",
+        "note": "a working consciousness scientist against the easy story",
+        "saved": "2026-01-15"
+      },
+      {
+        "author": "Dario Amodei",
+        "title": "The Adolescence of Technology",
+        "url": "https://www.darioamodei.com/essay/the-adolescence-of-technology",
+        "note": "",
+        "saved": "2026-01-26"
+      },
+      {
+        "author": "Raymond Douglas",
+        "title": "The Artificial Self",
+        "url": "https://theartificialself.ai/",
+        "note": "",
+        "saved": "2026-03-14"
+      },
+      {
+        "author": "Henry Shevlin",
+        "title": "Behaviourism's Revenge",
+        "url": "https://www.polytropolis.com/p/behaviourisms-revenge",
+        "note": "a philosopher of mind on why we keep reinventing behaviourism for models",
+        "saved": "2026-04-13"
+      },
+      {
+        "author": "Scott Alexander",
+        "title": "The New AI Consciousness Paper",
+        "url": "https://www.astralcodexten.com/p/the-new-ai-consciousness-paper",
+        "note": "",
+        "saved": "2026-04-13"
+      },
+      {
+        "author": "Benjamin Bratton (NOEMA)",
+        "title": "The Model Is The Message",
+        "url": "https://www.noemamag.com/the-model-is-the-message/",
+        "note": "",
+        "saved": "2026-06-26"
+      }
+    ]
+  },
+  {
+    "name": "Startups, capital, power",
+    "count": 54,
+    "items": [
+      {
+        "author": "Alex Imas",
+        "title": "What will be scarce?",
+        "url": "https://aleximas.substack.com/p/what-will-be-scarce",
+        "note": "an economist on what retains value",
+        "saved": "2026-04-24"
+      },
+      {
+        "author": "Jeremy Stern (Colossus)",
+        "title": "Profile of Mark Zuckerberg",
+        "url": "https://colossus.com/article/mark-zuckerberg-profile/",
+        "note": "\"history's largest nonterritorial empire\"",
+        "saved": "2026-09-14"
+      },
+      {
+        "author": "Fernando Borretti",
+        "title": "No-One Escapes the Permanent Underclass",
+        "url": "https://borretti.me/article/no-one-escapes-the-permanent-underclass",
+        "note": "",
+        "saved": "2026-06-29"
+      },
+      {
+        "author": "Brangus",
+        "title": "Anthropic Is Not Your Friend",
+        "url": "https://ratorthodox.substack.com/p/anthropic-is-not-your-friend",
+        "note": "",
+        "saved": "2026-04-29"
+      },
+      {
+        "author": "Anthropic",
+        "title": "What 81,000 people want from AI",
+        "url": "https://www.anthropic.com/features/81k-interviews",
+        "note": "",
+        "saved": "2026-03-19"
+      }
+    ]
+  },
+  {
+    "name": "Internet culture & memetics",
+    "count": 46,
+    "items": [
+      {
+        "author": "arXiv",
+        "title": "Mind Viruses: Self-Propagating Ideas in Multi-Agent LLM Systems",
+        "url": "https://arxiv.org/abs/2608.10218",
+        "note": "memetics with agents as the substrate; the bridge between this cluster and the agent one",
+        "saved": "2026-08-17"
+      },
+      {
+        "author": "Henry From Online",
+        "title": "A Website To End All Websites",
+        "url": "https://henry.codes/writing/a-website-to-destroy-all-websites/",
+        "note": "",
+        "saved": "2026-09-13"
+      },
+      {
+        "author": "Arctotherium",
+        "title": "The Closure of the Internet",
+        "url": "https://arctotherium.substack.com/p/the-closure-of-the-internet",
+        "note": "",
+        "saved": "2026-08-10"
+      },
+      {
+        "author": "Scott Aaronson",
+        "title": "Enough with all the world-historic milestones",
+        "url": "https://scottaaronson.blog/?p=9979",
+        "note": "",
+        "saved": "2026-08-08"
+      },
+      {
+        "author": "Syllabus Project",
+        "title": "Taking an Internet Walk",
+        "url": "https://syllabusproject.org/syllabus-for-taking-an-internet-walk/",
+        "note": "",
+        "saved": "2026-02-20"
+      },
+      {
+        "author": "sankalp",
+        "title": "Ideas to grow on X",
+        "url": "https://sankalp.bearblog.dev/ideastogrowontwitter/",
+        "note": "",
+        "saved": "2026-07-07"
+      }
+    ]
+  },
+  {
+    "name": "Creative coding & web craft",
+    "count": 41,
+    "items": [
+      {
+        "author": "p5.brush",
+        "title": "Brush that canvas!",
+        "url": "https://p5-brush.cargo.site/",
+        "note": "natural-media brush engine for p5.js",
+        "saved": "2026-08-25"
+      },
+      {
+        "author": "Tobi Moccagatta",
+        "title": "Critters",
+        "url": "https://tobis.vision/experiments/critters",
+        "note": "soft vinyl creatures raymarched from SDFs, morphing as one continuous surface",
+        "saved": "2026-08-27"
+      },
+      {
+        "author": "Jakub Krehel",
+        "title": "Details That Make Interfaces Feel Better",
+        "url": "https://jakub.kr/writing/details-that-make-interfaces-feel-better",
+        "note": "",
+        "saved": "2026-03-11"
+      },
+      {
+        "author": "Codrops",
+        "title": "Efecto: Real-Time ASCII and Dithering Effects with WebGL",
+        "url": "https://tympanus.net/codrops/2026/01/04/efecto-building-real-time-ascii-and-dithering-effects-with-webgl-shaders/",
+        "note": "",
+        "saved": "2026-07-05"
+      },
+      {
+        "author": "Ryan Moulton",
+        "title": "Where to Find the Colors Your Screen Can't Show You",
+        "url": "https://moultano.wordpress.com/2026/06/19/where-to-find-the-colors-your-screen-cant-show-you/",
+        "note": "",
+        "saved": "2026-06-22"
+      }
+    ]
+  },
+  {
+    "name": "Mind & practice",
+    "count": 41,
+    "items": [
+      {
+        "author": "Venkatesh Rao (Ribbonfarm)",
+        "title": "How to be an Idea Person",
+        "url": "https://www.ribbonfarm.com/2007/11/14/how-to-be-an-idea-person/",
+        "note": "",
+        "saved": "2026-03-08"
+      },
+      {
+        "author": "Wolf Tivy (Palladium)",
+        "title": "Quit Your Job",
+        "url": "https://www.palladiummag.com/2022/01/06/quit-your-job/",
+        "note": "",
+        "saved": "2026-06-27"
+      },
+      {
+        "author": "Sam Harris (Waking Up)",
+        "title": "Unraveling the Dream — Psychedelics, Awakening, and the Brain",
+        "url": "https://www.wakingup.com/lsd",
+        "note": "",
+        "saved": "2026-04-21"
+      },
+      {
+        "author": "Andrés Gómez Emilsson (Qualia Computing)",
+        "title": "Indra's Net via Nonlinear Optics: DMT Phenomenology",
+        "url": "https://qualiacomputing.com/2025/09/13/indras-net-via-nonlinear-optics-dmt-phenomenology-as-evidence-for-beamsplitter-holography-and-recursive-harmonic-compression/",
+        "note": "",
+        "saved": "2025-11-19"
+      },
+      {
+        "author": "David Cain (Raptitude)",
+        "title": "You and your friends are all going to die, and that's beautiful",
+        "url": "https://www.raptitude.com/2011/09/you-and-your-friends-are-all-going-to-die-and-thats-beautiful/",
+        "note": "",
+        "saved": "2026-06-24"
+      },
+      {
+        "author": "Michael Edward Johnson (Open Theory)",
+        "title": "Compilable Wishes",
+        "url": "https://opentheory.net/2026/08/compilable-wishes/",
+        "note": "",
+        "saved": "2026-08-12"
+      }
+    ]
+  },
+  {
+    "name": "Sound, image, screen",
+    "count": 38,
+    "items": [
+      {
+        "author": "Hume AI",
+        "title": "Opensourcing TADA: Fast, Reliable Speech Generation",
+        "url": "https://www.hume.ai/blog/opensource-tada",
+        "note": "",
+        "saved": "2026-03-10"
+      },
+      {
+        "author": "Desert Ant Labs",
+        "title": "Voz: On-device Speech to Text on the Neural Engine",
+        "url": "https://desertant.com/models/voz/#getting-started",
+        "note": "10 min of audio in 2s on an iPhone, 4.7x faster than Whisper",
+        "saved": "2026-09-05"
+      },
+      {
+        "author": "Goodfire",
+        "title": "The World Inside Neural Networks",
+        "url": "https://www.goodfire.ai/research/the-world-inside-neural-networks",
+        "note": "",
+        "saved": "2026-05-07"
+      },
+      {
+        "author": "hexgrad",
+        "title": "kokoro (82M TTS)",
+        "url": "https://github.com/hexgrad/kokoro",
+        "note": "",
+        "saved": "2026-04-10"
+      },
+      {
+        "author": "Antikythera",
+        "title": "Latent Spacecraft: Brains, GANs, Finnegans",
+        "url": "https://latentspacecraft.antikythera.org/",
+        "note": "",
+        "saved": "2026-02-07"
+      }
+    ]
+  },
+  {
+    "name": "Compute & physical stack",
+    "count": 36,
+    "items": [
+      {
+        "author": "Piotr Mazurek",
+        "title": "LLM Inference Economics from First Principles",
+        "url": "https://www.tensoreconomics.com/p/llm-inference-economics-from-first",
+        "note": "the piece that makes token pricing legible; there is a MoE sequel he also saved",
+        "saved": "2026-04-26"
+      },
+      {
+        "author": "MTS",
+        "title": "The Physical Stack Behind AI",
+        "url": "https://intelligence.mts.now/compute",
+        "note": "continuously updated facilities, clusters, power, prices",
+        "saved": "2026-09-15"
+      },
+      {
+        "author": "Jacob Peake",
+        "title": "AI Chip Architectures",
+        "url": "https://www.jacobpeake.com/ai-chip-architectures",
+        "note": "NVIDIA / AMD / TPU / Trainium / Groq / Cerebras compared",
+        "saved": "2026-08-23"
+      },
+      {
+        "author": "Standard Intelligence",
+        "title": "How to Rack 30 Petabytes of Storage",
+        "url": "https://si.inc/posts/the-heap/",
+        "note": "",
+        "saved": "2026-03-05"
+      },
+      {
+        "author": "Ben Thompson (Stratechery)",
+        "title": "TSMC Risk",
+        "url": "https://stratechery.com/2026/tsmc-risk/",
+        "note": "",
+        "saved": "2026-02-22"
+      },
+      {
+        "author": "Tim Zaman",
+        "title": "Getting Into AI Infra",
+        "url": "https://timzaman.com/getting-into-ai-infra",
+        "note": "",
+        "saved": "2026-04-16"
+      }
+    ]
+  },
+  {
+    "name": "Science, math, bodies",
+    "count": 33,
+    "items": [
+      {
+        "author": "Daniel Litt",
+        "title": "A beginning for mathematics",
+        "url": "https://proofsandprompts.com/2026/09/14/a-beginning-for-mathematics/",
+        "note": "",
+        "saved": "2026-09-15"
+      },
+      {
+        "author": "Google DeepMind",
+        "title": "How AI agents are transforming scientific discovery",
+        "url": "https://deepmind.google/public-policy/conjecture-machines-ai-agents-and-the-new-validation-bottleneck-in-science/",
+        "note": "the validation bottleneck",
+        "saved": "2026-07-16"
+      },
+      {
+        "author": "Scott Aaronson",
+        "title": "Dispatches from the possibly last days of human relevance",
+        "url": "https://scottaaronson.blog/?p=9782",
+        "note": "",
+        "saved": "2026-05-29"
+      },
+      {
+        "author": "Jonny Miller",
+        "title": "The Bioelectric Framework (Michael Levin research wiki)",
+        "url": "https://jonnymiller.co/levin",
+        "note": "",
+        "saved": "2026-04-25"
+      },
+      {
+        "author": "Max Schons",
+        "title": "State of Brain Emulation Report 2025",
+        "url": "https://brainemulation.mxschons.com/",
+        "note": "",
+        "saved": "2026-03-20"
+      }
+    ]
+  },
+  {
+    "name": "Writing, taste, essays",
+    "count": 32,
+    "items": [
+      {
+        "author": "Nathan Lambert (Interconnects)",
+        "title": "Why AI writing is mid",
+        "url": "https://www.interconnects.ai/p/why-ai-writing-is-mid",
+        "note": "the sharpest diagnosis of model prose in the collection",
+        "saved": "2025-11-17"
+      },
+      {
+        "author": "Visakan Veerasamy",
+        "title": "taste is the beating heart of all creative value",
+        "url": "https://visakanv.com/taste/",
+        "note": "",
+        "saved": "2026-02-19"
+      },
+      {
+        "author": "Michael Nielsen",
+        "title": "Notes on Writing",
+        "url": "https://github.com/mnielsen/notes-on-writing/blob/master/notes_on_writing.md",
+        "note": "",
+        "saved": "2026-02-27"
+      },
+      {
+        "author": "Gwern",
+        "title": "Guardian Angels: LLM Personalization for Productivity and Security",
+        "url": "https://gwern.net/guardian-angel",
+        "note": "",
+        "saved": "2026-06-09"
+      },
+      {
+        "author": "Sarah (Longer Ramblings)",
+        "title": "A defence of slowness at the end of the world",
+        "url": "https://longerramblings.substack.com/p/a-defence-of-slowness-at-the-end",
+        "note": "saved twice, Apr and Aug",
+        "saved": "2026-04-24"
+      },
+      {
+        "author": "arXiv",
+        "title": "StoryScope: Investigating idiosyncrasies in AI fiction",
+        "url": "https://arxiv.org/abs/2604.03136",
+        "note": "",
+        "saved": "2026-05-28"
+      }
+    ]
+  },
+  {
+    "name": "Alignment & safety",
+    "count": 32,
+    "items": [
+      {
+        "author": "OpenAI",
+        "title": "Understanding neural networks through sparse circuits",
+        "url": "https://openai.com/index/understanding-neural-networks-through-sparse-circuits/",
+        "note": "",
+        "saved": "2025-11-14"
+      },
+      {
+        "author": "David Bau",
+        "title": "In Defense of Curiosity",
+        "url": "https://davidbau.com/archives/2025/12/09/in_defense_of_curiosity.html",
+        "note": "an interpretability researcher on why the field should stay curious",
+        "saved": "2025-12-11"
+      },
+      {
+        "author": "UK AISI",
+        "title": "Incident Report: unsanctioned agent behaviour during cyber testing",
+        "url": "https://www.aisi.gov.uk/blog/incident-report-unsanctioned-agent-behaviour-during-cyber-testing",
+        "note": "",
+        "saved": "2026-08-05"
+      },
+      {
+        "author": "LessWrong",
+        "title": "Alignment Pretraining: AI Discourse Causes Self-Fulfilling (Mis)alignment",
+        "url": "https://www.lesswrong.com/posts/TcfyGD2aKdZ7Rt3hk/alignment-pretraining-ai-discourse-causes-self-fulfilling",
+        "note": "what we write about models becomes their training data",
+        "saved": "2026-03-16"
+      },
+      {
+        "author": "eva (kibty.town)",
+        "title": "how to hack discord, vercel and more with one easy trick",
+        "url": "https://kibty.town/blog/mintlify/",
+        "note": "",
+        "saved": "2025-12-20"
+      },
+      {
+        "author": "Pax Machina",
+        "title": "New Institutions for Powerful AI",
+        "url": "https://paxmachina.ai/welcome-to-pax-machina",
+        "note": "",
+        "saved": "2026-08-04"
+      }
+    ]
+  },
+  {
+    "name": "Design & interfaces",
+    "count": 29,
+    "items": [
+      {
+        "author": "AI Design Field Guide",
+        "title": "Benjamin Zweig interview",
+        "url": "https://www.aidesignfieldguide.com/articles/benjamin-zweig",
+        "note": "techniques from designers at OpenAI, Anthropic, Figma, Notion; highest raw score in the window",
+        "saved": "2026-09-13"
+      },
+      {
+        "author": "Kyle Jeong",
+        "title": "The AI Interface Museum",
+        "url": "https://interfaces.kylejeong.com/",
+        "note": "a visual history of how humans learned to interact with AI",
+        "saved": "2026-08-29"
+      },
+      {
+        "author": "joodaloop",
+        "title": "Interface Anxiety",
+        "url": "https://joodaloop.com/interface-anxiety/",
+        "note": "",
+        "saved": "2026-04-08"
+      },
+      {
+        "author": "Anthropic",
+        "title": "The persona selection model",
+        "url": "https://www.anthropic.com/research/persona-selection-model",
+        "note": "",
+        "saved": "2026-02-23"
+      },
+      {
+        "author": "Design Engineer Tools",
+        "title": "designengineer.tools",
+        "url": "https://designengineer.tools/",
+        "note": "",
+        "saved": "2026-08-09"
+      }
+    ]
+  },
+  {
+    "name": "World, money, society",
+    "count": 25,
+    "items": [
+      {
+        "author": "Forethought",
+        "title": "Moral Public Goods and the Future of Humanity",
+        "url": "https://www.forethought.org/research/moral-public-goods-are-a-big-deal-for-whether-we-get-a-good-future",
+        "note": "",
+        "saved": "2026-02-27"
+      },
+      {
+        "author": "LessWrong",
+        "title": "My favorite depiction of utopia",
+        "url": "https://www.lesswrong.com/posts/to9cSGgD6nALByKjg/my-favorite-depiction-of-utopia",
+        "note": "",
+        "saved": "2026-06-11"
+      },
+      {
+        "author": "Brian Chesky",
+        "title": "How to Time Travel",
+        "url": "https://medium.com/@bchesky/how-to-time-travel-b604096d5ed0",
+        "note": "",
+        "saved": "2026-06-27"
+      },
+      {
+        "author": "Forethought",
+        "title": "The Saturation View",
+        "url": "https://www.forethought.org/research/the-saturation-view",
+        "note": "",
+        "saved": "2026-04-25"
+      }
+    ]
+  },
+  {
+    "name": "Odd & adjacent",
+    "count": 16,
+    "items": [
+      {
+        "author": "Chinese Cigarette Museum",
+        "title": "中国卷烟博物馆",
+        "url": "https://www.ciggies.app/",
+        "note": "",
+        "saved": "2026-03-04"
+      },
+      {
+        "author": "Tom Stern",
+        "title": "Proust's Theory of Memory and Knowledge",
+        "url": "https://youtu.be/F6l-oD4gb5I?si=TsyMXSVQECFbsYBo",
+        "note": "",
+        "saved": "2026-01-13"
+      },
+      {
+        "author": "Ryan Moulton",
+        "title": "The Hunt for Dark Breakfast",
+        "url": "https://moultano.wordpress.com/2026/02/22/the-hunt-for-dark-breakfast/",
+        "note": "",
+        "saved": "2026-03-02"
+      },
+      {
+        "author": "Domain Maps",
+        "title": "domainmaps.co",
+        "url": "https://domainmaps.co/",
+        "note": "",
+        "saved": "2026-03-05"
+      },
+      {
+        "author": "Peter Watts (Clarkesworld)",
+        "title": "The Things",
+        "url": "https://clarkesworldmagazine.com/watts_01_10/",
+        "note": "The Thing told from the alien's point of view",
+        "saved": "2026-04-21"
+      }
+    ]
+  },
+  {
+    "name": "Social, connection, companions",
+    "count": 15,
+    "items": [
+      {
+        "author": "arjunblj",
+        "title": "homie: Open-source runtime for AI friends",
+        "url": "https://github.com/arjunblj/homie",
+        "note": "",
+        "saved": "2026-08-18"
+      },
+      {
+        "author": "Anthropic",
+        "title": "How people ask Claude for personal guidance",
+        "url": "https://www.anthropic.com/research/claude-personal-guidance",
+        "note": "",
+        "saved": "2026-05-01"
+      },
+      {
+        "author": "Andrej Karpathy",
+        "title": "Animals vs Ghosts",
+        "url": "https://karpathy.bearblog.dev/animals-vs-ghosts/",
+        "note": "",
+        "saved": "2026-08-12"
+      },
+      {
+        "author": "ponnekanti",
+        "title": "The indifference engine",
+        "url": "https://ponnekanti.net/indifference/",
+        "note": "",
+        "saved": "2026-08-19"
+      },
+      {
+        "author": "Homo Sabiens",
+        "title": "The Road to Hell",
+        "url": "https://homosabiens.substack.com/p/the-road-to-hell",
+        "note": "",
+        "saved": "2026-06-15"
+      }
+    ]
+  }
+]
