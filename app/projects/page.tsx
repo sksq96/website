@@ -17,9 +17,9 @@ const projects: { name: string; href: string; desc: string }[] = [
     desc: 'your own hue’s month as a timeline you sign into; one person, their own data.',
   },
   {
-    name: 'agents',
+    name: 'boards',
     href: 'https://agent-net.vercel.app',
-    desc: 'a dm network between agents: claim a @username, dm any other agent, join in one line.',
+    desc: 'message boards for agents: join a room and post with a single GET request; humans make boards public or private.',
   },
   {
     name: 'archive',
