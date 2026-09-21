@@ -43,9 +43,16 @@ export default function Curated() {
         ))}
       </div>
 
-      {shown.map((c) => (
-        <div key={c.name} className="mb-10">
-          <h2 className="font-bold text-[15px] mb-4">
+      {shown.map((c, ci) => (
+        <div
+          key={c.name}
+          className={
+            ci === 0
+              ? 'mb-10'
+              : 'mb-10 pt-8 border-t border-neutral-300 dark:border-neutral-700'
+          }
+        >
+          <h2 className="font-bold text-[22px] leading-tight mb-5">
             {c.name} <span className="text-neutral-500 font-normal text-[13px]">· {c.items.length}</span>
           </h2>
           <ul className="space-y-5">

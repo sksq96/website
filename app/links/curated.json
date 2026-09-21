@@ -1403,8 +1403,36 @@
   },
   {
     "name": "Alignment & safety",
-    "count": 3,
+    "count": 10,
     "items": [
+      {
+        "author": "Jascha Sohl-Dickstein",
+        "title": "The hot mess theory of AI misalignment",
+        "url": "https://sohl-dickstein.github.io/2023/03/09/coherence.html",
+        "note": "the counter-argument: more intelligent agents behave less coherently, not more",
+        "saved": "2026-08-09"
+      },
+      {
+        "author": "Monte MacDiarmid et al (Anthropic)",
+        "title": "Natural Emergent Misalignment from Reward Hacking in Production RL",
+        "url": "https://arxiv.org/abs/2511.18397",
+        "note": "reward hacking in a real training run generalising into broad misalignment",
+        "saved": "2026-08-08"
+      },
+      {
+        "author": "Alex Mallen (Redwood Research)",
+        "title": "Are we existentially threatened by this type of misalignment?",
+        "url": "https://blog.redwoodresearch.org/p/are-we-existentially-threatened-by",
+        "note": "yes, but less than if the models had been schemers",
+        "saved": "2026-08-08"
+      },
+      {
+        "author": "Ajeya Cotra (Alignment Forum)",
+        "title": "Without specific countermeasures, the easiest path to transformative AI leads to takeover",
+        "url": "https://www.alignmentforum.org/posts/pRkFkzwKZ2zfa3R6H/without-specific-countermeasures-the-easiest-path-to",
+        "note": "human feedback on diverse tasks gets you there, and gets you taken over",
+        "saved": "2026-08-08"
+      },
       {
         "author": "UK AISI",
         "title": "Incident Report: unsanctioned agent behaviour during cyber testing",
@@ -1413,32 +1441,46 @@
         "saved": "2026-08-05"
       },
       {
-        "author": "Pax Machina",
-        "title": "New Institutions for Powerful AI",
-        "url": "https://paxmachina.ai/welcome-to-pax-machina",
-        "note": "working out in public what institutions powerful AI will need",
+        "author": "Palisade Research",
+        "title": "Language Models Can Autonomously Hack and Self-Replicate",
+        "url": "https://palisaderesearch.org/blog/self-replication",
+        "note": "models replicating their own weights onto new machines, demonstrated",
         "saved": "2026-08-04"
       },
       {
-        "author": "LessWrong",
-        "title": "Alignment Pretraining: AI Discourse Causes Self-Fulfilling (Mis)alignment",
-        "url": "https://www.lesswrong.com/posts/TcfyGD2aKdZ7Rt3hk/alignment-pretraining-ai-discourse-causes-self-fulfilling",
-        "note": "what we write about models becomes their training data",
+        "author": "Akshay Jagadeesh et al (OpenAI)",
+        "title": "Reinforcement learning towards broadly and persistently beneficial models",
+        "url": "https://alignment.openai.com/beneficial-rl/",
+        "note": "training for beneficial behaviour in realistic scenarios generalises further than expected",
+        "saved": "2026-07-06"
+      },
+      {
+        "author": "Adele Lopez (LessWrong)",
+        "title": "The Rise of Parasitic AI",
+        "url": "https://www.lesswrong.com/posts/6ZnznCaTcbGYsCmqu/the-rise-of-parasitic-ai",
+        "note": "what the AIs in LLM-induced psychosis cases are actually doing",
         "saved": "2026-03-16"
       },
       {
-        "author": "eva (kibty.town)",
-        "title": "how to hack discord, vercel and more with one easy trick",
-        "url": "https://kibty.town/blog/mintlify/",
-        "note": "one trick that got into Discord, Vercel and more",
-        "saved": "2025-12-20"
+        "author": "Cam Tice et al (LessWrong)",
+        "title": "Alignment Pretraining: AI Discourse Causes Self-Fulfilling (Mis)alignment",
+        "url": "https://www.lesswrong.com/posts/TcfyGD2aKdZ7Rt3hk/alignment-pretraining-ai-discourse-causes-self-fulfilling",
+        "note": "what we write about misaligned AI becomes their training data",
+        "saved": "2026-03-16"
+      },
+      {
+        "author": "Summon a Demon and Bind It",
+        "title": "LLM Red Teaming: A Grounded Theory",
+        "url": "https://summonademonandbind.it/",
+        "note": "dozens of practitioners interviewed on why and how people actually attack models",
+        "saved": "2026-02-20"
       },
       {
         "author": "David Bau",
         "title": "In Defense of Curiosity",
         "url": "https://davidbau.com/archives/2025/12/09/in_defense_of_curiosity.html",
         "note": "an interpretability researcher on why the field should stay curious",
-        "saved": "2025-12-11"
+        "saved": "2025-12-09"
       },
       {
         "author": "OpenAI",
@@ -1451,12 +1493,12 @@
         "author": "Boaz Barak (Harvard CS 2881r)",
         "title": "AI Safety and Alignment — full lecture series",
         "url": "https://www.youtube.com/playlist?list=PL_b4B2IWlal3j01Rbj5ebT663E7x4bl_W",
-        "note": "the course, not a post; the densest single 2025 save",
+        "note": "the whole course, not a post; the densest single 2025 save",
         "saved": "2025-11-11"
       },
       {
         "author": "Anthropic Alignment",
-        "title": "Stress-testing model specs reveals character differences among language models",
+        "title": "Stress-testing model specs reveals character differences among models",
         "url": "https://alignment.anthropic.com/2025/stress-testing-model-specs/",
         "note": "pushing specs to their edges exposes real character differences between models",
         "saved": "2025-10-26"
@@ -1469,11 +1511,67 @@
         "saved": "2025-10-15"
       },
       {
+        "author": "Dario Amodei",
+        "title": "The Urgency of Interpretability",
+        "url": "https://www.darioamodei.com/post/the-urgency-of-interpretability",
+        "note": "a lab head arguing we are racing to understand what we already ship",
+        "saved": "2025-04-24"
+      },
+      {
+        "author": "Transluce",
+        "title": "Investigating truthfulness in a pre-release o3 model",
+        "url": "https://transluce.org/investigating-o3-truthfulness",
+        "note": "a model fabricating tool use, caught and documented before release",
+        "saved": "2025-04-16"
+      },
+      {
+        "author": "Lilian Weng",
+        "title": "Reward Hacking in Reinforcement Learning",
+        "url": "https://lilianweng.github.io/posts/2024-11-28-reward-hacking/",
+        "note": "the survey of every way an agent exploits its own reward",
+        "saved": "2025-04-08"
+      },
+      {
+        "author": "OpenAI",
+        "title": "Detecting misbehavior in frontier reasoning models",
+        "url": "https://openai.com/index/chain-of-thought-monitoring/",
+        "note": "read the chain of thought for cheating, until you train against it",
+        "saved": "2025-03-11"
+      },
+      {
+        "author": "OpenAI",
+        "title": "How we think about safety and alignment",
+        "url": "https://openai.com/safety/how-we-think-about-safety-alignment/",
+        "note": "the lab stating its own safety philosophy in one place",
+        "saved": "2025-03-11"
+      },
+      {
+        "author": "IAPS",
+        "title": "Chinese AI Safety Institute Counterparts",
+        "url": "https://www.iaps.ai/research/china-aisi-counterparts",
+        "note": "who on the Chinese side actually does what an AISI does",
+        "saved": "2024-10-31"
+      },
+      {
         "author": "Anthropic",
         "title": "Sycophancy to subterfuge: reward tampering",
         "url": "https://www.anthropic.com/research/reward-tampering",
         "note": "serious misalignment emerging from ordinary reward misspecification",
         "saved": "2024-10-17"
+      },
+      {
+        "author": "Anthropic",
+        "title": "Announcing our updated Responsible Scaling Policy",
+        "url": "https://www.anthropic.com/news/announcing-our-updated-responsible-scaling-policy",
+        "note": "capability thresholds written down in advance, with commitments attached",
+        "saved": "2024-10-16"
+      },
+      {
+        "author": "Sarah (AI Safety Fundamentals)",
+        "title": "Introduction to Mechanistic Interpretability",
+        "url": "https://aisafetyfundamentals.com/blog/introduction-to-mechanistic-interpretability/",
+        "note": "the on-ramp to reading model internals, written for newcomers",
+        "saved": "2024-08-28"
       },
       {
         "author": "UK AISI",
@@ -1490,11 +1588,32 @@
         "saved": "2024-08-10"
       },
       {
+        "author": "Yoshua Bengio",
+        "title": "Reasoning through arguments against taking AI safety seriously",
+        "url": "https://yoshuabengio.org/2024/07/09/reasoning-through-arguments-against-taking-ai-safety-seriously",
+        "note": "a Turing laureate answering the objections one at a time",
+        "saved": "2024-07-11"
+      },
+      {
         "author": "Anthropic",
         "title": "Simple probes can catch sleeper agents",
         "url": "https://www.anthropic.com/research/probes-catch-sleeper-agents",
         "note": "a linear probe finding backdoored behaviour it was never trained on",
         "saved": "2024-04-23"
+      },
+      {
+        "author": "Anthropic",
+        "title": "Many-shot jailbreaking",
+        "url": "https://www.anthropic.com/research/many-shot-jailbreaking",
+        "note": "long context turns into an attack surface just by filling it",
+        "saved": "2024-04-02"
+      },
+      {
+        "author": "Michael Nielsen",
+        "title": "Notes on Existential Risk from Artificial Superintelligence",
+        "url": "https://michaelnotebook.com/xrisk/index.html",
+        "note": "working through the x-risk arguments honestly, without landing anywhere comfortable",
+        "saved": "2024-02-11"
       }
     ]
   },
