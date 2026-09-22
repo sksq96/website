@@ -21,6 +21,19 @@ html {
   overflow-x: clip;
 }
 
+/* marked passages in the nomad letters: a two-tone highlighter, no colour */
+mark {
+  background: color-mix(in srgb, var(--fg) 13%, transparent);
+  color: inherit;
+  padding: 0.08em 0.1em;
+  border-radius: 2px;
+}
+
+/* "highlights only" hides paragraphs with nothing marked in them */
+.only-hl p:not([data-hl]) {
+  display: none;
+}
+
 body {
   font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-weight: 600;
