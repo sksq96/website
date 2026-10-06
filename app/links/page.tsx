@@ -18,8 +18,8 @@ export default function Page() {
       <section className="max-w-[42rem]">
         <h1 className="font-bold text-[18px] mb-2">Links</h1>
         <p className="mb-8 text-[18px] leading-[1.5]">
-          Things I&rsquo;ve read, saved, and thought about. Semantic search
-          across 2000+ links.
+          Things I&rsquo;ve read, saved, and thought about. Ask about any of
+          my 2000+ links.
         </p>
         <Tabs
           tabs={[

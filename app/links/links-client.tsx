@@ -7,7 +7,16 @@ type Link = {
   url: string
   date: string
   description?: string
-  score?: number
+}
+
+type Msg = { role: 'user' | 'assistant'; content: string }
+
+// [title](url) becomes a link; everything else stays text
+function linkify(line: string) {
+  return line.split(/(\[[^\]]+\]\([^)\s]+\))/).map((part, i) => {
+    const m = part.match(/^\[([^\]]+)\]\(([^)\s]+)\)$/)
+    return m ? <a key={i} href={m[2]} target="_blank" rel="noopener noreferrer" className="font-bold underline">{m[1]}</a> : part
+  })
 }
 
 function formatDate(raw: string) {
@@ -72,8 +81,8 @@ export default function LinksClient() {
   const [cursor, setCursor] = useState<string | null>(null)
   const [loading, setLoading] = useState(false)
   const [query, setQuery] = useState('')
-  const [searching, setSearching] = useState(false)
-  const [results, setResults] = useState<Link[] | null>(null)
+  const [asking, setAsking] = useState(false)
+  const [thread, setThread] = useState<Msg[]>([])
   const [error, setError] = useState<string | null>(null)
   const [shuffled, setShuffled] = useState(false)
 
@@ -112,34 +121,38 @@ export default function LinksClient() {
     }
   }, [loading])
 
+  // the chat lives in this browser only
+  useEffect(() => {
+    try { setThread(JSON.parse(localStorage.getItem('ask') || '[]')) } catch {}
+  }, [])
+  useEffect(() => {
+    try { localStorage.setItem('ask', JSON.stringify(thread)) } catch {}
+  }, [thread])
+
   useEffect(() => {
     fetchPage(null)
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
-  const doSearch = async () => {
+  const ask = async () => {
     const q = query.trim()
-    if (!q || searching) return
-    setSearching(true)
-    setResults(null)
+    if (!q || asking) return
+    const next = [...thread, { role: 'user' as const, content: q }]
+    setThread(next)
+    setQuery('')
+    setAsking(true)
     try {
-      const resp = await fetch('/api/search', {
+      const data = await fetch('/api/ask', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ query: q }),
-      })
-      const data = await resp.json()
-      setResults(data.results || [])
+        body: JSON.stringify({ messages: next }),
+      }).then((r) => r.json())
+      setThread([...next, { role: 'assistant', content: data.reply || data.error || 'Something went wrong.' }])
     } catch {
-      setResults([])
+      setThread([...next, { role: 'assistant', content: 'Something went wrong.' }])
     } finally {
-      setSearching(false)
+      setAsking(false)
     }
-  }
-
-  const clearSearch = () => {
-    setQuery('')
-    setResults(null)
   }
 
   const monthCounts: Record<string, number> = {}
@@ -151,25 +164,30 @@ export default function LinksClient() {
 
   return (
     <div>
-      <div className="flex items-center gap-4 mb-6">
+      {thread.map((m, i) =>
+        m.role === 'user' ? (
+          <div key={i} className="text-[15px] text-neutral-500 pt-4">{m.content}</div>
+        ) : (
+          <div key={i} className="text-[16px] leading-snug py-2 space-y-1.5 break-words">
+            {m.content.split('\n').filter(Boolean).map((line, j) => <div key={j}>{linkify(line)}</div>)}
+          </div>
+        ),
+      )}
+      <div className="flex items-center gap-4 mt-4 mb-8">
         <input
           type="text"
           value={query}
           onChange={(e) => setQuery(e.target.value)}
-          onKeyDown={(e) => e.key === 'Enter' && doSearch()}
-          placeholder="search again, get different links every time..."
+          onKeyDown={(e) => e.key === 'Enter' && ask()}
+          placeholder={asking ? 'looking…' : thread.length ? 'follow up…' : 'ask about my links…'}
           className="flex-1 min-w-0 px-3 py-2 text-[16px] bg-transparent border border-neutral-400 dark:border-neutral-600 focus:outline-none focus:border-neutral-900 dark:focus:border-neutral-100"
         />
-        <button
-          onClick={doSearch}
-          disabled={searching || !query.trim()}
-          className="text-[16px] underline disabled:opacity-40"
-        >
-          {searching ? '...' : 'search'}
+        <button onClick={ask} disabled={asking || !query.trim()} className="text-[16px] underline disabled:opacity-40">
+          {asking ? '...' : 'ask'}
         </button>
-        {results && (
+        {thread.length > 0 && !asking && (
           <button
-            onClick={clearSearch}
+            onClick={() => setThread([])}
             className="text-[16px] underline text-neutral-500 hover:text-neutral-900 dark:hover:text-neutral-100"
           >
             clear
@@ -179,18 +197,6 @@ export default function LinksClient() {
 
       {error && <div className="text-[15px] text-neutral-500 py-8">{error}</div>}
 
-      {results !== null ? (
-        <div>
-          <div className="text-[14px] text-neutral-500 mb-3">
-            {results.length} result{results.length === 1 ? '' : 's'} for &ldquo;{query}&rdquo;
-          </div>
-          {results.length === 0 ? (
-            <div className="text-[15px] text-neutral-500 py-8">No links found.</div>
-          ) : (
-            results.map((r, i) => <LinkItem key={i} link={r} showDesc />)
-          )}
-        </div>
-      ) : (
         <div>
           {allLinks.length > 0 && (
             <div className="flex justify-between items-baseline pb-1">
@@ -233,7 +239,6 @@ export default function LinksClient() {
             <div className="text-[15px] text-neutral-500 py-8">Loading...</div>
           )}
         </div>
-      )}
     </div>
   )
 }
