@@ -84,7 +84,7 @@ export default function LinksClient() {
   const [asking, setAsking] = useState(false)
   const [thread, setThread] = useState<Msg[]>([])
   const [open, setOpen] = useState(false)
-  const end = useRef<HTMLDivElement>(null)
+  const scroller = useRef<HTMLDivElement>(null)
   const [error, setError] = useState<string | null>(null)
   const [shuffled, setShuffled] = useState(false)
 
@@ -136,11 +136,28 @@ export default function LinksClient() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
-  // keep the newest line in view and the page behind the chat still
-  useEffect(() => end.current?.scrollIntoView({ block: 'end' }), [thread, open])
+  // keep the page behind the chat still
   useEffect(() => {
     document.body.style.overflow = open ? 'hidden' : ''
   }, [open])
+  // size the chat to the visible area so the on-screen keyboard never covers the input
+  const [view, setView] = useState<{ top: number; height: number } | null>(null)
+  useEffect(() => {
+    const v = window.visualViewport
+    if (!open || !v) return
+    const fit = () => setView({ top: v.offsetTop, height: v.height })
+    fit()
+    v.addEventListener('resize', fit)
+    v.addEventListener('scroll', fit)
+    return () => {
+      v.removeEventListener('resize', fit)
+      v.removeEventListener('scroll', fit)
+    }
+  }, [open])
+  // keep the newest line in view
+  useEffect(() => {
+    if (scroller.current) scroller.current.scrollTop = scroller.current.scrollHeight
+  }, [thread, open, view])
 
   const ask = async () => {
     const q = query.trim()
@@ -201,7 +218,7 @@ export default function LinksClient() {
   return (
     <div>
       {open ? (
-        <div className="fixed inset-0 z-50 flex flex-col bg-[var(--bg)]">
+        <div className="fixed inset-x-0 top-0 h-[100dvh] z-50 flex flex-col bg-[var(--bg)]" style={view ?? undefined}>
           <div className="flex justify-between items-center gap-4 p-5 md:px-6 text-[15px] max-w-[42rem] w-full mx-auto">
             <button onClick={() => setOpen(false)} className="underline">← links</button>
             {!asking && (
@@ -210,7 +227,7 @@ export default function LinksClient() {
               </button>
             )}
           </div>
-          <div className="flex-1 overflow-y-auto">
+          <div ref={scroller} className="flex-1 overflow-y-auto">
             <div className="max-w-[42rem] mx-auto px-5 md:px-6 pb-6">
               {thread.map((m, i) =>
                 m.role === 'user' ? (
@@ -225,7 +242,6 @@ export default function LinksClient() {
                   </div>
                 ),
               )}
-              <div ref={end} />
             </div>
           </div>
           <div className="max-w-[42rem] w-full mx-auto px-5 md:px-6 pt-3 pb-[max(1.25rem,env(safe-area-inset-bottom))]">{box}</div>

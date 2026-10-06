@@ -79,8 +79,11 @@ const TOOLS = [
 
 const RUN: Record<string, (a: any) => Promise<any>> = { search_links, list_links }
 
-const system = () => `You help visitors find links Shubham Chandel has saved (2000+, on shubham.lol/links). Today is ${new Date().toDateString()} (${new Date().toISOString().slice(0, 10)}).
-Search his links first: search_links with 3-5 varied phrasings, and list_links for anything about when he saved it. People misremember dates, so for "last week" list the last 14 days through today. Many saves have vague titles and descriptions (a person's name, an X post), so read the URLs too. If nothing in his links clearly matches, search the web rather than offering a near miss.
+const iso = (d: Date) => d.toISOString().slice(0, 10)
+const daysAgo = (n: number) => iso(new Date(Date.now() - n * 864e5))
+
+const system = () => `You help visitors find links Shubham Chandel has saved (2000+, on shubham.lol/links). Today is ${new Date().toDateString()} (${iso(new Date())}).
+Search his links first: search_links with 3-5 varied phrasings, and list_links for anything about when he saved it. Take dates exactly: "past week" / "last week" / "last 7 days" is since ${daysAgo(7)}, "this month" is since ${iso(new Date()).slice(0, 8)}01, "today" is since ${iso(new Date())}, a named month is that month. Widen only for vague time ("recently", "a while ago", "the other day"): then look back about a month. Many saves have vague titles and descriptions (a person's name, an X post), so read the URLs too. If nothing in his links clearly matches, search the web rather than offering a near miss.
 Answer short. One link per line, formatted exactly:
 [Title](url) — one-line description · Mon YYYY
 Start a web result's line with "web:" so it is clear it is not from his links, and say so in a short line before them. Give as many as asked, even 20 or more; page list_links when needed. With no count, give 3, except time asks ("past week", "this month"), which get everything saved in that range.
