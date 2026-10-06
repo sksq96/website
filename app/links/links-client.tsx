@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useState, useCallback } from 'react'
+import { useEffect, useRef, useState, useCallback } from 'react'
 
 type Link = {
   title: string
@@ -83,6 +83,8 @@ export default function LinksClient() {
   const [query, setQuery] = useState('')
   const [asking, setAsking] = useState(false)
   const [thread, setThread] = useState<Msg[]>([])
+  const [open, setOpen] = useState(false)
+  const end = useRef<HTMLDivElement>(null)
   const [error, setError] = useState<string | null>(null)
   const [shuffled, setShuffled] = useState(false)
 
@@ -134,26 +136,60 @@ export default function LinksClient() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
+  // keep the newest line in view and the page behind the chat still
+  useEffect(() => end.current?.scrollIntoView({ block: 'end' }), [thread, open])
+  useEffect(() => {
+    document.body.style.overflow = open ? 'hidden' : ''
+  }, [open])
+
   const ask = async () => {
     const q = query.trim()
     if (!q || asking) return
     const next = [...thread, { role: 'user' as const, content: q }]
-    setThread(next)
+    setThread([...next, { role: 'assistant', content: '' }])
     setQuery('')
+    setOpen(true)
     setAsking(true)
+    let reply = ''
+    const show = () => setThread([...next, { role: 'assistant', content: reply }])
     try {
-      const data = await fetch('/api/ask', {
+      const r = await fetch('/api/ask', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ messages: next }),
-      }).then((r) => r.json())
-      setThread([...next, { role: 'assistant', content: data.reply || data.error || 'Something went wrong.' }])
-    } catch {
-      setThread([...next, { role: 'assistant', content: 'Something went wrong.' }])
+      })
+      if (!r.ok || !r.body) throw new Error(r.status === 429 ? 'Too many asks for now. Try again in a while.' : 'Something went wrong.')
+      const reader = r.body.pipeThrough(new TextDecoderStream()).getReader()
+      for (;;) {
+        const { done, value } = await reader.read()
+        if (done) break
+        reply += value
+        show()
+      }
+    } catch (e: any) {
+      reply = e.message || 'Something went wrong.'
     } finally {
+      if (!reply.trim()) reply = 'Something went wrong.'
+      show()
       setAsking(false)
     }
   }
+
+  const box = (
+    <div className="flex items-center gap-4">
+      <input
+        type="text"
+        value={query}
+        onChange={(e) => setQuery(e.target.value)}
+        onKeyDown={(e) => e.key === 'Enter' && ask()}
+        placeholder={asking ? 'looking…' : thread.length ? 'follow up…' : 'ask about my links…'}
+        className="flex-1 min-w-0 px-3 py-2 text-[16px] bg-transparent border border-neutral-400 dark:border-neutral-600 focus:outline-none focus:border-neutral-900 dark:focus:border-neutral-100"
+      />
+      <button onClick={ask} disabled={asking || !query.trim()} className="text-[16px] underline disabled:opacity-40">
+        {asking ? '...' : 'ask'}
+      </button>
+    </div>
+  )
 
   const monthCounts: Record<string, number> = {}
   for (const l of allLinks) {
@@ -164,36 +200,46 @@ export default function LinksClient() {
 
   return (
     <div>
-      {thread.map((m, i) =>
-        m.role === 'user' ? (
-          <div key={i} className="text-[15px] text-neutral-500 pt-4">{m.content}</div>
-        ) : (
-          <div key={i} className="text-[16px] leading-snug py-2 space-y-1.5 break-words">
-            {m.content.split('\n').filter(Boolean).map((line, j) => <div key={j}>{linkify(line)}</div>)}
+      {open ? (
+        <div className="fixed inset-0 z-50 flex flex-col bg-[var(--bg)]">
+          <div className="flex justify-between items-center gap-4 p-5 md:px-6 text-[15px] max-w-[42rem] w-full mx-auto">
+            <button onClick={() => setOpen(false)} className="underline">← links</button>
+            {!asking && (
+              <button onClick={() => { setThread([]); setOpen(false) }} className="underline text-neutral-500 hover:text-neutral-900 dark:hover:text-neutral-100">
+                clear
+              </button>
+            )}
           </div>
-        ),
+          <div className="flex-1 overflow-y-auto">
+            <div className="max-w-[42rem] mx-auto px-5 md:px-6 pb-6">
+              {thread.map((m, i) =>
+                m.role === 'user' ? (
+                  <div key={i} className="text-[15px] text-neutral-500 pt-6 pb-2">{m.content}</div>
+                ) : (
+                  <div key={i} className="text-[16px] leading-snug break-words">
+                    {m.content ? (
+                      m.content.split('\n').map((line, j) => (line.trim() ? <div key={j} className="py-0.5">{linkify(line)}</div> : <div key={j} className="h-3" />))
+                    ) : (
+                      <div className="text-neutral-500">looking…</div>
+                    )}
+                  </div>
+                ),
+              )}
+              <div ref={end} />
+            </div>
+          </div>
+          <div className="max-w-[42rem] w-full mx-auto px-5 md:px-6 pt-3 pb-[max(1.25rem,env(safe-area-inset-bottom))]">{box}</div>
+        </div>
+      ) : (
+        <div className="mb-8">
+          {box}
+          {thread.length > 0 && (
+            <button onClick={() => setOpen(true)} className="mt-2 text-[14px] underline text-neutral-500 hover:text-neutral-900 dark:hover:text-neutral-100">
+              back to the chat →
+            </button>
+          )}
+        </div>
       )}
-      <div className="flex items-center gap-4 mt-4 mb-8">
-        <input
-          type="text"
-          value={query}
-          onChange={(e) => setQuery(e.target.value)}
-          onKeyDown={(e) => e.key === 'Enter' && ask()}
-          placeholder={asking ? 'looking…' : thread.length ? 'follow up…' : 'ask about my links…'}
-          className="flex-1 min-w-0 px-3 py-2 text-[16px] bg-transparent border border-neutral-400 dark:border-neutral-600 focus:outline-none focus:border-neutral-900 dark:focus:border-neutral-100"
-        />
-        <button onClick={ask} disabled={asking || !query.trim()} className="text-[16px] underline disabled:opacity-40">
-          {asking ? '...' : 'ask'}
-        </button>
-        {thread.length > 0 && !asking && (
-          <button
-            onClick={() => setThread([])}
-            className="text-[16px] underline text-neutral-500 hover:text-neutral-900 dark:hover:text-neutral-100"
-          >
-            clear
-          </button>
-        )}
-      </div>
 
       {error && <div className="text-[15px] text-neutral-500 py-8">{error}</div>}
 
