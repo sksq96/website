@@ -8,6 +8,12 @@ export const metadata = {
 // one entry per piece; each keeps its own url
 const PIECES = [
   {
+    href: '/reading/utopia',
+    title: 'My favorite depiction of utopia',
+    date: '2026',
+    desc: 'Caleb Biddulph’s adaptation of the epilogue of Alexander Wales’s Worth the Candle, with a chapter guide.',
+  },
+  {
     href: '/agentworld',
     title: 'Agentworld',
     date: '2026',

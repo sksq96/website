@@ -5,7 +5,7 @@ html:has(.aw) { --bg: #fff; --fg: #0e0ecc; --ink: #0b0b12; }
 html.dark:has(.aw) { --bg: #0e0ecc; --fg: #fff; --ink: #fff; }
 
 .aw { color: var(--fg); font-weight: 400; overflow-wrap: break-word; }
-.aw-flow { min-width: 0; }
+.aw-flow { min-width: 0; container-type: inline-size; } /* sizes below scale with this column (cqi) */
 .aw a { text-underline-offset: 3px; }
 
 /* display type: wide, heavy, all caps, tight */
@@ -22,18 +22,18 @@ html.dark:has(.aw) { --bg: #0e0ecc; --fg: #fff; --ink: #fff; }
 .aw-o { color: transparent; -webkit-text-stroke: 1.2px var(--fg); }
 
 /* sized so the longest word ("phenomenology") fits a 320px phone */
-.aw-title { font-size: clamp(30px, 9.2vw, 104px); }
-.aw-sub { font-size: clamp(19px, 5vw, 44px); margin-top: 0.3em; }
+.aw-title { font-size: clamp(30px, 9.2cqi, 104px); }
+.aw-sub { font-size: clamp(19px, 5cqi, 44px); margin-top: 0.3em; }
 .aw-cover { width: 100%; height: auto; margin-bottom: 2.5rem; }
 
-.aw-toc { display: flex; flex-direction: column; gap: 0.35em; font-size: clamp(15px, 2.6vw, 19px); margin-bottom: 5rem; }
+.aw-toc { display: flex; flex-direction: column; gap: 0.35em; font-size: clamp(15px, 2.6cqi, 19px); margin-bottom: 5rem; }
 .aw-toc a { text-decoration: none; }
 .aw-toc a:hover { text-decoration: underline; }
 
 .aw section { scroll-margin-top: 1.5rem; }
-.aw-h2 { font-size: clamp(21px, 6.4vw, 58px); margin: 6rem 0 2rem; }
+.aw-h2 { font-size: clamp(21px, 6.4cqi, 58px); margin: 6rem 0 2rem; }
 section:first-of-type > .aw-h2 { margin-top: 0; }
-.aw-h3 { display: flex; gap: 0.8em; font-size: clamp(17px, 3.4vw, 21px); margin: 3rem 0 1.1rem; }
+.aw-h3 { display: flex; gap: 0.8em; font-size: clamp(17px, 3.4cqi, 21px); margin: 3rem 0 1.1rem; }
 .aw-n { flex: none; min-width: 2.6em; }
 .aw-h3 > span:last-child { min-width: 0; }
 
@@ -43,10 +43,10 @@ section:first-of-type > .aw-h2 { margin-top: 0; }
 }
 .aw-p { font-size: 18px; line-height: 1.62; hyphens: auto; }
 .aw-p + .aw-p { text-indent: 1.6em; }
-.aw-lead { font-size: clamp(21px, 3.6vw, 26px); line-height: 1.35; margin-bottom: 1.6rem; }
-.aw-sc { font-size: clamp(20px, 3.4vw, 25px); line-height: 1.35; font-style: italic; margin: 2.5rem 0; }
+.aw-lead { font-size: clamp(21px, 3.6cqi, 26px); line-height: 1.35; margin-bottom: 1.6rem; }
+.aw-sc { font-size: clamp(20px, 3.4cqi, 25px); line-height: 1.35; font-style: italic; margin: 2.5rem 0; }
 .aw-sc .aw-d { font-style: normal; color: var(--fg); font-size: 0.9em; }
-.aw-q { font-size: clamp(20px, 4vw, 27px); margin: 2.2rem 0 2.2rem clamp(0px, 6vw, 4.5rem); }
+.aw-q { font-size: clamp(20px, 4cqi, 27px); margin: 2.2rem 0 2.2rem clamp(0px, 6cqi, 4.5rem); }
 
 @media (min-width: 768px) { .aw-p { text-align: justify; } }
 
@@ -71,19 +71,20 @@ section:first-of-type > .aw-h2 { margin-top: 0; }
 .aw-inv-p { font-size: 15px; margin-bottom: 0.9rem; }
 .aw-mast { font-size: 14px; line-height: 1.4; background: var(--fg); color: var(--bg); border-radius: 16px; padding: 1.2rem 1.3rem; margin-top: 1.5rem; }
 .aw-mast > div { display: grid; grid-template-columns: minmax(0, 11rem) minmax(0, 1fr); gap: 1rem; padding: 0.2rem 0; }
-.aw-cta { display: block; font-size: clamp(20px, 5.4vw, 40px); margin: 3rem 0; text-decoration: none; }
+.aw-cta { display: block; font-size: clamp(20px, 5.4cqi, 40px); margin: 3rem 0; text-decoration: none; }
 .aw-cta:hover { text-decoration: underline; }
 .aw-colophon { margin-top: 5rem; padding-top: 1.2rem; border-top: 1.5px solid var(--fg); max-width: 38rem; }
 
-/* rail: the pdf's rounded header card, then the reading toggle */
+/* rail: the pdf's rounded header card, then the reading toggle; beside the text
+   only when there is room next to the site sidebar */
 .aw-rail { margin-bottom: 2rem; }
-@media (min-width: 768px) { .aw-rail { position: sticky; top: 1.25rem; align-self: start; } }
+@media (min-width: 1536px) { .aw-rail { position: sticky; top: 1.25rem; align-self: start; } }
 .aw-card { border: 1.5px solid var(--fg); border-radius: 12px; padding: 0.7rem 0.85rem; font-size: 12px; line-height: 1.45; }
 .aw-toggle { display: flex; flex-wrap: wrap; gap: 0.45rem; margin-top: 0.8rem; }
 .aw-pill { border: 1.5px solid var(--fg); border-radius: 999px; padding: 0.3rem 0.8rem; font-size: 13px; font-weight: 600; cursor: pointer; user-select: none; }
 #aw-full:checked ~ div .aw-full, #aw-only:checked ~ div .aw-hl { background: var(--fg); color: var(--bg); }
 #aw-full:focus-visible ~ div .aw-full, #aw-only:focus-visible ~ div .aw-hl { outline: 2px solid var(--fg); outline-offset: 2px; }
-@media (max-width: 767px) {
+@media (max-width: 1535px) {
   .aw-toggle { position: sticky; top: 0; z-index: 5; background: var(--bg); padding: 0.5rem 0; margin-top: 0.3rem; }
   .aw-rail { display: contents; }
 }
@@ -98,16 +99,4 @@ html.dark .aw mark { background: color-mix(in srgb, #fff 24%, transparent); }
 #aw-only:checked ~ div .aw-flow section:not(:has([data-hl])),
 #aw-only:checked ~ div .aw-flow > :is(img, header, nav) { display: none; }
 #aw-only:checked ~ div .aw-flow .aw-p { text-indent: 0; margin-bottom: 1.2rem; }
-#aw-only:checked ~ div .aw-flow .aw-h2 { margin: 3.5rem 0 1.2rem; font-size: clamp(24px, 4.6vw, 34px); }
-
-/* the vertical spine title down the left edge */
-.aw-spine { display: none; }
-@media (min-width: 1280px) {
-  .aw-spine {
-    display: flex; flex-direction: column; gap: 0.1em;
-    position: fixed; left: 1.2rem; bottom: 1.5rem;
-    writing-mode: vertical-rl; transform: rotate(180deg);
-    font-size: 15px; max-height: 72vh; pointer-events: none;
-  }
-}
-@media (min-width: 1280px) { .aw { padding-left: 4rem; } }
+#aw-only:checked ~ div .aw-flow .aw-h2 { margin: 3.5rem 0 1.2rem; font-size: clamp(24px, 4.6cqi, 34px); }

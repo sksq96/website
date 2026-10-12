@@ -1,4 +1,4 @@
-import { Photo, Contacts } from '../components/sidebar'
+import { WithSidebar } from '../components/sidebar'
 import Tabs from '../components/tabs'
 import Projects from './projects'
 
@@ -54,11 +54,7 @@ const items: Item[] = [
 
 export default function Page() {
   return (
-    <div className="md:grid md:grid-cols-[24rem_1fr] md:gap-x-8 md:items-start">
-      <aside className="hidden md:block space-y-4">
-        <Photo />
-        <Contacts />
-      </aside>
+    <WithSidebar>
       <section className="max-w-[42rem]">
         <Tabs
           tabs={[
@@ -86,6 +82,6 @@ export default function Page() {
           ]}
         />
       </section>
-    </div>
+    </WithSidebar>
   )
 }

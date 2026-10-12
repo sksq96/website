@@ -178,7 +178,7 @@ export default function Page() {
       <input type="radio" name="aw-mode" id="aw-full" className="sr-only" defaultChecked />
       <input type="radio" name="aw-mode" id="aw-only" className="sr-only" />
 
-      <div className="md:grid md:grid-cols-[13rem_minmax(0,44rem)] md:gap-12">
+      <div className="2xl:grid 2xl:grid-cols-[13rem_minmax(0,44rem)] 2xl:gap-12">
         <aside className="aw-rail">
           <div className="aw-card">
             <div className="aw-d text-[15px] normal-case tracking-normal">antikythera journal</div>
@@ -229,11 +229,6 @@ export default function Page() {
             The highlighting is mine, not the author’s.
           </p>
         </div>
-      </div>
-
-      <div className="aw-spine aw-d" aria-hidden>
-        <span>Agentworld</span>
-        <span className="aw-o">Scenarios for a preemptive anthropology of open-world centaur societies</span>
       </div>
     </div>
   )
