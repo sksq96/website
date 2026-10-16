@@ -42,5 +42,6 @@ export async function instant(q, n = 8) {
     const it = items[i]
     if (!(best.get(it.u)?.score >= s)) best.set(it.u, { title: it.t, url: it.u, kind: it.k, snippet: it.s, score: s })
   }
-  return [...best.values()].sort((a, b) => b.score - a.score).slice(0, n)
+  // bge scores real matches 0.7 to 0.85 and unrelated text up to about 0.63, so weaker hits are dropped
+  return [...best.values()].filter((r) => r.score >= 0.65).sort((a, b) => b.score - a.score).slice(0, n)
 }

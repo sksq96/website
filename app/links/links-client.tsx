@@ -227,7 +227,9 @@ export default function LinksClient() {
               </div>
             ))
           ) : (
-            results && !note && <div className="text-[15px] text-neutral-500 py-4">Nothing found.</div>
+            !searching && !note && (
+              <div className="text-[15px] text-neutral-500 py-4">{results ? 'Nothing found.' : 'No close matches yet. Press Enter to ask.'}</div>
+            )
           )}
         </div>
       ) : (
