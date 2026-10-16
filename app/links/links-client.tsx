@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect, useRef, useState, useCallback } from 'react'
+import { warm, instant } from './instant'
 
 type Link = {
   title: string
@@ -9,15 +10,10 @@ type Link = {
   description?: string
 }
 
-type Msg = { role: 'user' | 'assistant'; content: string }
+type Result = { title: string; url: string; why?: string }
 
-// [title](url) becomes a link; everything else stays text
-function linkify(line: string) {
-  return line.split(/(\[[^\]]+\]\([^)\s]+\))/).map((part, i) => {
-    const m = part.match(/^\[([^\]]+)\]\(([^)\s]+)\)$/)
-    return m ? <a key={i} href={m[2]} target="_blank" rel="noopener noreferrer" className="font-bold underline">{m[1]}</a> : part
-  })
-}
+// a live search lane answers each query (see /root/github/search/README.md); the page sends it, then polls
+const RELAY = 'https://80.190.78.211/search'
 
 function formatDate(raw: string) {
   if (!raw) return ''
@@ -81,10 +77,11 @@ export default function LinksClient() {
   const [cursor, setCursor] = useState<string | null>(null)
   const [loading, setLoading] = useState(false)
   const [query, setQuery] = useState('')
-  const [asking, setAsking] = useState(false)
-  const [thread, setThread] = useState<Msg[]>([])
-  const [open, setOpen] = useState(false)
-  const scroller = useRef<HTMLDivElement>(null)
+  const [searching, setSearching] = useState(false)
+  const [results, setResults] = useState<Result[] | null>(null)
+  const [note, setNote] = useState('')
+  const [quick, setQuick] = useState<Result[] | null>(null)
+  const typed = useRef({ seq: 0, timer: undefined as ReturnType<typeof setTimeout> | undefined })
   const [error, setError] = useState<string | null>(null)
   const [shuffled, setShuffled] = useState(false)
 
@@ -123,73 +120,59 @@ export default function LinksClient() {
     }
   }, [loading])
 
-  // the chat lives in this browser only
-  useEffect(() => {
-    try { setThread(JSON.parse(localStorage.getItem('ask') || '[]')) } catch {}
-  }, [])
-  useEffect(() => {
-    try { localStorage.setItem('ask', JSON.stringify(thread)) } catch {}
-  }, [thread])
-
   useEffect(() => {
     fetchPage(null)
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
-  // keep the page behind the chat still
-  useEffect(() => {
-    document.body.style.overflow = open ? 'hidden' : ''
-  }, [open])
-  // size the chat to the visible area so the on-screen keyboard never covers the input
-  const [view, setView] = useState<{ top: number; height: number } | null>(null)
-  useEffect(() => {
-    const v = window.visualViewport
-    if (!open || !v) return
-    const fit = () => setView({ top: v.offsetTop, height: v.height })
-    fit()
-    v.addEventListener('resize', fit)
-    v.addEventListener('scroll', fit)
-    return () => {
-      v.removeEventListener('resize', fit)
-      v.removeEventListener('scroll', fit)
-    }
-  }, [open])
-  // keep the newest line in view
-  useEffect(() => {
-    if (scroller.current) scroller.current.scrollTop = scroller.current.scrollHeight
-  }, [thread, open, view])
-
-  const ask = async () => {
+  const search = async () => {
     const q = query.trim()
-    if (!q || asking) return
-    const next = [...thread, { role: 'user' as const, content: q }]
-    setThread([...next, { role: 'assistant', content: '' }])
-    setQuery('')
-    setOpen(true)
-    setAsking(true)
-    let reply = ''
-    const show = () => setThread([...next, { role: 'assistant', content: reply }])
+    if (!q || searching) return
+    setSearching(true)
+    setResults(null)
+    setNote('')
     try {
-      const r = await fetch('/api/ask', {
+      const r = await fetch(`${RELAY}/q`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ messages: next }),
+        body: JSON.stringify({ query: q }),
       })
-      if (!r.ok || !r.body) throw new Error(r.status === 429 ? 'Too many asks for now. Try again in a while.' : 'Something went wrong.')
-      const reader = r.body.pipeThrough(new TextDecoderStream()).getReader()
-      for (;;) {
-        const { done, value } = await reader.read()
-        if (done) break
-        reply += value
-        show()
+      if (!r.ok) throw new Error(r.status === 429 ? 'Too many searches for now. Try again in a minute.' : 'Search is unavailable right now.')
+      const { id, status, note } = await r.json()
+      // over the relay's limits nothing is queued; the instant results stay up with the relay's note
+      if (status === 'capped') return setNote(note || 'Search is busy. The instant results are below.')
+      // a live lane writes the answer, so the page waits up to a minute for it
+      for (let i = 0; i < 60; i++) {
+        await new Promise((ok) => setTimeout(ok, 1000))
+        const a = await fetch(`${RELAY}/a/${id}`)
+        if (a.status === 202) continue
+        if (!a.ok) throw new Error('Search is unavailable right now.')
+        const data = await a.json()
+        setResults(data.results || [])
+        return
       }
+      throw new Error('No answer came back. Try again.')
     } catch (e: any) {
-      reply = e.message || 'Something went wrong.'
+      setNote(e.message || 'Search is unavailable right now.')
     } finally {
-      if (!reply.trim()) reply = 'Something went wrong.'
-      show()
-      setAsking(false)
+      setSearching(false)
     }
+  }
+
+  // instant results as he types, computed in the browser; keystrokes never go to the relay
+  const type = (q: string) => {
+    setQuery(q)
+    setResults(null)
+    setNote('')
+    const t = typed.current
+    clearTimeout(t.timer)
+    const seq = ++t.seq
+    if (!q.trim()) return setQuick(null)
+    t.timer = setTimeout(() => {
+      instant(q.trim())
+        .then((r) => seq === t.seq && setQuick(r.map((x) => ({ title: x.title, url: x.url, why: x.snippet }))))
+        .catch(() => {})
+    }, 100)
   }
 
   const box = (
@@ -197,14 +180,23 @@ export default function LinksClient() {
       <input
         type="text"
         value={query}
-        onChange={(e) => setQuery(e.target.value)}
-        onKeyDown={(e) => e.key === 'Enter' && ask()}
-        placeholder={asking ? 'looking…' : thread.length ? 'follow up…' : 'ask about my links…'}
+        onFocus={() => warm().catch(() => {})}
+        onChange={(e) => type(e.target.value)}
+        onKeyDown={(e) => e.key === 'Enter' && search()}
+        placeholder="search my links…"
         className="flex-1 min-w-0 px-3 py-2 text-[16px] bg-transparent border border-neutral-400 dark:border-neutral-600 focus:outline-none focus:border-neutral-900 dark:focus:border-neutral-100"
       />
-      <button onClick={ask} disabled={asking || !query.trim()} className="text-[16px] underline disabled:opacity-40">
-        {asking ? '...' : 'ask'}
+      <button onClick={search} disabled={searching || !query.trim()} className="text-[16px] underline disabled:opacity-40">
+        search
       </button>
+      {(results || quick) && !searching && (
+        <button
+          onClick={() => type('')}
+          className="text-[16px] underline text-neutral-500 hover:text-neutral-900 dark:hover:text-neutral-100"
+        >
+          clear
+        </button>
+      )}
     </div>
   )
 
@@ -217,48 +209,28 @@ export default function LinksClient() {
 
   return (
     <div>
-      {open ? (
-        <div className="fixed inset-x-0 top-0 h-[100dvh] z-50 flex flex-col bg-[var(--bg)]" style={view ?? undefined}>
-          <div className="flex justify-between items-center gap-4 p-5 md:px-6 text-[15px] max-w-[42rem] w-full mx-auto">
-            <button onClick={() => setOpen(false)} className="underline">← links</button>
-            {!asking && (
-              <button onClick={() => { setThread([]); setOpen(false) }} className="underline text-neutral-500 hover:text-neutral-900 dark:hover:text-neutral-100">
-                clear
-              </button>
-            )}
-          </div>
-          <div ref={scroller} className="flex-1 overflow-y-auto">
-            <div className="max-w-[42rem] mx-auto px-5 md:px-6 pb-6">
-              {thread.map((m, i) =>
-                m.role === 'user' ? (
-                  <div key={i} className="text-[15px] text-neutral-500 pt-6 pb-2">{m.content}</div>
-                ) : (
-                  <div key={i} className="text-[16px] leading-snug break-words">
-                    {m.content ? (
-                      m.content.split('\n').map((line, j) => (line.trim() ? <div key={j} className="py-0.5">{linkify(line)}</div> : <div key={j} className="h-3" />))
-                    ) : (
-                      <div className="text-neutral-500">looking…</div>
-                    )}
-                  </div>
-                ),
-              )}
-            </div>
-          </div>
-          <div className="max-w-[42rem] w-full mx-auto px-5 md:px-6 pt-3 pb-[max(1.25rem,env(safe-area-inset-bottom))]">{box}</div>
-        </div>
-      ) : (
-        <div className="mb-8">
-          {box}
-          {thread.length > 0 && (
-            <button onClick={() => setOpen(true)} className="mt-2 text-[14px] underline text-neutral-500 hover:text-neutral-900 dark:hover:text-neutral-100">
-              back to the chat →
-            </button>
-          )}
-        </div>
-      )}
+      <div className="mb-8">{box}</div>
 
       {error && <div className="text-[15px] text-neutral-500 py-8">{error}</div>}
 
+      {searching || note || results || quick ? (
+        <div>
+          {(searching || note) && <div className="text-[15px] text-neutral-500 py-4">{searching ? 'thinking…' : note}</div>}
+          {(results ?? quick ?? []).length ? (
+            (results ?? quick)!.map((r) => (
+              <div key={r.url} className="py-4 border-b border-neutral-300 dark:border-neutral-700">
+                <a href={r.url} target="_blank" rel="noopener noreferrer" className="text-[18px] font-bold underline leading-snug break-words line-clamp-2">
+                  {r.title}
+                </a>
+                {r.why && <div className="text-[15px] text-neutral-600 dark:text-neutral-400 mt-1.5 leading-snug break-words">{r.why}</div>}
+                <div className="mt-1.5 text-[13px] text-neutral-500 truncate">{shortenUrl(r.url)}</div>
+              </div>
+            ))
+          ) : (
+            results && !note && <div className="text-[15px] text-neutral-500 py-4">Nothing found.</div>
+          )}
+        </div>
+      ) : (
         <div>
           {allLinks.length > 0 && (
             <div className="flex justify-between items-baseline pb-1">
@@ -301,6 +273,7 @@ export default function LinksClient() {
             <div className="text-[15px] text-neutral-500 py-8">Loading...</div>
           )}
         </div>
+      )}
     </div>
   )
 }
