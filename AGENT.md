@@ -41,11 +41,10 @@ app/
 
   api/
     links/route.ts        GET /api/links — proxies Convex links:list query with cursor pagination
-    search/route.ts       POST /api/search — proxies Convex links:search action with `query` body
 
   links/
     page.tsx              /links — sidebar on desktop + LinksClient
-    links-client.tsx      client component — fetches /api/links and /api/search; month headers with counts, shuffle/by-date toggle
+    links-client.tsx      client component — loads every /api/links page, filters them in memory as you type; month headers with counts, shuffle/by-date toggle
 
   photos/
     page.tsx              reads public/photos/manifest.json, groups by EXIF year
