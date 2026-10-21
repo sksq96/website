@@ -33,7 +33,7 @@ export async function GET(request: Request) {
 
     return Response.json(
       { links, cursor: page.done ? null : page.cursor },
-      { headers: { 'Cache-Control': 's-maxage=300, stale-while-revalidate=600' } },
+      { headers: { 'Cache-Control': 's-maxage=60, stale-while-revalidate=60' } },
     )
   } catch (err: any) {
     return Response.json({ error: err.message || 'Internal error' }, { status: 500 })
