@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     type: 'website',
     // link previews that support it loop the homepage flipping light → dark from the theme dot; the rest show the still
     images: [{ url: '/og.jpg', width: 1200, height: 630 }],
-    videos: [{ url: `${baseUrl}/og.mp4`, width: 1200, height: 630, type: 'video/mp4' }],
+    videos: [{ url: new URL('/og.mp4', baseUrl).href, width: 1200, height: 630, type: 'video/mp4' }],
   },
   twitter: { card: 'summary_large_image' },
   robots: {
