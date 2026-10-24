@@ -17,7 +17,11 @@ export const metadata: Metadata = {
     siteName: 'shubham',
     locale: 'en_US',
     type: 'website',
+    // link previews that support it loop the homepage flipping light → dark from the theme dot; the rest show the still
+    images: [{ url: '/og.jpg', width: 1200, height: 630 }],
+    videos: [{ url: '/og.mp4', width: 1200, height: 630, type: 'video/mp4' }],
   },
+  twitter: { card: 'summary_large_image' },
   robots: {
     index: true,
     follow: true,
