@@ -5,7 +5,7 @@
 
 :root{
   --bg:#f4f4f4;--fg:#111;
-  --mute:color-mix(in srgb,var(--fg) 45%,transparent);
+  --mute:color-mix(in srgb,var(--fg) 62%,transparent);
   --line:color-mix(in srgb,var(--fg) 12%,transparent);
   --card:color-mix(in srgb,var(--fg) 3.5%,transparent);
   --sans:-apple-system,BlinkMacSystemFont,'Helvetica Neue',Helvetica,Arial,sans-serif;
