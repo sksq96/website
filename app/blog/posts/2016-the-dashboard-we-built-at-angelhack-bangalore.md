@@ -1,7 +1,6 @@
 ---
 title: "How we built Prodigy"
-publishedAt: "2016-07-17"
-dateBasis: "source event date; reconstructed post"
+publishedAt: "2016"
 summary: "How we built Prodigy"
 reviewDraft: "true"
 ---

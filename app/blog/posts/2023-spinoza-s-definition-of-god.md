@@ -1,7 +1,6 @@
 ---
 title: "spinoza s definition of god"
-publishedAt: "2023-07-31"
-dateBasis: "source event date; reconstructed post"
+publishedAt: "2023"
 summary: "spinoza s definition of god"
 reviewDraft: "true"
 ---

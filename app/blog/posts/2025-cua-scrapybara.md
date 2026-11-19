@@ -1,7 +1,6 @@
 ---
 title: "cua scrapybara"
-publishedAt: "2025-03-11"
-dateBasis: "source event date; reconstructed post"
+publishedAt: "2025"
 summary: "cua scrapybara"
 reviewDraft: "true"
 ---

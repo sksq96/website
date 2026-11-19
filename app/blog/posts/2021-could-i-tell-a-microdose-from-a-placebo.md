@@ -1,7 +1,6 @@
 ---
 title: "Could I tell a microdose from a placebo?"
-publishedAt: "2021-05-05"
-dateBasis: "source event date; reconstructed post"
+publishedAt: "2021"
 summary: "Could I tell a microdose from a placebo?"
 reviewDraft: "true"
 ---

@@ -1,7 +1,6 @@
 ---
 title: "What I wanted to know before a Vipassana retreat"
-publishedAt: "2024-01-15"
-dateBasis: "approximate day; source month"
+publishedAt: "2024"
 summary: "What I wanted to know before a Vipassana retreat"
 reviewDraft: "true"
 ---

@@ -1,7 +1,6 @@
 ---
 title: "Listening to Husna"
-publishedAt: "2017-06-10"
-dateBasis: "source event date; reconstructed post"
+publishedAt: "2017"
 summary: "Listening to Husna"
 reviewDraft: "true"
 ---

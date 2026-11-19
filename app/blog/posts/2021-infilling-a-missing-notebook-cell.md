@@ -1,7 +1,6 @@
 ---
 title: "Filling in missing code in Jupyter notebooks"
-publishedAt: "2021-09-09"
-dateBasis: "source event date; reconstructed post"
+publishedAt: "2021"
 summary: "Filling in missing code in Jupyter notebooks"
 reviewDraft: "true"
 ---

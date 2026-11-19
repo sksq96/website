@@ -1,7 +1,6 @@
 ---
 title: "the distance between i felt close to you and a questionnaire"
-publishedAt: "2022-01-15"
-dateBasis: "approximate day; source month"
+publishedAt: "2022"
 summary: "the distance between i felt close to you and a questionnaire"
 reviewDraft: "true"
 ---

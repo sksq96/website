@@ -1,7 +1,6 @@
 ---
 title: "synesthesia in somebody else s words"
-publishedAt: "2022-08-15"
-dateBasis: "approximate day; source month"
+publishedAt: "2022"
 summary: "synesthesia in somebody else s words"
 reviewDraft: "true"
 ---

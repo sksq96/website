@@ -1,7 +1,6 @@
 ---
 title: "The first two layers of a Rubik’s Cube"
-publishedAt: "2016-12-09"
-dateBasis: "source event date; reconstructed post"
+publishedAt: "2016"
 summary: "The first two layers of a Rubik’s Cube"
 reviewDraft: "true"
 ---

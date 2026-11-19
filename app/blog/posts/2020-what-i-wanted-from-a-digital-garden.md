@@ -1,7 +1,6 @@
 ---
 title: "Digital Gardens: yet another digital gardening blog?"
-publishedAt: "2020-01-17"
-dateBasis: "source event date; reconstructed post"
+publishedAt: "2020"
 summary: "Digital Gardens: yet another digital gardening blog?"
 reviewDraft: "true"
 ---

@@ -1,7 +1,6 @@
 ---
 title: "strange"
-publishedAt: "2026-04-08"
-dateBasis: "source event date; reconstructed post"
+publishedAt: "2026"
 summary: "strange"
 reviewDraft: "true"
 ---

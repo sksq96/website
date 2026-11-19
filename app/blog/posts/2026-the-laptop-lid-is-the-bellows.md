@@ -1,7 +1,6 @@
 ---
 title: "Harmonium"
-publishedAt: "2026-03-28"
-dateBasis: "source event date; reconstructed post"
+publishedAt: "2026"
 summary: "Harmonium"
 reviewDraft: "true"
 ---

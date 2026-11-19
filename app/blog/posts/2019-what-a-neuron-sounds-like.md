@@ -1,7 +1,6 @@
 ---
 title: "What a neuron sounds like"
-publishedAt: "2019-07-07"
-dateBasis: "source event date; reconstructed post"
+publishedAt: "2019"
 summary: "What a neuron sounds like"
 reviewDraft: "true"
 ---

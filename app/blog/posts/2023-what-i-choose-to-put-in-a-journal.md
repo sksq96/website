@@ -1,7 +1,6 @@
 ---
 title: "What I choose to put in a journal"
-publishedAt: "2023-04-17"
-dateBasis: "source event date; reconstructed post"
+publishedAt: "2023"
 summary: "What I choose to put in a journal"
 reviewDraft: "true"
 ---

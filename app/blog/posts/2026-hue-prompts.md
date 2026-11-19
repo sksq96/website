@@ -1,7 +1,6 @@
 ---
 title: "hue-prompts"
-publishedAt: "2026-03-22"
-dateBasis: "source event date; reconstructed post"
+publishedAt: "2026"
 summary: "hue-prompts"
 reviewDraft: "true"
 ---

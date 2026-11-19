@@ -1,7 +1,6 @@
 ---
 title: "machine learning looked like magic"
-publishedAt: "2016-07-01"
-dateBasis: "approximate placement; only year known"
+publishedAt: "2016"
 summary: "machine learning looked like magic"
 reviewDraft: "true"
 ---

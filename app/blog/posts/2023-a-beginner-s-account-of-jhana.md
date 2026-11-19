@@ -1,7 +1,6 @@
 ---
 title: "A Beginner's Account of Jhana I"
-publishedAt: "2023-12-15"
-dateBasis: "approximate day; source month"
+publishedAt: "2023"
 summary: "A Beginner's Account of Jhana I"
 reviewDraft: "true"
 ---

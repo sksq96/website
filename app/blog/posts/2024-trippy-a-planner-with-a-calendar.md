@@ -1,7 +1,6 @@
 ---
 title: "Trippy: an OpenAI-based multi-step Agent (that uses your Google Calendar) to plan your day"
-publishedAt: "2024-07-13"
-dateBasis: "source event date; reconstructed post"
+publishedAt: "2024"
 summary: "Trippy: an OpenAI-based multi-step Agent (that uses your Google Calendar) to plan your day"
 reviewDraft: "true"
 ---

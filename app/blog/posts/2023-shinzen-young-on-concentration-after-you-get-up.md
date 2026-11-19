@@ -1,7 +1,6 @@
 ---
 title: "Effects of Meditation on Concentration"
-publishedAt: "2023-03-05"
-dateBasis: "source event date; reconstructed post"
+publishedAt: "2023"
 summary: "Effects of Meditation on Concentration"
 reviewDraft: "true"
 ---

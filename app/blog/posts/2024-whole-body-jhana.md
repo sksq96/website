@@ -1,7 +1,6 @@
 ---
 title: "Whole-body jhana"
-publishedAt: "2024-02-15"
-dateBasis: "approximate day; source month"
+publishedAt: "2024"
 summary: "Whole-body jhana"
 reviewDraft: "true"
 ---

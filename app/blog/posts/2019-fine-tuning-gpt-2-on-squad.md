@@ -1,7 +1,6 @@
 ---
 title: "Fine-tuning GPT-2 on SQuAD"
-publishedAt: "2019-07-02"
-dateBasis: "source event date; reconstructed post"
+publishedAt: "2019"
 summary: "Fine-tuning GPT-2 on SQuAD"
 reviewDraft: "true"
 ---

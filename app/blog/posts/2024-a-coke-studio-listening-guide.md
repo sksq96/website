@@ -1,7 +1,6 @@
 ---
 title: "a coke studio listening guide"
-publishedAt: "2024-06-15"
-dateBasis: "approximate day; source month"
+publishedAt: "2024"
 summary: "a coke studio listening guide"
 reviewDraft: "true"
 ---

@@ -1,7 +1,6 @@
 ---
 title: "working with yann lecun who told me rl won t work"
-publishedAt: "2019-07-10"
-dateBasis: "source event date; reconstructed post"
+publishedAt: "2019"
 summary: "working with yann lecun who told me rl won t work"
 reviewDraft: "true"
 ---

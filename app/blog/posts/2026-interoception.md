@@ -1,7 +1,6 @@
 ---
 title: "Introspecting interoception"
-publishedAt: "2026-01-18"
-dateBasis: "source event date; reconstructed post"
+publishedAt: "2026"
 summary: "Introspecting interoception"
 reviewDraft: "true"
 ---

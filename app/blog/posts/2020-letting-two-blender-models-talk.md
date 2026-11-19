@@ -1,7 +1,6 @@
 ---
 title: "letting two blender models talk"
-publishedAt: "2020-05-03"
-dateBasis: "source event date; reconstructed post"
+publishedAt: "2020"
 summary: "letting two blender models talk"
 reviewDraft: "true"
 ---

@@ -1,7 +1,6 @@
 ---
 title: "A summer of looking at Fuji X100 photographs"
-publishedAt: "2022-08-15"
-dateBasis: "approximate day; source month"
+publishedAt: "2022"
 summary: "A summer of looking at Fuji X100 photographs"
 reviewDraft: "true"
 ---

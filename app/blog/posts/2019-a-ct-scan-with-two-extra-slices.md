@@ -1,7 +1,6 @@
 ---
 title: "A CT scan with two extra slices"
-publishedAt: "2019-06-15"
-dateBasis: "approximate day; source month"
+publishedAt: "2019"
 summary: "A CT scan with two extra slices"
 reviewDraft: "true"
 ---

@@ -1,7 +1,6 @@
 ---
 title: "craft: everything is a skill, even a tweet"
-publishedAt: "2026-10-26"
-dateBasis: "source event date; reconstructed post"
+publishedAt: "2026"
 summary: "craft: everything is a skill, even a tweet"
 reviewDraft: "true"
 ---

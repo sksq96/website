@@ -1,7 +1,6 @@
 ---
 title: "SwapIt"
-publishedAt: "2015-05-29"
-dateBasis: "source event date; reconstructed post"
+publishedAt: "2015"
 summary: "SwapIt"
 reviewDraft: "true"
 ---

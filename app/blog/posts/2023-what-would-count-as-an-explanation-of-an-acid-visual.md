@@ -1,7 +1,6 @@
 ---
 title: "what would count as an explanation of an acid visual"
-publishedAt: "2023-07-01"
-dateBasis: "approximate placement; only year known"
+publishedAt: "2023"
 summary: "what would count as an explanation of an acid visual"
 reviewDraft: "true"
 ---

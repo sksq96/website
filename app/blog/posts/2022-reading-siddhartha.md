@@ -1,7 +1,6 @@
 ---
 title: "Reading Siddhartha"
-publishedAt: "2022-05-25"
-dateBasis: "source event date; reconstructed post"
+publishedAt: "2022"
 summary: "Reading Siddhartha"
 reviewDraft: "true"
 ---

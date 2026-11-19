@@ -1,7 +1,6 @@
 ---
 title: "World Models"
-publishedAt: "2018-04-08"
-dateBasis: "source event date; reconstructed post"
+publishedAt: "2018"
 summary: "World Models"
 reviewDraft: "true"
 ---

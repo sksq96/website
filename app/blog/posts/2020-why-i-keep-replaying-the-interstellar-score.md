@@ -1,7 +1,6 @@
 ---
 title: "why i keep replaying the interstellar score"
-publishedAt: "2020-06-03"
-dateBasis: "source event date; reconstructed post"
+publishedAt: "2020"
 summary: "why i keep replaying the interstellar score"
 reviewDraft: "true"
 ---

@@ -1,18 +1,11 @@
 'use client'
-import { useEffect } from 'react'
-import { usePathname } from 'next/navigation'
 
 export default function Header() {
-  const pathname = usePathname()
-  const reading = /^\/(writings|blog)(\/|$)/.test(pathname)
-  useEffect(() => {
-    try { document.documentElement.classList.toggle('dark', localStorage.getItem(reading ? 'readingTheme' : 'theme') === 'dark') } catch {}
-  }, [reading])
   const toggle = () => {
     const el = document.documentElement
     el.classList.toggle('dark')
     try {
-      localStorage.setItem(reading ? 'readingTheme' : 'theme', el.classList.contains('dark') ? 'dark' : 'light')
+      localStorage.setItem('theme', el.classList.contains('dark') ? 'dark' : 'light')
     } catch {}
   }
 
@@ -27,7 +20,7 @@ export default function Header() {
         <a href="/reading" className="underline">reading</a>
         <button
           onClick={toggle}
-          aria-label={reading ? 'toggle paper and night reading theme' : 'toggle black and white theme'}
+          aria-label="toggle black and white theme"
           className="w-4 h-4 mt-px rounded-full border border-current bg-current cursor-pointer"
         />
       </nav>

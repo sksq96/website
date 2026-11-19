@@ -1,7 +1,6 @@
 ---
 title: "Neural Machine Translation"
-publishedAt: "2018-11-15"
-dateBasis: "source event date; reconstructed post"
+publishedAt: "2018"
 summary: "Neural Machine Translation"
 reviewDraft: "true"
 ---

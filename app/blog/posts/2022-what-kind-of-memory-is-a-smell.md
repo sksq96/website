@@ -1,7 +1,6 @@
 ---
 title: "Smellosophy"
-publishedAt: "2022-06-15"
-dateBasis: "approximate day; source month"
+publishedAt: "2022"
 summary: "Smellosophy"
 reviewDraft: "true"
 ---

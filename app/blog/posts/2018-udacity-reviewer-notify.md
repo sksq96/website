@@ -1,7 +1,6 @@
 ---
 title: "udacity reviewer notify"
-publishedAt: "2018-05-11"
-dateBasis: "source event date; reconstructed post"
+publishedAt: "2018"
 summary: "udacity reviewer notify"
 reviewDraft: "true"
 ---

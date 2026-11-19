@@ -1,7 +1,6 @@
 ---
 title: "returning to the mdma trial a year later"
-publishedAt: "2023-05-15"
-dateBasis: "approximate day; source month"
+publishedAt: "2023"
 summary: "returning to the mdma trial a year later"
 reviewDraft: "true"
 ---

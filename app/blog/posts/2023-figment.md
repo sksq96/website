@@ -1,7 +1,6 @@
 ---
 title: "figment"
-publishedAt: "2023-04-17"
-dateBasis: "source event date; reconstructed post"
+publishedAt: "2023"
 summary: "figment"
 reviewDraft: "true"
 ---

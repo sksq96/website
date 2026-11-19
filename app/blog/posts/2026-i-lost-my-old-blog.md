@@ -1,7 +1,6 @@
 ---
 title: "i lost my old blog"
-publishedAt: "2026-11-15"
-dateBasis: "approximate day; source month"
+publishedAt: "2026"
 summary: "i lost my old blog"
 reviewDraft: "true"
 ---

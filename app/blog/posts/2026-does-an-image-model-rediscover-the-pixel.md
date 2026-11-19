@@ -1,7 +1,6 @@
 ---
 title: "Does an Image Model Rediscover the Pixel?"
-publishedAt: "2026-10-28"
-dateBasis: "source event date; reconstructed post"
+publishedAt: "2026"
 summary: "Does an Image Model Rediscover the Pixel?"
 reviewDraft: "true"
 ---

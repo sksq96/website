@@ -1,7 +1,6 @@
 ---
 title: "a jean jacket for a dog"
-publishedAt: "2025-03-27"
-dateBasis: "source event date; reconstructed post"
+publishedAt: "2025"
 summary: "a jean jacket for a dog"
 reviewDraft: "true"
 ---

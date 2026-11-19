@@ -1,7 +1,6 @@
 ---
 title: "transcribe"
-publishedAt: "2026-09-17"
-dateBasis: "source event date; reconstructed post"
+publishedAt: "2026"
 summary: "transcribe"
 reviewDraft: "true"
 ---

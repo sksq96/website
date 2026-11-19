@@ -53,7 +53,7 @@ export default function RootLayout({
       <head>
         <script
           dangerouslySetInnerHTML={{
-            __html: `try{var p=location.pathname;var r=p==='/writings'||p==='/blog'||p.startsWith('/blog/');if((r?localStorage.readingTheme:localStorage.theme)==='dark')document.documentElement.classList.add('dark')}catch(e){}`,
+            __html: `try{if(localStorage.theme==='dark')document.documentElement.classList.add('dark')}catch(e){}`,
           }}
         />
       </head>

@@ -1,7 +1,6 @@
 ---
 title: "RNNs"
-publishedAt: "2017-03-06"
-dateBasis: "source event date; reconstructed post"
+publishedAt: "2017"
 summary: "RNNs"
 reviewDraft: "true"
 ---

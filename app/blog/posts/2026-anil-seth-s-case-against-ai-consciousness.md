@@ -1,7 +1,6 @@
 ---
 title: "Anil Seth’s case against AI consciousness"
-publishedAt: "2026-04-01"
-dateBasis: "source event date; reconstructed post"
+publishedAt: "2026"
 summary: "Anil Seth’s case against AI consciousness"
 reviewDraft: "true"
 ---

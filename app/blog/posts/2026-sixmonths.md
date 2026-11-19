@@ -1,7 +1,6 @@
 ---
 title: "sixmonths"
-publishedAt: "2026-09-16"
-dateBasis: "source event date; reconstructed post"
+publishedAt: "2026"
 summary: "sixmonths"
 reviewDraft: "true"
 ---

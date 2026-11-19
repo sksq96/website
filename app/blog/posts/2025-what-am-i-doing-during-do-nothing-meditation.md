@@ -1,7 +1,6 @@
 ---
 title: "What am I doing during “do nothing” meditation?"
-publishedAt: "2025-02-15"
-dateBasis: "approximate day; source month"
+publishedAt: "2025"
 summary: "What am I doing during “do nothing” meditation?"
 reviewDraft: "true"
 ---

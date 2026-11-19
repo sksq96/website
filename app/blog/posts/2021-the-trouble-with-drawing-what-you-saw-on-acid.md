@@ -1,7 +1,6 @@
 ---
 title: "the trouble with drawing what you saw on acid"
-publishedAt: "2021-04-15"
-dateBasis: "approximate day; source month"
+publishedAt: "2021"
 summary: "the trouble with drawing what you saw on acid"
 reviewDraft: "true"
 ---

@@ -1,7 +1,6 @@
 ---
 title: "teaching frontier language models at fractal"
-publishedAt: "2025-06-15"
-dateBasis: "approximate day; source month"
+publishedAt: "2025"
 summary: "teaching frontier language models at fractal"
 reviewDraft: "true"
 ---

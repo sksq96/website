@@ -1,7 +1,6 @@
 ---
 title: "On torchsummary"
-publishedAt: "2018-04-25"
-dateBasis: "source event date; reconstructed post"
+publishedAt: "2018"
 summary: "On torchsummary"
 reviewDraft: "true"
 ---

@@ -1,7 +1,6 @@
 ---
 title: "nietzsche and buddhism in the same week"
-publishedAt: "2023-08-04"
-dateBasis: "source event date; reconstructed post"
+publishedAt: "2023"
 summary: "nietzsche and buddhism in the same week"
 reviewDraft: "true"
 ---

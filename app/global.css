@@ -180,25 +180,3 @@ input[type='email'] {
   .writing-body pre { padding: 1rem; font-size: 12px; }
   .writing-body h2 { font-size: 23px; }
 }
-
-/* A quieter surface for long reading, independent of the rest of the site. */
-html:has(.writing-page, .writing-index) {
-  --bg: #faf9f6;
-  --fg: #353532;
-}
-html.dark:has(.writing-page, .writing-index) {
-  --bg: #252727;
-  --fg: #d7d7cf;
-}
-.writing-page { padding-top: 2rem; padding-bottom: 5rem; }
-.writing-title { font-size: clamp(29px, 3.5vw, 38px); font-weight: 550; line-height: 1.2; letter-spacing: -.025em; }
-.writing-meta { margin-bottom: 2.5rem; padding-bottom: 1.25rem; font-size: 13px; }
-.writing-body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif; font-size: 18px; line-height: 1.85; font-weight: 400; letter-spacing: .003em; }
-.writing-body > * + * { margin-top: 1.35em; }
-.writing-body :is(h2,h3,h4) { font-weight: 550; letter-spacing: -.015em; }
-.writing-body h2 { font-size: 24px; margin-top: 2.6em; }
-.writing-body h3 { font-size: 20px; }
-.writing-body strong { font-weight: 600; }
-.writing-provenance { margin-top: 4rem; padding-top: 1.25rem; border-top: 1px solid color-mix(in srgb, var(--fg) 13%, transparent); font-size: 12px; line-height: 1.6; font-weight: 400; color: color-mix(in srgb, var(--fg) 60%, var(--bg)); }
-.writing-index li a { font-weight: 400; text-decoration-color: color-mix(in srgb, var(--fg) 35%, transparent); }
-@media(max-width:600px) { .writing-page {padding-top:1rem} .writing-body {font-size:17px;line-height:1.85} .writing-title {font-size:30px} }

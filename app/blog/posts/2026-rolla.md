@@ -1,7 +1,6 @@
 ---
 title: "Rolla"
-publishedAt: "2026-09-05"
-dateBasis: "source event date; reconstructed post"
+publishedAt: "2026"
 summary: "Rolla"
 reviewDraft: "true"
 ---

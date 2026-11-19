@@ -1,7 +1,6 @@
 ---
 title: "when i d shoot jpeg"
-publishedAt: "2024-03-06"
-dateBasis: "source event date; reconstructed post"
+publishedAt: "2024"
 summary: "when i d shoot jpeg"
 reviewDraft: "true"
 ---

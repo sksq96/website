@@ -1,7 +1,6 @@
 ---
 title: "Twitter"
-publishedAt: "2026-11-12"
-dateBasis: "source event date; reconstructed post"
+publishedAt: "2026"
 summary: "Twitter"
 reviewDraft: "true"
 ---

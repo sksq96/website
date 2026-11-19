@@ -1,7 +1,6 @@
 ---
 title: "Mixture Density Networks"
-publishedAt: "2018-05-16"
-dateBasis: "source event date; reconstructed post"
+publishedAt: "2018"
 summary: "Mixture Density Networks"
 reviewDraft: "true"
 ---

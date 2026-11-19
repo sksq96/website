@@ -1,7 +1,6 @@
 ---
 title: "sound"
-publishedAt: "2026-09-18"
-dateBasis: "source event date; reconstructed post"
+publishedAt: "2026"
 summary: "sound"
 reviewDraft: "true"
 ---

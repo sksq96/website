@@ -1,7 +1,6 @@
 ---
 title: "cultural accumulation in reinforcement learning"
-publishedAt: "2024-06-15"
-dateBasis: "approximate day; source month"
+publishedAt: "2024"
 summary: "cultural accumulation in reinforcement learning"
 reviewDraft: "true"
 ---

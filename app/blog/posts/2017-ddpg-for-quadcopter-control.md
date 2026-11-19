@@ -1,7 +1,6 @@
 ---
 title: "Deep RL Quadcopter"
-publishedAt: "2017-12-27"
-dateBasis: "source event date; reconstructed post"
+publishedAt: "2017"
 summary: "Deep RL Quadcopter"
 reviewDraft: "true"
 ---

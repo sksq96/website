@@ -1,7 +1,6 @@
 ---
 title: "psychedelics and priors reading rebus"
-publishedAt: "2023-06-15"
-dateBasis: "approximate day; source month"
+publishedAt: "2023"
 summary: "psychedelics and priors reading rebus"
 reviewDraft: "true"
 ---

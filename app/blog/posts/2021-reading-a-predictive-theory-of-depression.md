@@ -1,7 +1,6 @@
 ---
 title: "Reading an Account of Depression as a Predictive Disorder"
-publishedAt: "2021-08-15"
-dateBasis: "approximate day; source month"
+publishedAt: "2021"
 summary: "Reading an Account of Depression as a Predictive Disorder"
 reviewDraft: "true"
 ---

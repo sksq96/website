@@ -1,7 +1,6 @@
 ---
 title: "Music I learned to love through someone else"
-publishedAt: "2023-07-01"
-dateBasis: "approximate placement; only year known"
+publishedAt: "2023"
 summary: "Music I learned to love through someone else"
 reviewDraft: "true"
 ---

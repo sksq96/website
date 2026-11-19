@@ -1,7 +1,6 @@
 ---
 title: "hue-films-render"
-publishedAt: "2026-09-26"
-dateBasis: "source event date; reconstructed post"
+publishedAt: "2026"
 summary: "hue-films-render"
 reviewDraft: "true"
 ---

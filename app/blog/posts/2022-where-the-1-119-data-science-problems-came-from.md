@@ -1,7 +1,6 @@
 ---
 title: "Where the 1,119 data science problems came from"
-publishedAt: "2022-01-15"
-dateBasis: "approximate day; source month"
+publishedAt: "2022"
 summary: "Where the 1,119 data science problems came from"
 reviewDraft: "true"
 ---

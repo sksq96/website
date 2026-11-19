@@ -1,7 +1,6 @@
 ---
 title: "Launch videos for Hue"
-publishedAt: "2026-10-23"
-dateBasis: "source event date; reconstructed post"
+publishedAt: "2026"
 summary: "Launch videos for Hue"
 reviewDraft: "true"
 ---

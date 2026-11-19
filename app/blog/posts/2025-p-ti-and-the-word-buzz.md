@@ -1,7 +1,6 @@
 ---
 title: "p ti and the word buzz"
-publishedAt: "2025-01-15"
-dateBasis: "approximate day; source month"
+publishedAt: "2025"
 summary: "p ti and the word buzz"
 reviewDraft: "true"
 ---

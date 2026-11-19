@@ -1,7 +1,6 @@
 ---
 title: "Which parts do I remember?"
-publishedAt: "2023-01-27"
-dateBasis: "source event date; reconstructed post"
+publishedAt: "2023"
 summary: "Which parts do I remember?"
 reviewDraft: "true"
 ---

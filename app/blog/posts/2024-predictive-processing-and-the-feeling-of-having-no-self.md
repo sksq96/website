@@ -1,7 +1,6 @@
 ---
 title: "Thoughts on predictive processing and the experience of feeling no self"
-publishedAt: "2024-07-15"
-dateBasis: "approximate day; source month"
+publishedAt: "2024"
 summary: "Thoughts on predictive processing and the experience of feeling no self"
 reviewDraft: "true"
 ---

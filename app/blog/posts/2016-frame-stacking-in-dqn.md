@@ -1,7 +1,6 @@
 ---
 title: "Summary"
-publishedAt: "2016-05-18"
-dateBasis: "source event date; reconstructed post"
+publishedAt: "2016"
 summary: "Summary"
 reviewDraft: "true"
 ---

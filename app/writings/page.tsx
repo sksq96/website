@@ -11,7 +11,7 @@ export const metadata = {
 export default function Page() {
   return (
     <CenteredContent>
-      <section className="writing-index">
+      <section>
         <PageHeading>writings</PageHeading>
         <BlogPosts />
       </section>

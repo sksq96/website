@@ -1,7 +1,6 @@
 ---
 title: "what i saved when i started keeping links"
-publishedAt: "2024-07-08"
-dateBasis: "source event date; reconstructed post"
+publishedAt: "2024"
 summary: "what i saved when i started keeping links"
 reviewDraft: "true"
 ---

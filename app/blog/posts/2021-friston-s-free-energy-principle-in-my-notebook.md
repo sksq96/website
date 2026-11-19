@@ -1,7 +1,6 @@
 ---
 title: "Just sharing my notes on Friston’s free energy principle"
-publishedAt: "2021-08-15"
-dateBasis: "approximate day; source month"
+publishedAt: "2021"
 summary: "Just sharing my notes on Friston’s free energy principle"
 reviewDraft: "true"
 ---

@@ -1,7 +1,6 @@
 ---
 title: "prediction error as an exploration reward"
-publishedAt: "2018-12-08"
-dateBasis: "source event date; reconstructed post"
+publishedAt: "2018"
 summary: "prediction error as an exploration reward"
 reviewDraft: "true"
 ---

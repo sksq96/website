@@ -1,7 +1,6 @@
 ---
 title: "What I wanted neuroscience to explain about deep learning"
-publishedAt: "2018-05-15"
-dateBasis: "approximate day; source month"
+publishedAt: "2018"
 summary: "What I wanted neuroscience to explain about deep learning"
 reviewDraft: "true"
 ---

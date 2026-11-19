@@ -1,7 +1,6 @@
 ---
 title: "the organ in the interstellar docking scene"
-publishedAt: "2025-05-15"
-dateBasis: "approximate day; source month"
+publishedAt: "2025"
 summary: "the organ in the interstellar docking scene"
 reviewDraft: "true"
 ---

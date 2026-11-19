@@ -1,7 +1,6 @@
 ---
 title: "Leigh Brasington on the feeling of the first jhana"
-publishedAt: "2021-08-27"
-dateBasis: "source event date; reconstructed post"
+publishedAt: "2021"
 summary: "Leigh Brasington on the feeling of the first jhana"
 reviewDraft: "true"
 ---

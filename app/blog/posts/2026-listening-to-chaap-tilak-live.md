@@ -1,7 +1,6 @@
 ---
 title: "Listening to Chaap Tilak live"
-publishedAt: "2026-05-15"
-dateBasis: "approximate day; source month"
+publishedAt: "2026"
 summary: "Listening to Chaap Tilak live"
 reviewDraft: "true"
 ---

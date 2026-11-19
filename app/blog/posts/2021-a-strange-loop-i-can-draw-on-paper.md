@@ -1,7 +1,6 @@
 ---
 title: "Stranger loop"
-publishedAt: "2021-03-15"
-dateBasis: "approximate day; source month"
+publishedAt: "2021"
 summary: "Stranger loop"
 reviewDraft: "true"
 ---

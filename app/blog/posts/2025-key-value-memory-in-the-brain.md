@@ -1,7 +1,6 @@
 ---
 title: "“Key–Value Memory” in the Brain: An ML Analogy More than Proven Neuroscience"
-publishedAt: "2025-01-15"
-dateBasis: "approximate day; source month"
+publishedAt: "2025"
 summary: "“Key–Value Memory” in the Brain: An ML Analogy More than Proven Neuroscience"
 reviewDraft: "true"
 ---

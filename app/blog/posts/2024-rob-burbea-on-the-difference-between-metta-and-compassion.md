@@ -1,7 +1,6 @@
 ---
 title: "The difference between metta and compassion"
-publishedAt: "2024-10-15"
-dateBasis: "approximate day; source month"
+publishedAt: "2024"
 summary: "The difference between metta and compassion"
 reviewDraft: "true"
 ---

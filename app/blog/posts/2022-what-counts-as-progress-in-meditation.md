@@ -1,7 +1,6 @@
 ---
 title: "What counts as progress in meditation?"
-publishedAt: "2022-10-15"
-dateBasis: "approximate day; source month"
+publishedAt: "2022"
 summary: "What counts as progress in meditation?"
 reviewDraft: "true"
 ---

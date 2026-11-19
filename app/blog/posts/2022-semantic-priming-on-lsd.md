@@ -1,7 +1,6 @@
 ---
 title: "What does it mean to say that psychedelics increase \"semantic priming\"?"
-publishedAt: "2022-01-31"
-dateBasis: "source event date; reconstructed post"
+publishedAt: "2022"
 summary: "What does it mean to say that psychedelics increase \"semantic priming\"?"
 reviewDraft: "true"
 ---

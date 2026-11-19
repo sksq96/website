@@ -1,7 +1,6 @@
 ---
 title: "magpie"
-publishedAt: "2026-11-05"
-dateBasis: "source event date; reconstructed post"
+publishedAt: "2026"
 summary: "magpie"
 reviewDraft: "true"
 ---

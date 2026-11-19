@@ -1,7 +1,6 @@
 ---
 title: "what gets lost translating the buddha"
-publishedAt: "2023-08-17"
-dateBasis: "source event date; reconstructed post"
+publishedAt: "2023"
 summary: "what gets lost translating the buddha"
 reviewDraft: "true"
 ---

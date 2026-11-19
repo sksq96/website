@@ -1,7 +1,6 @@
 ---
 title: "character"
-publishedAt: "2026-10-11"
-dateBasis: "source event date; reconstructed post"
+publishedAt: "2026"
 summary: "character"
 reviewDraft: "true"
 ---

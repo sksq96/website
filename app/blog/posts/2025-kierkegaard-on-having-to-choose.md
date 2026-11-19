@@ -1,7 +1,6 @@
 ---
 title: "On having to choose"
-publishedAt: "2025-08-11"
-dateBasis: "source event date; reconstructed post"
+publishedAt: "2025"
 summary: "On having to choose"
 reviewDraft: "true"
 ---

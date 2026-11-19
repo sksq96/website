@@ -1,7 +1,6 @@
 ---
 title: "Using pretrained language models to build a Jupyter notebook assistant"
-publishedAt: "2021-12-08"
-dateBasis: "source event date; reconstructed post"
+publishedAt: "2021"
 summary: "Using pretrained language models to build a Jupyter notebook assistant"
 reviewDraft: "true"
 ---

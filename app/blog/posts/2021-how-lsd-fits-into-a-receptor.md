@@ -1,7 +1,6 @@
 ---
 title: "how lsd fits into a receptor"
-publishedAt: "2021-04-15"
-dateBasis: "approximate day; source month"
+publishedAt: "2021"
 summary: "how lsd fits into a receptor"
 reviewDraft: "true"
 ---

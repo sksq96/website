@@ -1,7 +1,6 @@
 ---
 title: "Five ways to love, one size fits all"
-publishedAt: "2024-10-15"
-dateBasis: "approximate day; source month"
+publishedAt: "2024"
 summary: "Five ways to love, one size fits all"
 reviewDraft: "true"
 ---

@@ -1,7 +1,6 @@
 ---
 title: "the bike rental problem i reviewed at udacity"
-publishedAt: "2017-01-31"
-dateBasis: "source event date; reconstructed post"
+publishedAt: "2017"
 summary: "the bike rental problem i reviewed at udacity"
 reviewDraft: "true"
 ---

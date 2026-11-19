@@ -1,7 +1,6 @@
 ---
 title: "sksq96.github.io"
-publishedAt: "2023-12-29"
-dateBasis: "source event date; reconstructed post"
+publishedAt: "2023"
 summary: "sksq96.github.io"
 reviewDraft: "true"
 ---

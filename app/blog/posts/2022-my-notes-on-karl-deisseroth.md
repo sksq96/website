@@ -1,7 +1,6 @@
 ---
 title: "my notes on karl deisseroth"
-publishedAt: "2022-12-07"
-dateBasis: "source event date; reconstructed post"
+publishedAt: "2022"
 summary: "my notes on karl deisseroth"
 reviewDraft: "true"
 ---

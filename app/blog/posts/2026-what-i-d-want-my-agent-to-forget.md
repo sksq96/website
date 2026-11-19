@@ -1,7 +1,6 @@
 ---
 title: "What I’d want my agent to forget"
-publishedAt: "2026-07-15"
-dateBasis: "approximate day; source month"
+publishedAt: "2026"
 summary: "What I’d want my agent to forget"
 reviewDraft: "true"
 ---

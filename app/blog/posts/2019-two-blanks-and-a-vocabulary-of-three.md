@@ -1,7 +1,6 @@
 ---
 title: "Three Types of Grammars for Natural Languages"
-publishedAt: "2019-04-30"
-dateBasis: "source event date; reconstructed post"
+publishedAt: "2019"
 summary: "Three Types of Grammars for Natural Languages"
 reviewDraft: "true"
 ---

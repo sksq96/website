@@ -1,7 +1,6 @@
 ---
 title: "What a trip report can tell a stranger"
-publishedAt: "2024-12-15"
-dateBasis: "approximate day; source month"
+publishedAt: "2024"
 summary: "What a trip report can tell a stranger"
 reviewDraft: "true"
 ---

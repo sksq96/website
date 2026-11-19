@@ -1,7 +1,6 @@
 ---
 title: "building a food ordering environment for an llm"
-publishedAt: "2025-08-21"
-dateBasis: "source event date; reconstructed post"
+publishedAt: "2025"
 summary: "building a food ordering environment for an llm"
 reviewDraft: "true"
 ---

@@ -1,7 +1,6 @@
 ---
 title: "colorizing a photograph with vgg16"
-publishedAt: "2017-01-06"
-dateBasis: "source event date; reconstructed post"
+publishedAt: "2017"
 summary: "colorizing a photograph with vgg16"
 reviewDraft: "true"
 ---

@@ -1,7 +1,6 @@
 ---
 title: "BERT is not an equilibrium model"
-publishedAt: "2019-04-30"
-dateBasis: "source event date; reconstructed post"
+publishedAt: "2019"
 summary: "BERT is not an equilibrium model"
 reviewDraft: "true"
 ---

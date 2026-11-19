@@ -1,7 +1,6 @@
 ---
 title: "what does ego death describe"
-publishedAt: "2022-08-15"
-dateBasis: "approximate day; source month"
+publishedAt: "2022"
 summary: "what does ego death describe"
 reviewDraft: "true"
 ---

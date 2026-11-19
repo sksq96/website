@@ -1,7 +1,6 @@
 ---
 title: "i paid for nyu with udacity reviews"
-publishedAt: "2018-10-10"
-dateBasis: "source event date; reconstructed post"
+publishedAt: "2018"
 summary: "i paid for nyu with udacity reviews"
 reviewDraft: "true"
 ---

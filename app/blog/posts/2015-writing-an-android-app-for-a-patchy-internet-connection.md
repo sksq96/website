@@ -1,7 +1,6 @@
 ---
 title: "NetConnect: How my first project failed at its core aim"
-publishedAt: "2015-01-23"
-dateBasis: "source event date; reconstructed post"
+publishedAt: "2015"
 summary: "NetConnect: How my first project failed at its core aim"
 reviewDraft: "true"
 ---

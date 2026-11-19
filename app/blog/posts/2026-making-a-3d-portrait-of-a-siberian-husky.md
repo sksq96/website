@@ -1,7 +1,6 @@
 ---
 title: "Bunny in the Park"
-publishedAt: "2026-09-15"
-dateBasis: "approximate day; source month"
+publishedAt: "2026"
 summary: "Bunny in the Park"
 reviewDraft: "true"
 ---
