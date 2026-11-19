@@ -59,8 +59,8 @@ export default async function Blog({ params }: { params: Promise<{ slug: string 
   }
 
   return (
-    <section className="max-w-[46rem] mx-auto">
-      <a href="/writings" className="inline-block underline text-sm mb-8">← writings</a>
+    <section className="writing-page max-w-[46rem] mx-auto">
+      <a href="/writings" className="writing-back">← writings</a>
       <script
         type="application/ld+json"
         suppressHydrationWarning
@@ -83,13 +83,13 @@ export default async function Blog({ params }: { params: Promise<{ slug: string 
           }),
         }}
       />
-      <h1 className="title font-semibold text-2xl tracking-tighter">
+      <h1 className="writing-title">
         {post.metadata.title}
       </h1>
-      <div className="flex justify-between items-center mt-2 mb-8 text-sm">
-        <p className="text-sm text-neutral-600 dark:text-neutral-400">
+      <div className="writing-meta">
+        <time dateTime={post.metadata.publishedAt}>
           {formatDate(post.metadata.publishedAt)}
-        </p>
+        </time>
       </div>
       <article className="writing-body">
         <CustomMDX source={post.content} />
