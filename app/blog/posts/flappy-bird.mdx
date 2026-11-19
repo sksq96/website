@@ -1,10 +1,10 @@
 ---
 title: 'Writing a Flappy Bird bot with Deep Q-learning and TensorFlow'
-publishedAt: "2026-11-19"
+publishedAt: "2016-05-21"
 summary: "Writing a Flappy Bird bot with Deep Q-learning and TensorFlow."
 ---
 
-*(Note: I wrote this in Feb 2016)*
+*(Note: I wrote this in May 2016)*
 
 ![](https://imgs.xkcd.com/comics/machine_learning.png) *( [source](https://xkcd.com/1838/) )*
 
@@ -12,7 +12,9 @@ So I’m a 4th-year undergraduate at the moment, and a few weeks ago I stumbled 
 
 Flappy Bird is a game where you can only do one thing… “flap”, which makes you go up a bit.
 
-![](https://draft.f.cloud.github.com/assets/1300385/12761003/10cf611e-cb98-11e5-8f1c-3d8f439f5ff9.gif)
+![Flappy Bird game running from my repository.](/writings/flappy-bird/game.gif)
+
+*Game demo rendered from my repo with a simple scripted controller.*
 
 The aim is to keep the bird flying through the gaps between the pipes.
 
@@ -43,7 +45,9 @@ One of the things that was initially confusing to me was that a single frame isn
 
 To solve this, we use the last 4 frames as input to the network.
 
-![](https://draft.f.cloud.github.com/assets/1300385/12761161/c4a0c5f5-cbc0-11e5-8b36-8d42741b5d7d.png)
+![Four-frame convolutional network diagram from my repository README.](/writings/flappy-bird/cnn-arch.png)
+
+*The architecture diagram saved in my repo’s README.*
 
 The images are input in grayscale, and resized to 80x80 before they are fed into the network.
 
@@ -112,9 +116,11 @@ Last night, I decided to run the code for 10,000 episodes to see if it would tra
 
 It actually worked!
 
-![](https://draft.f.cloud.github.com/assets/1300385/12761131/c72a2908-cbba-11e5-8c16-c001cd4a5e6c.gif)
+![Four consecutive frames from the game in my repository.](/writings/flappy-bird/four-game-frames.png)
 
-The full code is available at: [https://github.com/yenchenlin/DeepLearningFlappyBird](https://github.com/yenchenlin/DeepLearningFlappyBird)
+*Four consecutive frames from a scripted run of the game.*
+
+The full code is available at: [https://github.com/sksq96/dqn-flappybird](https://github.com/sksq96/dqn-flappybird)
 
 It’s been a long few weeks, but I’m pretty hooked on deep learning now.
 
