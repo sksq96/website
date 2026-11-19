@@ -1,3 +1,4 @@
+import 'katex/dist/katex.min.css'
 import './global.css'
 import type { Metadata, Viewport } from 'next'
 import { Analytics } from '@vercel/analytics/react'

@@ -7,6 +7,22 @@ import { CodeBlock } from './code-block'
 
 hljs.registerLanguage('python', python)
 import React from 'react'
+import remarkMath from 'remark-math'
+import rehypeKatex from 'rehype-katex'
+
+// Imported Markdown escaped MDX braces; restore them only inside math nodes.
+function restoreMathEscapes() {
+  return (tree: any) => {
+    function visit(node: any) {
+      if (node.type === 'math' || node.type === 'inlineMath') {
+        node.value = node.value.replace(/&#123;/g, '{').replace(/&#125;/g, '}').replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&amp;/g, '&')
+        if (node.data?.hChildren?.[0]) node.data.hChildren[0].value = node.value
+      }
+      node.children?.forEach(visit)
+    }
+    visit(tree)
+  }
+}
 
 function Table({ data }: { data: { headers: string[]; rows: string[][] } }) {
   let headers = data.headers.map((header, index) => (
@@ -131,6 +147,7 @@ export function CustomMDX(props: any) {
     <MDXRemote
       {...props}
       components={components}
+      options={{ mdxOptions: { remarkPlugins: [remarkMath, restoreMathEscapes], rehypePlugins: [rehypeKatex] } }}
     />
   )
 }
