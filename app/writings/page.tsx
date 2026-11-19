@@ -1,5 +1,5 @@
 import { BlogPosts } from 'app/components/posts'
-import { WithSidebar } from 'app/components/sidebar'
+import { CenteredContent } from 'app/components/sidebar'
 
 export const metadata = {
   title: 'writings — shubham',
@@ -9,11 +9,11 @@ export const metadata = {
 
 export default function Page() {
   return (
-    <WithSidebar>
+    <CenteredContent>
       <section className="max-w-[48rem]">
         <h1 className="text-[24px] font-bold mb-8">writings</h1>
         <BlogPosts />
       </section>
-    </WithSidebar>
+    </CenteredContent>
   )
 }

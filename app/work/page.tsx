@@ -1,4 +1,4 @@
-import { WithSidebar } from '../components/sidebar'
+import { CenteredContent } from '../components/sidebar'
 import Tabs from '../components/tabs'
 import Projects from './projects'
 
@@ -54,7 +54,7 @@ const items: Item[] = [
 
 export default function Page() {
   return (
-    <WithSidebar>
+    <CenteredContent>
       <section className="max-w-[42rem]">
         <Tabs
           tabs={[
@@ -82,6 +82,6 @@ export default function Page() {
           ]}
         />
       </section>
-    </WithSidebar>
+    </CenteredContent>
   )
 }

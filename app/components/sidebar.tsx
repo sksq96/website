@@ -46,15 +46,10 @@ export function Contacts({ className = '' }: { className?: string }) {
   )
 }
 
-// photo and contacts on the left at desktop widths, hidden on phones
-export function WithSidebar({ children }: { children: React.ReactNode }) {
+export function CenteredContent({ children }: { children: React.ReactNode }) {
   return (
-    <div className="md:grid md:grid-cols-[24rem_minmax(0,1fr)] md:gap-x-8 md:items-start">
-      <aside className="hidden md:block space-y-4">
-        <Photo />
-        <Contacts />
-      </aside>
-      <div className="min-w-0">{children}</div>
+    <div className="w-full max-w-[64rem] mx-auto [&>*]:mx-auto">
+      {children}
     </div>
   )
 }

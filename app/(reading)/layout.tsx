@@ -1,6 +1,6 @@
-import { WithSidebar } from '../components/sidebar'
+import { CenteredContent } from '../components/sidebar'
 
-// the reading section keeps the site sidebar, like /work and /links
+// Keep reading pages centered at their individual reading widths.
 export default function Layout({ children }: { children: React.ReactNode }) {
-  return <WithSidebar>{children}</WithSidebar>
+  return <CenteredContent>{children}</CenteredContent>
 }

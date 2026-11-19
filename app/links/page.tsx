@@ -1,7 +1,7 @@
 import LinksClient from './links-client'
 import Curated from './curated'
 import Tabs from '../components/tabs'
-import { WithSidebar } from '../components/sidebar'
+import { CenteredContent } from '../components/sidebar'
 
 export const metadata = {
   title: 'links',
@@ -10,7 +10,7 @@ export const metadata = {
 
 export default function Page() {
   return (
-    <WithSidebar>
+    <CenteredContent>
       <section className="max-w-[42rem]">
         <h1 className="font-bold text-[18px] mb-2">Links</h1>
         <p className="mb-8 text-[18px] leading-[1.5]">
@@ -24,6 +24,6 @@ export default function Page() {
           ]}
         />
       </section>
-    </WithSidebar>
+    </CenteredContent>
   )
 }

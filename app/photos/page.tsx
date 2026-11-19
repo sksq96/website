@@ -30,7 +30,7 @@ export default function Page() {
   }
 
   return (
-    <section>
+    <section className="w-full max-w-[96rem] mx-auto">
       {photos.length === 0 ? (
         <p className="text-[15px] text-neutral-500">Coming soon.</p>
       ) : (

@@ -59,7 +59,7 @@ export default function RootLayout({
       </head>
       <body className="antialiased">
         <Header />
-        <main className="p-5 pt-2 md:p-6 md:pt-3 md:pr-16 pb-20">
+        <main className="p-5 pt-2 md:p-6 md:pt-3 pb-20">
           {children}
         </main>
         <PostHog />
