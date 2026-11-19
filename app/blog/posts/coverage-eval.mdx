@@ -46,7 +46,7 @@ Language models are being used to generate software tests. The generated tests a
 
 ## Our benchmark: COVERAGEEVAL
 
-In this blog post, I introduce a new benchmark called COVERAGEEVAL to evaluate language models’ ability to reason about code coverage. It’s a simple benchmark that consists of 2000 examples, each of which is a Python function from HumanEval and a test case. For each example, the model’s task is to predict which lines of code are covered by the test case.
+With Michele Tufano, Anisha Agarwal, Neel Sundaresan, and Colin Clement, I worked on COVERAGEEVAL to evaluate language models’ ability to reason about code coverage. It starts from HumanEval programs and tests; the experiments use 478 nontrivial test cases after filtering. For each example, the model’s task is to predict which lines of code are covered by the test case.
 
 ## How we created COVERAGEEVAL
 
@@ -58,156 +58,10 @@ To get the ground truth coverage for a test case, we run the test case and use a
 
 Each example in COVERAGEEVAL is a test case in HumanEval. The model’s task is to predict which lines of code are covered by the test case.
 
-Here is an example prompt:
-
-```python
-def numerical_letter_grade(grades):
-    """
-    It is the last week of the semester and the teacher has to give grades to
-    students. The teacher has been creating her own algorithm for grading.
-    The only problem is, she has lost the code she used for grading.
-    She has given you a list of GPAs of some students and you have to write
-    a function that can output a letter grade based on the following table:
-
-    GPA       |    Letter grade
-    4.0                A+
-    > 3.7               A
-    > 3.3               A-
-    > 3.0               B+
-    > 2.7               B
-    > 2.3               B-
-    > 2.0               C+
-    > 1.7               C
-    > 1.3               C-
-    > 1.0               D+
-    > 0.7               D
-    > 0.0               D-
-    0.0                E
-
-
-    Example:
-    grade_equation([4.0, 3, 1.7, 2, 3.5]) = ['A+', 'B', 'C-', 'C', 'A-']
-    """
-    letter_grade = []
-    for gpa in grades:
-        if gpa == 4.0:
-            letter_grade.append("A+")
-        elif gpa > 3.7:
-            letter_grade.append("A")
-        elif gpa > 3.3:
-            letter_grade.append("A-")
-        elif gpa > 3.0:
-            letter_grade.append("B+")
-        elif gpa > 2.7:
-            letter_grade.append("B")
-        elif gpa > 2.3:
-            letter_grade.append("B-")
-        elif gpa > 2.0:
-            letter_grade.append("C+")
-        elif gpa > 1.7:
-            letter_grade.append("C")
-        elif gpa > 1.3:
-            letter_grade.append("C-")
-        elif gpa > 1.0:
-            letter_grade.append("D+")
-        elif gpa > 0.7:
-            letter_grade.append("D")
-        elif gpa > 0.0:
-            letter_grade.append("D-")
-        else:
-            letter_grade.append("E")
-    return letter_grade
-
-assert numerical_letter_grade([4.0, 3, 1.7, 2, 3.5]) == ['A+', 'B', 'C-', 'C', 'A-']
-```
-
-This is a function `numerical_letter_grade` that takes a list of GPAs and returns a list of letter grades. The test case is `numerical_letter_grade([4.0, 3, 1.7, 2, 3.5])`.
-
-The model is asked to predict which lines of code are covered by the test case. We use `+` to denote the lines that are covered by the test case.
-
-The ground truth coverage for this test case is:
-
-```python
-+def numerical_letter_grade(grades):
-    """
-    It is the last week of the semester and the teacher has to give grades to
-    students. The teacher has been creating her own algorithm for grading.
-    The only problem is, she has lost the code she used for grading.
-    She has given you a list of GPAs of some students and you have to write
-    a function that can output a letter grade based on the following table:
-
-    GPA       |    Letter grade
-    4.0                A+
-    > 3.7               A
-    > 3.3               A-
-    > 3.0               B+
-    > 2.7               B
-    > 2.3               B-
-    > 2.0               C+
-    > 1.7               C
-    > 1.3               C-
-    > 1.0               D+
-    > 0.7               D
-    > 0.0               D-
-    0.0                E
-
-
-    Example:
-    grade_equation([4.0, 3, 1.7, 2, 3.5]) = ['A+', 'B', 'C-', 'C', 'A-']
-    """
-+    letter_grade = []
-+    for gpa in grades:
-+        if gpa == 4.0:
-+            letter_grade.append("A+")
-+        elif gpa > 3.7:
-            letter_grade.append("A")
-+        elif gpa > 3.3:
-+            letter_grade.append("A-")
-+        elif gpa > 3.0:
-            letter_grade.append("B+")
-+        elif gpa > 2.7:
-+            letter_grade.append("B")
-            letter_grade.append("B-")
-+        elif gpa > 2.0:
-            letter_grade.append("C+")
-+        elif gpa > 1.7:
-            letter_grade.append("C")
-        elif gpa > 1.3:
-+            letter_grade.append("C-")
-        elif gpa > 1.0:
-            letter_grade.append("D+")
-        elif gpa > 0.7:
-            letter_grade.append("D")
-        elif gpa > 0.0:
-            letter_grade.append("D-")
-        else:
-            letter_grade.append("E")
-+    return letter_grade
-```
-
-We use the F1 score to measure the correctness of the predicted coverage.
+The small example above shows the task: given the function and a particular input, predict the executed statements. We evaluate exact matches, statement correctness, and branch correctness.
 
 ## Results
 
-We evaluate GPT3.5 and GPT4 on COVERAGEEVAL.
+We evaluate GPT-4, GPT-3.5, Bard, and Claude. In the paper’s multi-shot setting, GPT-4 reaches 90.5% statement correctness, but only 30.04% exact matches and 22.5% branch correctness. Getting many individual statements right is different from getting the whole execution right.
 
-<table><thead><tr><th>Model</th><th>0-shot</th><th>1-shot</th><th>2-shot</th><th>3-shot</th></tr></thead><tbody><tr><td>GPT-3.5</td><td>69.8</td><td>72.3</td><td>73.4</td><td>73.8</td></tr><tr><td>GPT-4</td><td>78.4</td><td>80.2</td><td>79.2</td><td>80.0</td></tr></tbody></table>
-We find that GPT4 performs much better than GPT3.5 and that 1-shot prompting is the most effective.
-
-## Error analysis
-
-One common failure mode is that the model predicts a line is covered when it is not. For example, in the example above, the model predicted that the following line is covered:
-
-```python
-elif gpa > 2.7:
-    letter_grade.append("B")
-    letter_grade.append("B-")
-```
-
-But the line `letter_grade.append("B-")` is not covered.
-
-## Conclusion
-
-In this blog post, I introduced a new benchmark called COVERAGEEVAL to evaluate language models’ ability to reason about code coverage. I hope this benchmark will help us better understand language models’ ability to reason about code and that it will be useful for future research.
-
-If you are interested in this benchmark, please check out the GitHub repository for more details.
+The [paper](https://arxiv.org/abs/2307.13383) has the full experiment settings and results. The [code and benchmark are on GitHub](https://github.com/microsoft/coverage-eval).

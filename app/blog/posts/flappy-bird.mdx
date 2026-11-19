@@ -16,13 +16,18 @@ The idea is, in any given state of the game, the bird has two actions to choose 
 
 But, what is state in FlappyBird? It can't be just one frame. If it was one frame, it would be impossible to know if the bird is going up or down. We need to know if the bird is going up or down in order to make a better prediction of what action to take. Fortunately, it is possible to use multiple frames to represent the state, and that's exactly what the code does. It uses 4 frames to represent a state.
 
-Here's how the 4 frames look like:
+Here's how the 4 frames look:
+
+![Four frames representing the game state](/writings/flappy-bird/four-game-frames.png)
 
 So the computer just plays the game and learns from it. How does it learn from it? When it crashes the bird or hit the pipe, it gets a negative reward. When it gets a point, it gets a positive reward. That's how it learns to get as many points as possible.
 
-It takes some time for it to learn, and no matter how you train your network, there is always a chance that it crashes the bird. The whole code is shown below:
+It takes some time for it to learn, and no matter how you train your network, there is always a chance that it crashes the bird. Here is the image-processing helper:
 
 ```python
+import cv2
+import numpy as np
+
 def image_reshape(image_data, prev=None, first=False):
     image_data = cv2.cvtColor(cv2.resize(image_data, (80, 80)), cv2.COLOR_BGR2GRAY)
     _, image_data = cv2.threshold(image_data,1,255,cv2.THRESH_BINARY | cv2.THRESH_OTSU)
@@ -34,36 +39,14 @@ def image_reshape(image_data, prev=None, first=False):
         return np.append(image_data, prev[:, :, :3], axis=2)
 
 
-    image_data, readout = create_network()
-    readout_action = tf.reduce_sum(tf.mul(readout, a), reduction_indices = 1)
-    cost = tf.reduce_mean(tf.square(y - readout_action))
-
-    optimizer = tf.train.AdamOptimizer(LEARNING_RATE).minimize(cost)
-            state_next_batch = [memory[3] for memory in minibatch]
-
-            y_batch = []
-            readout_batch = readout.eval(feed_dict = {image_data: state_next_batch})
-            for i, (state, action, reward, state_next, terminal) in enumerate(minibatch):
-                if terminal:
-                    y_batch.append(reward)
-                else:
-                    y_batch.append(reward + GAMMA * np.max(readout_batch[i]))
-
-            optimizer.run(feed_dict = {
-                image_data: state_batch,
-                a: action_batch,
-                y: y_batch
-            })
 ```
 
 I know this was a long post, but I really hope I managed to make it clear enough for you to understand.
 
-The code is available on my Github here: [FlappyBird-DeepLearning](https://github.com/sksq96/dqn-flappybird)
+The code is available on my Github here: [dqn-flappybird](https://github.com/sksq96/dqn-flappybird)
 
-My thoughts on deep learning
+## My thoughts on deep learning
 
 I'm completely hooked on deep learning. I feel like this is the future of computing, where we teach computers to learn and make decisions without us actually telling them how exactly to make the decision. We give them the data and the computer trains itself from it. I am starting to get an interest in deep learning and I want to know more about it. I will try to spend some time during the summer to learn more.
 
 ![Flappy Bird game](/writings/flappy-bird/game.gif)
-
-[GitHub repository](https://github.com/sksq96/dqn-flappybird)

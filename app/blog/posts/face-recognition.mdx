@@ -18,7 +18,7 @@ To find the location of faces in the image, I used the standard [Viola-Jones](ht
 
 In order to align the faces, I used the standard [FaceNet](https://arxiv.org/pdf/1503.03832v1.pdf) procedure of aligning the outer eyes and nose with similar fixed points in a 96x96 crop of the image.
 
-For representing the faces, I used the [OpenFace](https://arxiv.org/pdf/1602.02896.pdf) network to actually compute the 128-dimensional representation. The network is trained in a way that the same person is closer to each other in the 128-dimensional space than two different person.
+For representing the faces, I used the [OpenFace](https://www.cs.cmu.edu/~satya/docdir/CMU-CS-16-118.pdf) network to actually compute the 128-dimensional representation. The network is trained in a way that the same person is closer to each other in the 128-dimensional space than two different person.
 
 ## Clustering
 

@@ -32,7 +32,7 @@ But what happens if we swap x and y, i.e. if we want to predict y given x?
 
 ```
 # Swap x and y
-x_data, y_data = y_data, x_data
+x_data, y_data = y_data.view(-1, 1), x_data.view(-1, 1)
 
 plt.figure(figsize=(8, 8))
 plt.scatter(x_data, y_data, alpha=0.4)

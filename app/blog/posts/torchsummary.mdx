@@ -4,55 +4,13 @@ publishedAt: "2018-04-24"
 summary: "pytorch-summary"
 ---
 
-I can't believe I'm making this an entry on my blog, but since this is the first open-source project I'm putting out, I think it's worth writing a few words on it. If you googled or landed here, and just want the code, you can go direct to the [github repo](https://github.com/sksq96/pytorch-summary) right away.
+I can't believe I'm making this an entry on my blog, but since this little tool is getting attention, I think it's worth writing a few words on it. If you googled or landed here, and just want the code, you can go direct to the [github repo](https://github.com/sksq96/pytorch-summary) right away.
 
 I've been using PyTorch for a few months now for my research, and I've really enjoyed reading the code for the library, and the way it makes code and experiments so much more transparent and flexible. However, coming from Keras, I just really missed the `model.summary()` function. I was working on a VAE for my World Models project, and was getting a lot of shape errors, and I just wanted a quick way to see the output shapes of each layer. One evening, I hacked together a simple function to do this (originally motivated and based on [this post](https://discuss.pytorch.org/t/summarizing-a-pytorch-model/508)), and decided to put it up on github and PyPi.
 
-The code itself is fairly straightforward. If you're unfamiliar with Pytorch, the main idea is that you have a class called `model`, which is a bunch of layers strung together, that performs calculations on your raw input data to make a prediction. This is the forward pass, and it's key to PyTorch's design (go read [this](https://medium.com/@smpanigrahy/accelerated-deep-learning-with-pytorch-part-3-forward-backward-propagation-model-training-5a9e8f049f93) if you're intrigued). Right before the forward pass happens, we can actually register a forward hook on each layer so that when the forward pass happens, we can also get the output shape and parameters of each layer.
+The code itself is fairly straightforward. If you're unfamiliar with Pytorch, the main idea is that you have a class called `model`, which is a bunch of layers strung together, that performs calculations on your raw input data to make a prediction. This is the forward pass, and it's key to PyTorch's design (go read [this](https://docs.pytorch.org/docs/stable/generated/torch.nn.Module.html#torch.nn.Module.register_forward_hook) if you're intrigued). Right before the forward pass happens, we can actually register a forward hook on each layer so that when the forward pass happens, we can also get the output shape and parameters of each layer.
 
-```python
-def summary(model, input_size):
-  def register_hook(module):
-	def hook(module, input, output):
-
-	  class_name = str(module.__class__).split('.')[-1].split("'")[0]
-	  module_idx = len(summary)
-
-	  m_key = '%s-%i' % (class_name, module_idx+1)
-	  summary[m_key] = OrderedDict()
-
-	  # get output shape
-	  summary[m_key]['input_shape'] = list(input[0].size())
-	  summary[m_key]['output_shape'] = list(output.size())
-
-	  # get number of parameters
-	  params = 0
-	  if hasattr(module, 'weight'):
-		  params += torch.prod(torch.LongTensor(list(module.weight.size())))
-	  summary[m_key]['nb_params'] = params
-
-  if not isinstance(module, nn.Sequential) and \
-	 not isinstance(module, nn.ModuleList) and \
-	 not (module == model):
-	hooks.append(module.register_forward_hook(hook))
-
-  # create properties
-  summary = OrderedDict()
-  hooks = []
-
-  # register hook
-  model.apply(register_hook)
-
-  # make a forward pass
-  model(x)
-
-  # remove these hooks
-  for h in hooks:
-	  h.remove()
-```
-
-All we do is write a hook for each layer that registers the output shape and parameters, register the hooks, make a forward pass, and then remove the hooks. You can see what a summary looks like here:
-
+All we do is write a hook for each layer that records the output shape and parameter count, register the hooks, make a forward pass, and then remove the hooks. The [implementation and example output are in the repo](https://github.com/sksq96/pytorch-summary).
 
 It feels weird that people find my repo useful, and I'm amazed at how quickly they've been contributing and filing issues. For example, right after I pushed the code, peakashu submitted a PR fixing a typo in the header on my README.md, just a few hours after I put up the repo.
 

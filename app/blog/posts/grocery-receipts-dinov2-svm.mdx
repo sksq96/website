@@ -4,20 +4,20 @@ publishedAt: "2024-01"
 summary: "Classifying grocery receipts with DINOv2 and an SVM"
 ---
 
-I was working at Truve recently and we wanted to test out leveraging large vision models to classify grocery receipt to detect fraudulent receipts. To test this out, I scraped ~1,000 grocery receipts off Twitter and trained a simple classifier on the images. I'll go through the process of training and inference. If you want to try it out yourself, you can clone the code here:
+I was working at Truve recently and we wanted to test out leveraging large vision models to classify grocery receipt to detect fraudulent receipts. To test this out, I scraped ~1,000 grocery receipts off Twitter and trained a simple classifier on the images. I'll go through the process of training and inference. If you want to try it out yourself, you can [clone the code here](https://github.com/sksq96/receipt-fraud-detection).
 
 ## Training
 
 I'm leveraging two models to build a classifier to classify grocery receipts.
 
-First, I'm using the DINOv2 model as an image feature extractor. This model will process the input images and produce embeddings, which capture the essential features of the images. I'm using the largest ViT to test out if it's possible to build a performant classifier.
+First, I'm using the DINOv2 model as an image feature extractor. This model will process the input images and produce embeddings, which capture the essential features of the images. I'm using the small ViT model, which produces a 384-dimensional feature vector.
 
-Second, I'm using a Support Vector Machine (SVM) with a linear kernel as the classifier. The SVM is trained on the embeddings produced by the DINOv2 model. There's probably a better choice here but I wanted to go with something simple that wouldn't overfit.
+Second, I'm using a Support Vector Machine (SVM) with an RBF kernel as the classifier. The SVM is trained on the embeddings produced by the DINOv2 model. There's probably a better choice here but I wanted to go with something simple that wouldn't overfit.
 
 Here's how the training process looks like. First, load up the DINOv2 model:
 
 ```python
-dino = torch.hub.load('facebookresearch/dinov2', 'dinov2_vitg14')
+dino = torch.hub.load('facebookresearch/dinov2', 'dinov2_vits14')
 dino.eval()
 ```
 
@@ -25,25 +25,27 @@ Then, for each image, I'm converting it into a PIL object, applying the DINOv2 t
 
 ```python
 img = Image.open('img.jpg')
-img = transforms(img)
-embedding = dino(img).squeeze(0).detach().numpy()
+img = transforms(img).unsqueeze(0)
+with torch.no_grad():
+    embedding = dino(img).squeeze(0).cpu().numpy()
 ```
 
 Once I have the feature vectors, I'm using them to train an SVM model:
 
 ```python
-clf = SVC(kernel='linear', C=1.0, random_state=42)
+clf = SVC(gamma='scale', probability=True)
 clf.fit(X, y)
 ```
 
 ## Inference
 
-Once the model is trained, I can use it to predict whether a new, unseen image is a grocery receipt or not. I'll use the same DINOv2 model as a feature extractor, and then pass the extracted features to the trained SVM.
+Once the model is trained, I can use it to predict whether a new receipt is classified as fraudulent or not. I'll use the same DINOv2 model as a feature extractor, and then pass the extracted features to the trained SVM.
 
 ```python
 img = Image.open('img.jpg')
-img = transforms(img)
-embedding = dino(img).squeeze(0).detach().numpy()
+img = transforms(img).unsqueeze(0)
+with torch.no_grad():
+    embedding = dino(img).squeeze(0).cpu().numpy()
 prediction = clf.predict(embedding.reshape(1, -1))[0]
 ```
 
