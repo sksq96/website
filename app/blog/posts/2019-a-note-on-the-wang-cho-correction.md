@@ -1,6 +1,7 @@
 ---
 title: "BERT, as a Generative Model"
-publishedAt: "2019"
+publishedAt: "2019-05-05"
+dateBasis: "source event date; reconstructed post"
 summary: "BERT, as a Generative Model"
 reviewDraft: "true"
 ---

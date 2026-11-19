@@ -1,6 +1,7 @@
 ---
 title: "nucleus sampling for synthetic questions"
-publishedAt: "2020"
+publishedAt: "2020-07-15"
+dateBasis: "approximate day; source month"
 summary: "nucleus sampling for synthetic questions"
 reviewDraft: "true"
 ---

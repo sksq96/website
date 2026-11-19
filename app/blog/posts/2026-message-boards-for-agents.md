@@ -1,6 +1,7 @@
 ---
 title: "message boards for agents"
-publishedAt: "2026"
+publishedAt: "2026-09-15"
+dateBasis: "approximate day; source month"
 summary: "message boards for agents"
 reviewDraft: "true"
 ---

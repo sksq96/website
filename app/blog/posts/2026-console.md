@@ -1,6 +1,7 @@
 ---
 title: "console"
-publishedAt: "2026"
+publishedAt: "2026-09-08"
+dateBasis: "source event date; reconstructed post"
 summary: "console"
 reviewDraft: "true"
 ---

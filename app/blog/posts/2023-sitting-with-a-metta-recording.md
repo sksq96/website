@@ -1,6 +1,7 @@
 ---
 title: "Sitting with a metta recording"
-publishedAt: "2023"
+publishedAt: "2023-01-17"
+dateBasis: "source event date; reconstructed post"
 summary: "Sitting with a metta recording"
 reviewDraft: "true"
 ---

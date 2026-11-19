@@ -1,6 +1,7 @@
 ---
 title: "When I first heard a neuron fire"
-publishedAt: "2016"
+publishedAt: "2016-12-06"
+dateBasis: "source event date; reconstructed post"
 summary: "When I first heard a neuron fire"
 reviewDraft: "true"
 ---

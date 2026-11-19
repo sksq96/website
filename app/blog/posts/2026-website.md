@@ -1,6 +1,7 @@
 ---
 title: "Website"
-publishedAt: "2026"
+publishedAt: "2026-09-08"
+dateBasis: "source event date; reconstructed post"
 summary: "Website"
 reviewDraft: "true"
 ---

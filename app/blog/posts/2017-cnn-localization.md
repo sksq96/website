@@ -1,6 +1,7 @@
 ---
 title: "Object Detection and Localization - finetuning a Classification Model"
-publishedAt: "2017"
+publishedAt: "2017-04-24"
+dateBasis: "source event date; reconstructed post"
 summary: "Object Detection and Localization - finetuning a Classification Model"
 reviewDraft: "true"
 ---

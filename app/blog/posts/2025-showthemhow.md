@@ -1,6 +1,7 @@
 ---
 title: "showthemhow"
-publishedAt: "2025"
+publishedAt: "2025-02-23"
+dateBasis: "source event date; reconstructed post"
 summary: "showthemhow"
 reviewDraft: "true"
 ---

@@ -1,6 +1,7 @@
 ---
 title: "flappy bird was my introduction to deep learning"
-publishedAt: "2016"
+publishedAt: "2016-05-18"
+dateBasis: "source event date; reconstructed post"
 summary: "flappy bird was my introduction to deep learning"
 reviewDraft: "true"
 ---

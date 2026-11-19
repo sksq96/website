@@ -1,6 +1,7 @@
 ---
 title: "Flowchart creator for DNASeq Pipelines"
-publishedAt: "2016"
+publishedAt: "2016-03-16"
+dateBasis: "source event date; reconstructed post"
 summary: "Flowchart creator for DNASeq Pipelines"
 reviewDraft: "true"
 ---

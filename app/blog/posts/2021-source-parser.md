@@ -1,6 +1,7 @@
 ---
 title: "source-parser"
-publishedAt: "2021"
+publishedAt: "2021-07-01"
+dateBasis: "approximate placement; only year known"
 summary: "source-parser"
 reviewDraft: "true"
 ---

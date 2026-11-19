@@ -1,6 +1,7 @@
 ---
 title: "Canto"
-publishedAt: "2026"
+publishedAt: "2026-11-05"
+dateBasis: "source event date; reconstructed post"
 summary: "Canto"
 reviewDraft: "true"
 ---

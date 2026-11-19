@@ -1,6 +1,7 @@
 ---
 title: "Rob Burbea’s “energy body”"
-publishedAt: "2023"
+publishedAt: "2023-08-15"
+dateBasis: "approximate day; source month"
 summary: "Rob Burbea’s “energy body”"
 reviewDraft: "true"
 ---

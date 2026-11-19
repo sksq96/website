@@ -1,6 +1,7 @@
 ---
 title: "nyu nlp"
-publishedAt: "2018"
+publishedAt: "2018-10-10"
+dateBasis: "source event date; reconstructed post"
 summary: "nyu nlp"
 reviewDraft: "true"
 ---

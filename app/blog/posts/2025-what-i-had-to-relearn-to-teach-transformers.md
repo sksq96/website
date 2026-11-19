@@ -1,6 +1,7 @@
 ---
 title: "what i had to relearn to teach transformers"
-publishedAt: "2025"
+publishedAt: "2025-06-15"
+dateBasis: "approximate day; source month"
 summary: "what i had to relearn to teach transformers"
 reviewDraft: "true"
 ---

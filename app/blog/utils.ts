@@ -7,6 +7,7 @@ type Metadata = {
   summary: string
   image?: string
   draft?: string
+  dateBasis?: string
   reviewDraft?: string
 }
 

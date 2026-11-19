@@ -1,6 +1,7 @@
 ---
 title: "building the exodia website"
-publishedAt: "2015"
+publishedAt: "2015-05-29"
+dateBasis: "source event date; reconstructed post"
 summary: "building the exodia website"
 reviewDraft: "true"
 ---

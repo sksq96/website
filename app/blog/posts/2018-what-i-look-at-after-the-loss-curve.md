@@ -1,6 +1,7 @@
 ---
 title: "what i look at after the loss curve"
-publishedAt: "2018"
+publishedAt: "2018-12-15"
+dateBasis: "approximate day; source month"
 summary: "what i look at after the loss curve"
 reviewDraft: "true"
 ---

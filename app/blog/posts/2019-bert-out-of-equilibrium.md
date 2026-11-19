@@ -1,6 +1,7 @@
 ---
 title: "BERT out of equilibrium"
-publishedAt: "2019"
+publishedAt: "2019-04-30"
+dateBasis: "source event date; reconstructed post"
 summary: "BERT out of equilibrium"
 reviewDraft: "true"
 ---

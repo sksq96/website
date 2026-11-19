@@ -1,6 +1,7 @@
 ---
 title: "Reading about MDMA alone"
-publishedAt: "2025"
+publishedAt: "2025-05-15"
+dateBasis: "approximate day; source month"
 summary: "Reading about MDMA alone"
 reviewDraft: "true"
 ---

@@ -1,6 +1,7 @@
 ---
 title: "On Synesthesia"
-publishedAt: "2025"
+publishedAt: "2025-10-15"
+dateBasis: "approximate day; source month"
 summary: "On Synesthesia"
 reviewDraft: "true"
 ---

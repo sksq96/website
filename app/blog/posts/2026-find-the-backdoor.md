@@ -1,6 +1,7 @@
 ---
 title: "find the backdoor"
-publishedAt: "2026"
+publishedAt: "2026-11-12"
+dateBasis: "source event date; reconstructed post"
 summary: "find the backdoor"
 reviewDraft: "true"
 ---

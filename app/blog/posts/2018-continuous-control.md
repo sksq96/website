@@ -1,6 +1,7 @@
 ---
 title: "continuous control"
-publishedAt: "2018"
+publishedAt: "2018-08-07"
+dateBasis: "source event date; reconstructed post"
 summary: "continuous control"
 reviewDraft: "true"
 ---

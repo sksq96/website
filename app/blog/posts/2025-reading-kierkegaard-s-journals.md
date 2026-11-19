@@ -1,6 +1,7 @@
 ---
 title: "Kierkegaard and journaling"
-publishedAt: "2025"
+publishedAt: "2025-01-27"
+dateBasis: "source event date; reconstructed post"
 summary: "Kierkegaard and journaling"
 reviewDraft: "true"
 ---

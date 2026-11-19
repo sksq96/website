@@ -1,6 +1,7 @@
 ---
 title: "Classifying grocery receipts with DINOv2 and an SVM"
-publishedAt: "2024"
+publishedAt: "2024-01-26"
+dateBasis: "source event date; reconstructed post"
 summary: "Classifying grocery receipts with DINOv2 and an SVM"
 reviewDraft: "true"
 ---

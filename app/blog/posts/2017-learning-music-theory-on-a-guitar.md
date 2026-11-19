@@ -1,6 +1,7 @@
 ---
 title: "learning music theory on a guitar"
-publishedAt: "2017"
+publishedAt: "2017-03-15"
+dateBasis: "approximate day; source month"
 summary: "learning music theory on a guitar"
 reviewDraft: "true"
 ---

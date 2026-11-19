@@ -1,6 +1,7 @@
 ---
 title: "how i write about depression"
-publishedAt: "2023"
+publishedAt: "2023-01-29"
+dateBasis: "source event date; reconstructed post"
 summary: "how i write about depression"
 reviewDraft: "true"
 ---

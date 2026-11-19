@@ -1,6 +1,7 @@
 ---
 title: "two ways of describing the same jhana"
-publishedAt: "2021"
+publishedAt: "2021-12-02"
+dateBasis: "source event date; reconstructed post"
 summary: "two ways of describing the same jhana"
 reviewDraft: "true"
 ---

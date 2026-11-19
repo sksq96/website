@@ -1,6 +1,7 @@
 ---
 title: "tu kisi rail si guzarti hai live"
-publishedAt: "2025"
+publishedAt: "2025-10-07"
+dateBasis: "source event date; reconstructed post"
 summary: "tu kisi rail si guzarti hai live"
 reviewDraft: "true"
 ---

@@ -1,6 +1,7 @@
 ---
 title: "What if you dream, but you dream jhana?"
-publishedAt: "2024"
+publishedAt: "2024-02-15"
+dateBasis: "approximate day; source month"
 summary: "What if you dream, but you dream jhana?"
 reviewDraft: "true"
 ---

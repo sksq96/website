@@ -1,6 +1,7 @@
 ---
 title: "building a terminal agent"
-publishedAt: "2025"
+publishedAt: "2025-03-08"
+dateBasis: "source event date; reconstructed post"
 summary: "building a terminal agent"
 reviewDraft: "true"
 ---

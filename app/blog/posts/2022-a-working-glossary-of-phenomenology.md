@@ -1,6 +1,7 @@
 ---
 title: "Mapping the Phenomenological Territory"
-publishedAt: "2022"
+publishedAt: "2022-12-15"
+dateBasis: "approximate day; source month"
 summary: "Mapping the Phenomenological Territory"
 reviewDraft: "true"
 ---

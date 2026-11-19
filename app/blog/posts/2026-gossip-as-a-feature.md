@@ -1,6 +1,7 @@
 ---
 title: "Gossip as a feature"
-publishedAt: "2026"
+publishedAt: "2026-10-15"
+dateBasis: "approximate day; source month"
 summary: "Gossip as a feature"
 reviewDraft: "true"
 ---

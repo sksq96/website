@@ -1,6 +1,7 @@
 ---
 title: "Teach a Quadcopter How to Fly"
-publishedAt: "2017"
+publishedAt: "2017-12-27"
+dateBasis: "source event date; reconstructed post"
 summary: "Teach a Quadcopter How to Fly"
 reviewDraft: "true"
 ---

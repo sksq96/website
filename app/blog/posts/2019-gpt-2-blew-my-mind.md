@@ -1,6 +1,7 @@
 ---
 title: "GPT-2"
-publishedAt: "2019"
+publishedAt: "2019-07-01"
+dateBasis: "approximate placement; only year known"
 summary: "GPT-2"
 reviewDraft: "true"
 ---

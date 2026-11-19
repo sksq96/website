@@ -1,6 +1,7 @@
 ---
 title: "When Coding Assistants Meet Code Execution"
-publishedAt: "2024"
+publishedAt: "2024-02-15"
+dateBasis: "approximate day; source month"
 summary: "When Coding Assistants Meet Code Execution"
 reviewDraft: "true"
 ---

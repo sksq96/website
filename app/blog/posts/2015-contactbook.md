@@ -1,6 +1,7 @@
 ---
 title: "Contact Book"
-publishedAt: "2015"
+publishedAt: "2015-05-29"
+dateBasis: "source event date; reconstructed post"
 summary: "Contact Book"
 reviewDraft: "true"
 ---

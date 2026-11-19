@@ -60,7 +60,7 @@ export default async function Blog({ params }: { params: Promise<{ slug: string 
   }
 
   return (
-    <section className="writing-page max-w-[46rem] mx-auto">
+    <section className="writing-page max-w-[39rem] mx-auto">
       <a href="/writings" className="writing-back">← writings</a>
       <script
         type="application/ld+json"
@@ -88,14 +88,14 @@ export default async function Blog({ params }: { params: Promise<{ slug: string 
         {post.metadata.title}
       </h1>
       <div className="writing-meta">
-        <time dateTime={post.metadata.publishedAt}>
+        <time dateTime={post.metadata.publishedAt} title={post.metadata.dateBasis}>
           {formatDate(post.metadata.publishedAt)}
         </time>
       </div>
-      {post.metadata.reviewDraft === 'true' && <p className="mb-8 text-[13px] font-normal text-neutral-500">Reconstructed voice draft · historical year, not original publication date · open for revision</p>}
       <article className="writing-body">
         {post.format === '.md' ? <DraftMarkdown source={post.content} /> : <CustomMDX source={post.content} />}
       </article>
+      {post.metadata.reviewDraft === 'true' && <p className="writing-provenance">Reconstructed from the archive. {post.metadata.dateBasis?.includes('approximate') ? 'Date is an approximate placement.' : 'Date follows the source material.'}</p>}
     </section>
   )
 }

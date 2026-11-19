@@ -1,6 +1,7 @@
 ---
 title: "design"
-publishedAt: "2026"
+publishedAt: "2026-10-22"
+dateBasis: "source event date; reconstructed post"
 summary: "design"
 reviewDraft: "true"
 ---

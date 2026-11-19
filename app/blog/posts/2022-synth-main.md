@@ -1,6 +1,7 @@
 ---
 title: "synth main"
-publishedAt: "2022"
+publishedAt: "2022-07-09"
+dateBasis: "source event date; reconstructed post"
 summary: "synth main"
 reviewDraft: "true"
 ---

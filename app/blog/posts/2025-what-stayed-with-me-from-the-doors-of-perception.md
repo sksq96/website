@@ -1,6 +1,7 @@
 ---
 title: "what stayed with me from the doors of perception"
-publishedAt: "2025"
+publishedAt: "2025-10-29"
+dateBasis: "source event date; reconstructed post"
 summary: "what stayed with me from the doors of perception"
 reviewDraft: "true"
 ---

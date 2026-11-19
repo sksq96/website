@@ -1,6 +1,7 @@
 ---
 title: "Curating a Twitter bookmarks feed"
-publishedAt: "2026"
+publishedAt: "2026-10-26"
+dateBasis: "source event date; reconstructed post"
 summary: "Curating a Twitter bookmarks feed"
 reviewDraft: "true"
 ---

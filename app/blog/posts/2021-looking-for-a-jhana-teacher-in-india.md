@@ -1,6 +1,7 @@
 ---
 title: "Looking for a jhana teacher in India"
-publishedAt: "2021"
+publishedAt: "2021-12-15"
+dateBasis: "approximate day; source month"
 summary: "Looking for a jhana teacher in India"
 reviewDraft: "true"
 ---

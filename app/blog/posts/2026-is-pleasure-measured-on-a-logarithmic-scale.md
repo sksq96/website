@@ -1,6 +1,7 @@
 ---
 title: "is pleasure measured on a logarithmic scale"
-publishedAt: "2026"
+publishedAt: "2026-02-08"
+dateBasis: "source event date; reconstructed post"
 summary: "is pleasure measured on a logarithmic scale"
 reviewDraft: "true"
 ---

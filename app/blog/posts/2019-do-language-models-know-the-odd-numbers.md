@@ -1,6 +1,7 @@
 ---
 title: "Do language models know the odd numbers?"
-publishedAt: "2019"
+publishedAt: "2019-11-15"
+dateBasis: "approximate day; source month"
 summary: "Do language models know the odd numbers?"
 reviewDraft: "true"
 ---

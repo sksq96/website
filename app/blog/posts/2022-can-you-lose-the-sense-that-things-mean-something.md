@@ -1,6 +1,7 @@
 ---
 title: "Can you lose the sense that things mean something?"
-publishedAt: "2022"
+publishedAt: "2022-06-15"
+dateBasis: "approximate day; source month"
 summary: "Can you lose the sense that things mean something?"
 reviewDraft: "true"
 ---

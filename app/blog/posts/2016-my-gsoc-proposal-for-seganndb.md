@@ -1,6 +1,7 @@
 ---
 title: "my gsoc proposal for seganndb"
-publishedAt: "2016"
+publishedAt: "2016-03-23"
+dateBasis: "source event date; reconstructed post"
 summary: "my gsoc proposal for seganndb"
 reviewDraft: "true"
 ---

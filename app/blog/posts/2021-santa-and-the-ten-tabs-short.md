@@ -1,6 +1,7 @@
 ---
 title: "santa and the ten tabs short"
-publishedAt: "2021"
+publishedAt: "2021-07-01"
+dateBasis: "approximate placement; only year known"
 summary: "santa and the ten tabs short"
 reviewDraft: "true"
 ---

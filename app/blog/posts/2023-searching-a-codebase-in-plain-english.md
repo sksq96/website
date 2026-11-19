@@ -1,6 +1,7 @@
 ---
 title: "searching a codebase in plain english"
-publishedAt: "2023"
+publishedAt: "2023-02-03"
+dateBasis: "source event date; reconstructed post"
 summary: "searching a codebase in plain english"
 reviewDraft: "true"
 ---

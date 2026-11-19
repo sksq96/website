@@ -1,6 +1,7 @@
 ---
 title: "I am building Hue a social personality"
-publishedAt: "2026"
+publishedAt: "2026-11-17"
+dateBasis: "source event date; reconstructed post"
 summary: "I am building Hue a social personality"
 reviewDraft: "true"
 ---

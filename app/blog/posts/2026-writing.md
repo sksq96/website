@@ -1,6 +1,7 @@
 ---
 title: "writing"
-publishedAt: "2026"
+publishedAt: "2026-09-16"
+dateBasis: "source event date; reconstructed post"
 summary: "writing"
 reviewDraft: "true"
 ---

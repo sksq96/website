@@ -1,6 +1,7 @@
 ---
 title: "Photography: Candid, but with permission?"
-publishedAt: "2017"
+publishedAt: "2017-10-20"
+dateBasis: "source event date; reconstructed post"
 summary: "Photography: Candid, but with permission?"
 reviewDraft: "true"
 ---

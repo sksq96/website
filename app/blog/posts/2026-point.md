@@ -1,6 +1,7 @@
 ---
 title: "Point: Add a lightweight commenting layer on top of the web"
-publishedAt: "2026"
+publishedAt: "2026-03-20"
+dateBasis: "source event date; reconstructed post"
 summary: "Point: Add a lightweight commenting layer on top of the web"
 reviewDraft: "true"
 ---

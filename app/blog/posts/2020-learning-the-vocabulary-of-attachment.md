@@ -1,6 +1,7 @@
 ---
 title: "learning the vocabulary of attachment"
-publishedAt: "2020"
+publishedAt: "2020-12-13"
+dateBasis: "source event date; reconstructed post"
 summary: "learning the vocabulary of attachment"
 reviewDraft: "true"
 ---

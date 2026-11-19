@@ -1,6 +1,7 @@
 ---
 title: "an outline for a fifteen minute ml podcast"
-publishedAt: "2018"
+publishedAt: "2018-06-15"
+dateBasis: "approximate day; source month"
 summary: "an outline for a fifteen minute ml podcast"
 reviewDraft: "true"
 ---

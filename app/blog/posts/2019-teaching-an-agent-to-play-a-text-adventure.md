@@ -1,6 +1,7 @@
 ---
 title: "Teaching an agent to play a text adventure"
-publishedAt: "2019"
+publishedAt: "2019-02-20"
+dateBasis: "source event date; reconstructed post"
 summary: "Teaching an agent to play a text adventure"
 reviewDraft: "true"
 ---

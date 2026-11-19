@@ -1,6 +1,7 @@
 ---
 title: "rereading the few shot examples in gpt 3"
-publishedAt: "2020"
+publishedAt: "2020-07-15"
+dateBasis: "approximate day; source month"
 summary: "rereading the few shot examples in gpt 3"
 reviewDraft: "true"
 ---

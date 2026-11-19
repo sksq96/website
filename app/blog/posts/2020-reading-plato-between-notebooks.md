@@ -1,6 +1,7 @@
 ---
 title: "What would Plato Tweet"
-publishedAt: "2020"
+publishedAt: "2020-01-09"
+dateBasis: "source event date; reconstructed post"
 summary: "What would Plato Tweet"
 reviewDraft: "true"
 ---

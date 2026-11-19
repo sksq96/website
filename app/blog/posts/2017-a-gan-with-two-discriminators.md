@@ -1,6 +1,7 @@
 ---
 title: "DCGAN: Experiments with Multiple Discriminators"
-publishedAt: "2017"
+publishedAt: "2017-06-01"
+dateBasis: "source event date; reconstructed post"
 summary: "DCGAN: Experiments with Multiple Discriminators"
 reviewDraft: "true"
 ---

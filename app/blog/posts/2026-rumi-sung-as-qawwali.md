@@ -1,6 +1,7 @@
 ---
 title: "On Listening:"
-publishedAt: "2026"
+publishedAt: "2026-06-15"
+dateBasis: "approximate day; source month"
 summary: "On Listening:"
 reviewDraft: "true"
 ---

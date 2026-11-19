@@ -1,6 +1,7 @@
 ---
 title: "making an imessage film frame by frame"
-publishedAt: "2026"
+publishedAt: "2026-10-20"
+dateBasis: "source event date; reconstructed post"
 summary: "making an imessage film frame by frame"
 reviewDraft: "true"
 ---

@@ -1,6 +1,7 @@
 ---
 title: "editor"
-publishedAt: "2025"
+publishedAt: "2025-07-01"
+dateBasis: "source event date; reconstructed post"
 summary: "editor"
 reviewDraft: "true"
 ---

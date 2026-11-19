@@ -1,6 +1,7 @@
 ---
 title: "a bert reward for question generation"
-publishedAt: "2019"
+publishedAt: "2019-08-23"
+dateBasis: "source event date; reconstructed post"
 summary: "a bert reward for question generation"
 reviewDraft: "true"
 ---

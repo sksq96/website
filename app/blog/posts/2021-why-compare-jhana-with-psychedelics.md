@@ -1,6 +1,7 @@
 ---
 title: "What are the similarities between the jhana states and a psychedelic trip?"
-publishedAt: "2021"
+publishedAt: "2021-12-15"
+dateBasis: "approximate day; source month"
 summary: "What are the similarities between the jhana states and a psychedelic trip?"
 reviewDraft: "true"
 ---

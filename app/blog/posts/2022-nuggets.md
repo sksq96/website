@@ -1,6 +1,7 @@
 ---
 title: "nuggets"
-publishedAt: "2022"
+publishedAt: "2022-10-11"
+dateBasis: "source event date; reconstructed post"
 summary: "nuggets"
 reviewDraft: "true"
 ---

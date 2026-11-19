@@ -1,6 +1,7 @@
 ---
 title: "interviewing someone about a single moment"
-publishedAt: "2026"
+publishedAt: "2026-10-26"
+dateBasis: "source event date; reconstructed post"
 summary: "interviewing someone about a single moment"
 reviewDraft: "true"
 ---

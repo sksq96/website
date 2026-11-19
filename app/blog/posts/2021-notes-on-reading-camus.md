@@ -1,6 +1,7 @@
 ---
 title: "notes on reading camus"
-publishedAt: "2021"
+publishedAt: "2021-04-13"
+dateBasis: "source event date; reconstructed post"
 summary: "notes on reading camus"
 reviewDraft: "true"
 ---

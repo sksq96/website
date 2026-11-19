@@ -1,6 +1,7 @@
 ---
 title: "the nyu workshop on what consciousness does"
-publishedAt: "2025"
+publishedAt: "2025-06-15"
+dateBasis: "approximate day; source month"
 summary: "the nyu workshop on what consciousness does"
 reviewDraft: "true"
 ---

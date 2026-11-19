@@ -1,6 +1,7 @@
 ---
 title: "my montreal deep learning playlist"
-publishedAt: "2017"
+publishedAt: "2017-01-05"
+dateBasis: "source event date; reconstructed post"
 summary: "my montreal deep learning playlist"
 reviewDraft: "true"
 ---

@@ -1,6 +1,7 @@
 ---
 title: "reading the phase 3 mdma trial"
-publishedAt: "2022"
+publishedAt: "2022-01-04"
+dateBasis: "source event date; reconstructed post"
 summary: "reading the phase 3 mdma trial"
 reviewDraft: "true"
 ---

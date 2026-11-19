@@ -1,6 +1,7 @@
 ---
 title: "what 100 tries buys a notebook assistant"
-publishedAt: "2022"
+publishedAt: "2022-01-15"
+dateBasis: "approximate day; source month"
 summary: "what 100 tries buys a notebook assistant"
 reviewDraft: "true"
 ---

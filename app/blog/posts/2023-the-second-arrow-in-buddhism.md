@@ -1,6 +1,7 @@
 ---
 title: "the second arrow in buddhism"
-publishedAt: "2023"
+publishedAt: "2023-06-15"
+dateBasis: "approximate day; source month"
 summary: "the second arrow in buddhism"
 reviewDraft: "true"
 ---

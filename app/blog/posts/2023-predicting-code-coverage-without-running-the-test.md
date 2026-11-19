@@ -1,6 +1,7 @@
 ---
 title: "COVERAGEEVAL: Can Language Models Understand Code Coverage?"
-publishedAt: "2023"
+publishedAt: "2023-07-15"
+dateBasis: "approximate day; source month"
 summary: "COVERAGEEVAL: Can Language Models Understand Code Coverage?"
 reviewDraft: "true"
 ---

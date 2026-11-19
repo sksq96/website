@@ -1,6 +1,7 @@
 ---
 title: "Example: dependent origination"
-publishedAt: "2022"
+publishedAt: "2022-10-15"
+dateBasis: "approximate day; source month"
 summary: "Example: dependent origination"
 reviewDraft: "true"
 ---

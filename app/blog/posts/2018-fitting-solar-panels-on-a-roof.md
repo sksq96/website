@@ -1,6 +1,7 @@
 ---
 title: "fitting solar panels on a roof"
-publishedAt: "2018"
+publishedAt: "2018-07-03"
+dateBasis: "source event date; reconstructed post"
 summary: "fitting solar panels on a roof"
 reviewDraft: "true"
 ---

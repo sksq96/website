@@ -1,6 +1,7 @@
 ---
 title: "what would a theory of pleasure have to explain"
-publishedAt: "2021"
+publishedAt: "2021-12-15"
+dateBasis: "approximate day; source month"
 summary: "what would a theory of pleasure have to explain"
 reviewDraft: "true"
 ---

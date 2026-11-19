@@ -1,6 +1,7 @@
 ---
 title: "agent insights"
-publishedAt: "2025"
+publishedAt: "2025-05-30"
+dateBasis: "source event date; reconstructed post"
 summary: "agent insights"
 reviewDraft: "true"
 ---

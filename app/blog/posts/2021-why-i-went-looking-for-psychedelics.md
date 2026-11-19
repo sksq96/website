@@ -1,6 +1,7 @@
 ---
 title: "why i went looking for psychedelics"
-publishedAt: "2021"
+publishedAt: "2021-07-01"
+dateBasis: "approximate placement; only year known"
 summary: "why i went looking for psychedelics"
 reviewDraft: "true"
 ---

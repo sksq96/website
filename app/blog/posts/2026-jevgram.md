@@ -1,6 +1,7 @@
 ---
 title: "Can Jev Detect AI Text?"
-publishedAt: "2026"
+publishedAt: "2026-09-21"
+dateBasis: "source event date; reconstructed post"
 summary: "Can Jev Detect AI Text?"
 reviewDraft: "true"
 ---

@@ -1,6 +1,7 @@
 ---
 title: "Be kinder to yourself"
-publishedAt: "2026"
+publishedAt: "2026-02-15"
+dateBasis: "approximate day; source month"
 summary: "Be kinder to yourself"
 reviewDraft: "true"
 ---

@@ -1,6 +1,7 @@
 ---
 title: "how i became a udacity reviewer"
-publishedAt: "2018"
+publishedAt: "2018-04-24"
+dateBasis: "source event date; reconstructed post"
 summary: "how i became a udacity reviewer"
 reviewDraft: "true"
 ---

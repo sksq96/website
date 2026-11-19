@@ -1,6 +1,7 @@
 ---
 title: "What I was looking for in ayahuasca accounts"
-publishedAt: "2021"
+publishedAt: "2021-11-15"
+dateBasis: "approximate day; source month"
 summary: "What I was looking for in ayahuasca accounts"
 reviewDraft: "true"
 ---

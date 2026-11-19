@@ -1,6 +1,7 @@
 ---
 title: "ten tabs of acid"
-publishedAt: "2023"
+publishedAt: "2023-07-01"
+dateBasis: "approximate placement; only year known"
 summary: "ten tabs of acid"
 reviewDraft: "true"
 ---

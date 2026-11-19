@@ -1,6 +1,7 @@
 ---
 title: "What Would Count As Evidence That A Model Had An Experience?"
-publishedAt: "2023"
+publishedAt: "2023-05-15"
+dateBasis: "approximate day; source month"
 summary: "What Would Count As Evidence That A Model Had An Experience?"
 reviewDraft: "true"
 ---

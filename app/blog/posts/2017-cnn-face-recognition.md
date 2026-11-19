@@ -1,6 +1,7 @@
 ---
 title: "cnn face recognition"
-publishedAt: "2017"
+publishedAt: "2017-01-08"
+dateBasis: "source event date; reconstructed post"
 summary: "cnn face recognition"
 reviewDraft: "true"
 ---
