@@ -21,7 +21,7 @@ export function BlogPosts() {
               <li key={post.slug} className="flex items-baseline gap-4">
                 <time dateTime={post.metadata.publishedAt} className="w-14 shrink-0 text-[13px] text-neutral-500 tabular-nums">
                   {new Date(post.metadata.publishedAt).toLocaleDateString('en-US', {
-                    month: 'short', day: 'numeric', timeZone: 'UTC',
+                    month: 'short', day: post.metadata.publishedAt.length === 7 ? undefined : 'numeric', timeZone: 'UTC',
                   })}
                 </time>
                 <Link href={`/blog/${post.slug}`} className="underline text-[18px] leading-snug">

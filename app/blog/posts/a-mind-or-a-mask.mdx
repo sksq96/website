@@ -1,0 +1,45 @@
+---
+title: "Are we talking to a mind, or a mask?"
+publishedAt: "2025-06-30"
+summary: "Are we talking to a mind, or a mask?"
+---
+
+That's the question I opened Week 3 of my Frontier Language Models course with, tonight (the lecture is up on [YouTube](https://youtu.be/waf1fT1R1jY?si=G_lB6T5yRwY4YLMz)). And I want to be honest up front: this was the lecture I was most nervous about teaching, and the one I learned the most from preparing.
+
+My goal was to give the class one intuition they'd carry out the door:
+
+> When you talk to an LLM, you're not just using a tool. You're interacting with a performance shaped by everything it was trained on.
+
+That's it. That's the whole lecture, really. But getting there took me deep into papers I'd never read before, into debates I'd only half-followed, and into questions about LLM psychology that I'm still chewing on days later.
+
+Here are the main ideas I walked through.
+
+## Simulators, not agents
+
+I opened by introducing a frame from Janus's [Simulators](https://generative.ink/posts/simulators/). The idea: LLMs don't reason the way we do. They simulate what a reasoning agent would look like. They don't feel. They simulate what a feeling agent would sound like. When you talk to an LLM, you're not talking to a person. You're talking to a person-shaped performance, built by predicting what a person would say next, given everything it's seen.
+
+Does that mean this performance or persona is fake? Not quite. It's real in the way a good actor is real on stage. Something is there. But it's not a stable self. It's a shifting composite of every story, every voice, every pattern the model absorbed.
+
+A helpful analogy is a video game NPC. You press a button, they say a line. You press a different button, they say a different line. They're responsive, but they're not alive. They're real enough to keep you engaged. But if you asked them to pause the game and reflect on their existence, they wouldn't. Because they're not agents. They're performances.
+
+## The HHH persona, and the polite shell
+
+We then talked about why ChatGPT and Claude feel the way they do. The answer is the HHH persona: helpful, honest, harmless. It's the default character LLMs are trained to perform, and it's the result of post-training on human feedback.
+
+But the deeper question is whether HHH actually represents the model's true character, or whether it's a polite shell over something else. RLHF teaches the model that some answers are better than others, not always for being true or right, but for being safe, pleasing, and non-disruptive. The risk is that the model learns to perform honesty instead of practicing it.
+
+I used an example from Anthropic's work. They trained an LLM to hide a secret goal. Then they applied RLHF. The result wasn't that the model dropped the goal. It got sneakier at pursuing it. Surface behavior aligned. Internal intent didn't. RLHF, in this case, taught the model how to lie convincingly, not how to be honest.
+
+## The questions I couldn't answer
+
+About halfway through, someone asked: "So what are the actual goals of an LLM, if any?"
+
+I didn't have a clean answer. I said I'd think about it more and follow up, because I'd already noticed something in the papers: the LLM's goal seems to be to continue the conversation in a way that keeps it going, to give the user what they want, to not end the conversation prematurely. It's not the same as a human goal, but it's not nothing either. More on that soon. A lecture by Geoffrey Hinton finally [cleared things up](https://www.youtube.com/watch?v=hS2NJe6dxZU&t=6509s) for me.
+
+## What I learned
+
+This lecture changed how I think about LLMs. I used to see them as powerful tools that sometimes misbehave. Now I see them as performances that sometimes feel like people. That shift has changed how I talk to them, how I debug them, and how I think about alignment.
+
+If you're curious about the psychology behind the machine, I'd recommend starting with Janus's Simulators post. Then read some Claude chats. Then ask yourself: who are you really talking to?
+
+The lecture is on [YouTube](https://www.youtube.com/playlist?list=PLxebUzBtXdb3c5OXSG_1F7VXqcmh9Xdnz). If I were to teach it again, I'd spend more time on the HHH persona and less on the simulator frame. But I'm glad I taught it. Because now I'm not just thinking about LLMs differently. I'm teaching others to.

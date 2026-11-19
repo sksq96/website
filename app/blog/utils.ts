@@ -56,6 +56,9 @@ export function getBlogPosts() {
 }
 
 export function formatDate(date: string, includeRelative = false) {
+  if (/^\d{4}-\d{2}$/.test(date)) {
+    return new Date(`${date}-01T00:00:00`).toLocaleString('en-us', { month: 'long', year: 'numeric' })
+  }
   let currentDate = new Date()
   if (!date.includes('T')) {
     date = `${date}T00:00:00`

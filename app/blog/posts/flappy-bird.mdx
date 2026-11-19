@@ -1,129 +1,69 @@
 ---
-title: 'Writing a Flappy Bird bot with Deep Q-learning and TensorFlow'
+title: "Flappy Bird end-to-end from pixels"
 publishedAt: "2016-05-21"
-summary: "Writing a Flappy Bird bot with Deep Q-learning and TensorFlow."
+summary: "Flappy Bird end-to-end from pixels"
 ---
 
-*(Note: I wrote this in May 2016)*
+I am a 4th year student currently taking machine learning class, and it's been a while since I've blog about what I learnt. So today I am writing about my experience in creating a program that plays FlappyBird end-to-end with pixels as input.
 
-![](https://imgs.xkcd.com/comics/machine_learning.png) *( [source](https://xkcd.com/1838/) )*
+A few weeks ago, I saw [a video](https://www.youtube.com/watch?v=rVfNu6Osm0Y) of the computer trying to learn the game of FlappyBird and was just completely blown away. How can a computer teach itself to play a game without any prior knowledge?  It was so fascinating that I stayed up the whole night trying to figure out how it was done.
 
-So I’m a 4th-year undergraduate at the moment, and a few weeks ago I stumbled across a [video](https://www.youtube.com/watch?v=qv6UVOQ0F44) of someone who had trained a computer to play Flappy Bird using Deep Q-learning.
+I found out that it comes from a paper written by DeepMind. I read it, but because I don't have a strong background in this field, the paper was really difficult to understand. Fortunately, there is a TensorFlow implementation of the paper on Github, so I decided to check it out. This was the first time I've come across TensorFlow, so I spent a good amount of time just trying to figure out how TensorFlow works. After getting to know TensorFlow, I started reading the code for the FlappyBird program. I realized that I needed to learn how to play FlappyBird before I could actually make a computer play it, so I decided to install Flappy Bird on my phone and give it a try. I wasn't very good at it, scoring only 3 points, but I did pick up something from playing the game. The bird has to just fly in the middle of the pipes to get as many points as possible and the timing is absolutely critical.
 
-Flappy Bird is a game where you can only do one thing… “flap”, which makes you go up a bit.
+I tried reading the code to try to get a sense of how the computer was learning to play the game, but, it was difficult to understand without the proper background knowledge. After searching through the Internet for all the tutorials and videos I need, I came across a chapter on Q-Learning in the Machine Learning textbook that I am using for my class. I started reading it and it just made so much sense. The code was making so much more sense now and I was able to get the program running. I was so excited that I stayed up the whole night again watching the computer play the game.
 
-![Flappy Bird game running from my repository.](/writings/flappy-bird/game.gif)
+The idea is, in any given state of the game, the bird has two actions to choose from, either to flap or not to flap. Q-learning assigns a Q-value for each state-action pair, and the goal is to maximize the total reward. The reward is gained by staying alive, and is lost by crashing the bird or hitting the pipe.
 
-*Game demo rendered from my repo with a simple scripted controller.*
+But, what is state in FlappyBird? It can't be just one frame. If it was one frame, it would be impossible to know if the bird is going up or down. We need to know if the bird is going up or down in order to make a better prediction of what action to take. Fortunately, it is possible to use multiple frames to represent the state, and that's exactly what the code does. It uses 4 frames to represent a state.
 
-The aim is to keep the bird flying through the gaps between the pipes.
+Here's how the 4 frames look like:
 
-Soon after, I found Google DeepMind’s paper on [playing Atari games using Deep Reinforcement Learning](http://www.nature.com/nature/journal/v518/n7540/full/nature14236.html). I couldn’t sleep that night because I was so excited. I had to figure out how this worked!
+So the computer just plays the game and learns from it. How does it learn from it? When it crashes the bird or hit the pipe, it gets a negative reward. When it gets a point, it gets a positive reward. That's how it learns to get as many points as possible.
 
-I have to be honest and say that I have **NO** experience with deep learning, or reinforcement learning, or really any of this stuff. I spent this whole month figuring things out as I went along: learning TensorFlow, getting a feel for the code by hacking at other people’s code, and reading a chapter about Q-learning from a textbook. There were a lot of things I did wrong, and it took me until last night to get it working. But I’m pretty happy with the results :’)
-
-Here’s what I did.
-
-### The learning algorithm
-
-The algorithm I used is based on the DeepMind paper. It’s called “Deep Q-learning”. The idea is to learn a Q-value for each action in a given state (a screen image). A Q-value is just a number that tells us how good an action is in a given state.
-
-In the case of Flappy Bird, there are two possible actions:
-
-1. No-op (do nothing)
-2. Flap (go up a bit)
-
-The Q-values are learned based on a reward: staying alive is good (+1 reward), but hitting a pipe is bad (-1000 reward).
-
-So in order to predict the Q-values, we need a function that can take 4 images and output 2 numbers, the Q-values.
-
-The images are input to a Convolutional Neural Net, which then feeds into a Fully Connected Network which does the actual prediction of the Q-values.
-
-### Preprocessing
-
-One of the things that was initially confusing to me was that a single frame isn’t enough to make a prediction about what the next best action should be. For example, the bird’s velocity isn’t shown, and it’s not possible to tell if the bird is going up or down by looking at a static image.
-
-To solve this, we use the last 4 frames as input to the network.
-
-![Four-frame convolutional network diagram from my repository README.](/writings/flappy-bird/cnn-arch.png)
-
-*The architecture diagram saved in my repo’s README.*
-
-The images are input in grayscale, and resized to 80x80 before they are fed into the network.
-
-### Training
-
-The first thing I did was to train the network based on a single frame. This was a bad decision, and it didn’t work. I spent a lot of time reading other people’s code, and found that using a few frames (e.g. 4) as input was standard practice.
-
-After fixing that, the network was still training very slowly. I suspected that this was because my initial reward values were badly chosen. I gave a reward of -1000 for dying, +1000 for passing a pipe, and +0.1 for staying alive. However, since the rewards are used to update the Q-values at each time-step, they are a lot more sensitive to scaling than I realized. I changed the rewards to -1 for dying, +1 for passing a pipe, and +0.1 for staying alive, and the network started to train much faster.
-
-I also had an experience replay memory which was a lot smaller than it should have been, but I changed the size from 512 to 2000 and that seemed to improve the learning rate as well.
-
-One of the struggles during training was that the network only saw a single pipe in any given training example. This meant that there wasn’t a lot of variety in the training data, which resulted in the network not learning a very general model. It would sometimes get through ~10 pipes and then die.
-
-To solve this, I just set the gap between the top and bottom pipe to be random. This resulted in a much more general model, and the bird can now get through many pipes!
-
-### The code
-
-So here’s the bit of code that actually does the learning. There are a lot of parts to this that I’m glossing over, so please refer to the full code for more details.
+It takes some time for it to learn, and no matter how you train your network, there is always a chance that it crashes the bird. The whole code is shown below:
 
 ```python
-def train_minibatch(self):
-    """Train on a single minibatch of data from memory"""
-    # If we don't have enough memory stored yet, just return
-    if self.replay_memory.size < self.minibatch_size:
-        return
+def image_reshape(image_data, prev=None, first=False):
+    image_data = cv2.cvtColor(cv2.resize(image_data, (80, 80)), cv2.COLOR_BGR2GRAY)
+    _, image_data = cv2.threshold(image_data,1,255,cv2.THRESH_BINARY | cv2.THRESH_OTSU)
 
-    # Sample a minibatch to train on
-    minibatch = self.replay_memory.sample(self.minibatch_size)
+    if first:
+        return np.stack((image_data, image_data, image_data, image_data), axis=2)
+    else:
+        image_data = np.reshape(image_data, (80, 80, 1))
+        return np.append(image_data, prev[:, :, :3], axis=2)
 
-    # Get the screens and their next screens, and preprocess them
-    screen_batch = np.array(
-        [self.preprocess_image(d[0]) for d in minibatch])
-    screen_batch_new = np.array(
-        [self.preprocess_image(d[3]) for d in minibatch])
 
-    # Compute Q values for all actions
-    Q_batch = self.Q_network.predict(screen_batch)
-    Q_batch_new = self.Q_network.predict(screen_batch_new)
+    image_data, readout = create_network()
+    readout_action = tf.reduce_sum(tf.mul(readout, a), reduction_indices = 1)
+    cost = tf.reduce_mean(tf.square(y - readout_action))
 
-    # Start populating the y_batch vector
-    y_batch = np.zeros((self.minibatch_size,))
+    optimizer = tf.train.AdamOptimizer(LEARNING_RATE).minimize(cost)
+            state_next_batch = [memory[3] for memory in minibatch]
 
-    for i in range(0, self.minibatch_size):
-        terminal = minibatch[i][4]
+            y_batch = []
+            readout_batch = readout.eval(feed_dict = {image_data: state_next_batch})
+            for i, (state, action, reward, state_next, terminal) in enumerate(minibatch):
+                if terminal:
+                    y_batch.append(reward)
+                else:
+                    y_batch.append(reward + GAMMA * np.max(readout_batch[i]))
 
-        # There's no future reward to add if the game ended
-        if terminal:
-            y_batch[i] = minibatch[i][2]
-        else:
-            # Calculate the future reward discounted by factor gamma
-            max_Q = np.max(Q_batch_new[i])
-            y_batch[i] = minibatch[i][2] + self.gamma * max_Q
-
-    self.Q_network.train(screen_batch, minibatch, y_batch)
+            optimizer.run(feed_dict = {
+                image_data: state_batch,
+                a: action_batch,
+                y: y_batch
+            })
 ```
 
-This function samples a minibatch of data from memory, and trains on it. It’s where the actual Q-learning happens.
+I know this was a long post, but I really hope I managed to make it clear enough for you to understand.
 
-First, we predict the Q values of the current screens and the next screens. We then loop through the minibatch, and if the episode ended at the next screen, the Q-value for that state is just the reward. Otherwise, we add the discounted future reward to the current reward, and use that as our Q-value.
+The code is available on my Github here: [FlappyBird-DeepLearning](https://github.com/sksq96/dqn-flappybird)
 
-Finally, we train the network on the current screens and their corresponding Q-values.
+My thoughts on deep learning
 
-### The results
+I'm completely hooked on deep learning. I feel like this is the future of computing, where we teach computers to learn and make decisions without us actually telling them how exactly to make the decision. We give them the data and the computer trains itself from it. I am starting to get an interest in deep learning and I want to know more about it. I will try to spend some time during the summer to learn more.
 
-Last night, I decided to run the code for 10,000 episodes to see if it would train successfully. Boy, was I in for a surprise!
+![Flappy Bird game](/writings/flappy-bird/game.gif)
 
-It actually worked!
-
-![Four consecutive frames from the game in my repository.](/writings/flappy-bird/four-game-frames.png)
-
-*Four consecutive frames from a scripted run of the game.*
-
-The full code is available at: [https://github.com/sksq96/dqn-flappybird](https://github.com/sksq96/dqn-flappybird)
-
-It’s been a long few weeks, but I’m pretty hooked on deep learning now.
-
-There are definitely a few things that I could have done better, but I’m pretty happy with the results.
-
-Thanks for reading!
+[GitHub repository](https://github.com/sksq96/dqn-flappybird)

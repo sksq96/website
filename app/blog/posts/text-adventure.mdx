@@ -1,0 +1,114 @@
+---
+title: "Teaching an agent to play a text adventure"
+publishedAt: "2019-02"
+summary: "Teaching an agent to play a text adventure"
+---
+
+This is the second post in a series of 10 posts.
+
+1. [What if an RL agent had an internal world model?](/blog/2019-02-11-what-if-an-rl-agent-had-an-internal-world-model)
+2. Teaching an agent to play a text adventure
+3. [What does it mean when your model is learning?](/blog/2019-02-15-what-does-it-mean-when-your-model-is-learning)
+4. [How does a neural network learn?](/blog/2019-02-16-how-does-a-neural-network-learn)
+5. [What does a neural network need to learn?](/blog/2019-02-17-what-does-a-neural-network-need-to-learn)
+6. [What is the role of optimisers in learning?](/blog/2019-02-18-what-is-the-role-of-optimisers-in-learning)
+7. [What are the difficulties faced in training neural networks?](/blog/2019-02-19-what-are-the-difficulties-faced-in-training-neural-networks)
+8. [What makes learning deep models special?](/blog/2019-02-24-what-makes-learning-deep-models-special)
+9. [Why is learning a good representation important?](/blog/2019-02-26-why-is-learning-a-good-representation-important)
+10. [What are the challenges in training text models?](/blog/2019-02-27-what-are-the-challenges-in-training-text-models)
+
+I started by looking at the simplest problem in the textworld environment, the coin-collector game.
+
+The CoinCollector game is a navigation puzzle with some narrative. It presents a maze-like gridworld that the player must navigate. Collecting all of the coins scattered in the world wins the game.
+
+```
+> tw-make tw-coin_collector --level 1 --seed 1 --output games/a_game.ulx
+> tw-play games/a_game.ulx
+```
+
+Which greets you with the following.
+
+```
+You are in the corridor.
+You can see a coin.
+
+>
+```
+
+You can look at your inventory.
+
+```
+> inventory
+You are not carrying anything
+```
+
+You also have a list of admissible commands like `go north` or `go south`.
+
+From this point on, the game is a maze. You have to keep going `north` and `south`, `east` and `west`, searching for the coin.
+
+If you manage to pick up the coin, you will get an `Your score has increased`. Of course, you also have to check for the final score or whether you’ve already won or not.
+
+```
+> score
+You scored 1 out of a possible 1, in 5 turns.
+```
+
+Now if we convert this to a Reinforcement Learning Problem, we can see the following:
+
+- **State space**: The state is basically the text which describes the current room. We have to convert this into a vector to enable the machine to process it.
+- **Action space**: The actions are the list of admissible commands.
+- **Rewards**: You get a reward of 1 each time you pick up a coin (`Your score has increased`).
+- **Terminal states**: The game has ended when you collect all the coins.
+- **Train/Test split**: Since textworld generates randomised games, we can generate any number of sample games and use some for training and some for testing. We can check for duplicates to avoid leakage.
+
+I implemented the above as a simple Policy Gradient (PPO) model with an LSTM for the text and a linear layer to output the probability of the various actions.
+
+Of course, the devil is in the details of implementation. For example, in the coin-collector game, the maximum number of coins is 3 and not every game has 3 coins. So, if we give a reward of 1 for every coin collected then we would be over-rewarding smaller games and under-rewarding games with more coins.
+
+To solve this, I scaled the reward by dividing it by the total number of coins in the game, so that a game always has a maximum total reward of 1.
+
+```
+score = 0
+total_score = 0
+for line in text.split('\n'):
+    if 'You scored' in line:
+        numbers = re.findall(r'\d+',line)
+        score = int(numbers[0])
+        total_score = int(numbers[-2])
+
+if total_score == 0:
+    return 0
+
+return score/total_score
+```
+
+There are some more tricks such as using a count-based reward. I briefly mention this here, but I would like to explore the count-based reward in detail later.
+
+```
+# Compute Reward
+if game_file in self.counts:
+    self.counts[game_file][str(state)] += 1
+else:
+    self.counts[game_file] = defaultdict(int)
+    self.counts[game_file][str(state)] = 1
+count_reward = (self.lambda_*(1/float(self.counts[game_file][str(state)])**0.5))
+count_reward = count_reward if state != next_state else 0
+
+reward = (next_score - self.prev_score + count_reward) if has_won else count_reward
+```
+
+So, now we have a simple RL agent, which has a set of weights to control the probability of taking an action given a state. We can see this as $\pi(a|s;\theta)$.
+
+But, what if we want a world model?
+
+What are the ways in which we can enable an agent to learn a world model?
+
+Can we just keep track of where we have been?
+
+Can we write a simple rule-based function to detect whether we have seen a state before?
+
+Of course, we can’t do this using `string_state1 == string_state2`. We need some way to get the distance between 2 states and decide whether they are the same or not.
+
+Further, if we don’t know the goal of the game, how do we know if the game has ended or not?
+
+I will explore these questions in the next post.
