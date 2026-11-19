@@ -82,9 +82,9 @@ input[type='email'] {
 }
 .writing-body {
   font-family: inherit;
-  font-size: 20px;
-  line-height: 1.65;
-  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.5;
+  font-weight: inherit;
   overflow-wrap: break-word;
   --sh-class: #6b4f9c;
   --sh-identifier: #253b50;
