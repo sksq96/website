@@ -1,0 +1,66 @@
+---
+title: "Face Recognition"
+publishedAt: "2017-03-29"
+summary: "Teaching a camera to take attendance with OpenFace, face embeddings, and DBSCAN."
+---
+
+It's my final year at IIT Mandi, and I am tinkering with face recognition. I discovered [OpenFace](https://cmusatyalab.github.io/openface/) few weeks ago and have been at it ever since, trying to teach a camera to take attendance for college lectures and meeting rooms. It's challenging, and fun. I'm no expert, but I've learnt a lot about the subject that I wouldn't have had the chance to otherwise.
+
+I am  learning on the go. I'm using a mixture of libraries, mostly `dlib` and `OpenFace`. I've been trying to run `Torch` models via the `Python` interface, and that has been a bit of a hassle. My `Python2` environment is a bit of a mess but I'm getting by. The libraries have good enough support for the problems I am approaching and I haven't had to rely much on writing my own low level code.
+
+## Face Encoder
+
+![aligned face](/writings/face-recognition/aligned.png)
+
+Face recognition is a 3 step process. Detect faces in the image, align faces and represent faces. A face can be represented as a 128-dimension vector. The distance between vectors of two different images of the same person is small, while it is large for two different persons.
+
+To find the location of faces in the image, I used the standard [Viola-Jones](https://www.wikiwand.com/en/Viola%E2%80%93Jones_object_detection_framework) and [HOG](https://www.wikiwand.com/en/Histogram_of_oriented_gradients) based detectors.
+
+In order to align the faces, I used the standard [FaceNet](https://arxiv.org/pdf/1503.03832v1.pdf) procedure of aligning the outer eyes and nose with similar fixed points in a 96x96 crop of the image.
+
+For representing the faces, I used the [OpenFace](https://arxiv.org/pdf/1602.02896.pdf) network to actually compute the 128-dimensional representation. The network is trained in a way that the same person is closer to each other in the 128-dimensional space than two different person.
+
+## Clustering
+
+This was the interesting part. Using `DBSCAN` from `sklearn`, I was able to count the number of people in a set of unlabeled images of my friends (I'm leaving out the names, it's my hostel).
+
+## Code
+
+Here's a small snippet of code to encode the faces.
+
+```python
+#!/usr/bin/env python2
+
+import cv2
+import numpy as np
+
+import dlib
+
+import openface
+from model import align, net
+
+
+imgDim=96
+def encode(bgrImg):
+	try:
+		rgbImg = cv2.cvtColor(bgrImg, cv2.COLOR_BGR2RGB)
+		bb = align.getAllFaceBoundingBoxes(rgbImg)
+		alignedFaces = [align.align(imgDim, rgbImg, box, landmarkIndices=openface.AlignDlib.OUTER_EYES_AND_NOSE) for box in bb]
+		encoding = [net.forward(alignedFace) for alignedFace in alignedFaces]
+		return encoding
+	except:
+		return list()
+```
+
+`encode` takes a BGR image (as loaded by `opencv`), converts it to RGB and returns a list of face encodings.
+
+
+## Current Status
+
+I've gotten the encoding and clustering parts to work to some degree. I've been able to count the number of persons in some scenes. I haven't yet been able to do it consistently, but I'm not sure if I want to. This is enough for my project requirements. I'm going to put the code up on [GitHub](https://github.com/sksq96/cnn-face-recognition).
+
+This project took up a lot of my time this year, I wish I had started earlier. The results are kind of underwhelming. Oh well.
+
+---
+
+<small>Reconstructed draft, dated to the project’s March 29, 2017 code snapshot. [Original repository](https://github.com/sksq96/cnn-face-recognition).</small>
