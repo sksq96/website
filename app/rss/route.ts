@@ -23,7 +23,9 @@ export async function GET() {
           <title>${escapeXml(post.metadata.title)}</title>
           <link>${new URL(`/blog/${post.slug}`, baseUrl).href}</link>
           <description>${escapeXml(post.metadata.summary || '')}</description>
-          ${post.metadata.publishedAt.length > 4 ? `<pubDate>${new Date(post.metadata.publishedAt).toUTCString()}</pubDate>` : ''}
+          <pubDate>${new Date(
+            post.metadata.publishedAt
+          ).toUTCString()}</pubDate>
         </item>`
     )
     .join('\n')
