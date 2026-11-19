@@ -1,3 +1,4 @@
+import { PageHeading } from 'app/components/page-heading'
 import LinksClient from './links-client'
 import Curated from './curated'
 import Tabs from '../components/tabs'
@@ -11,8 +12,8 @@ export const metadata = {
 export default function Page() {
   return (
     <CenteredContent>
-      <section className="max-w-[42rem]">
-        <h1 className="font-bold text-[18px] mb-2">Links</h1>
+      <section>
+        <PageHeading>links</PageHeading>
         <p className="mb-8 text-[18px] leading-[1.5]">
           Things I&rsquo;ve read, saved, and thought about. Search any of
           my 2000+ links.

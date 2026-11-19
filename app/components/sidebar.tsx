@@ -48,7 +48,7 @@ export function Contacts({ className = '' }: { className?: string }) {
 
 export function CenteredContent({ children }: { children: React.ReactNode }) {
   return (
-    <div className="w-full max-w-[64rem] mx-auto [&>*]:mx-auto">
+    <div className="w-full max-w-[46rem] mx-auto [&>*]:w-full [&>*]:max-w-none">
       {children}
     </div>
   )

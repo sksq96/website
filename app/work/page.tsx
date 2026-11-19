@@ -1,3 +1,4 @@
+import { PageHeading } from 'app/components/page-heading'
 import { CenteredContent } from '../components/sidebar'
 import Tabs from '../components/tabs'
 import Projects from './projects'
@@ -55,7 +56,8 @@ const items: Item[] = [
 export default function Page() {
   return (
     <CenteredContent>
-      <section className="max-w-[42rem]">
+      <section>
+        <PageHeading>work</PageHeading>
         <Tabs
           tabs={[
             {

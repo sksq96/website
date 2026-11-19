@@ -1,3 +1,4 @@
+import { PageHeading } from 'app/components/page-heading'
 import Link from 'next/link'
 
 export const metadata = {
@@ -29,8 +30,8 @@ const PIECES = [
 
 export default function Page() {
   return (
-    <section className="max-w-[40rem]">
-      <h1 className="font-bold text-[22px] mb-8">Reading</h1>
+    <section>
+      <PageHeading>reading</PageHeading>
       <ul className="space-y-6">
         {PIECES.map((p) => (
           <li key={p.href}>

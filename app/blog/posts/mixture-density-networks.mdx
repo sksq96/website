@@ -1,0 +1,126 @@
+---
+title: "Quick Note on Mixture Density Networks"
+publishedAt: "2018-05-16"
+summary: "Quick Note on Mixture Density Networks"
+---
+
+Hey there! I've recently been recreating the wonderful World Models results and came across a term I was unfamiliar with. Mixture Density Networks (MDN). Since I'm not familiar with the term, I decided to put world models aside for a moment and spend a week playing around with MDNs.
+
+The goal of my experiments was to get a feel for how the MDN works so that I can apply it to my World Model work later. Let's start with the intuition for the MDN.
+
+## Where MDNs shine
+
+Inspired by David Ha's blog post, let's build a toy problem. First we create a sine wave and jumble it a bit.
+
+```python
+xs = np.linspace(0, 4 * np.pi, 100)
+ys = np.sin(xs)
+ys += np.random.normal(0, 0.1, ys.shape)  # add some fuzz
+```
+
+It looks like this when plotted.
+
+![Toy example from the post, rendered with a fixed seed.](/writings/mdn/toy-1.png)
+
+Now, what happens when we swap the X and Y axis? Something like this.
+
+```python
+xs_changed = ys
+ys_changed = xs
+```
+
+Here is a plot of the new data.
+
+![Toy example from the post, rendered with a fixed seed.](/writings/mdn/toy-2.png)
+
+The data has changed somehow. What happened? We'll try to train a neural network on this new data and see what it thinks. But first, let's revise how a neural net normally fits a line.
+
+## Normal Neural Network
+
+The simplest thing to do is train a neural network to predict `ys` given `xs`. Let's do that.
+
+![Toy example from the post, rendered with a fixed seed.](/writings/mdn/toy-3.png)
+
+Cute, the neural network drew a line through the middle of our data. It learned the relationship between `ys` and `xs`. And because the data was a wiggly line, the neural network drew a wiggly line.
+
+And it makes sense too! Because the neural network only sees one `x` at a time. This `x` is mapped to one `y`.
+
+Now let's see what happens when we try to train the neural network on the changed data.
+
+![Toy example from the post, rendered with a fixed seed.](/writings/mdn/toy-4.png)
+
+Huh, that seems impossible to predict. What's going on? The neural network still sees one `x` at a time. However, when it looks at `x`, it has multiple `y`s to choose from. How would it know which one to pick?
+
+In this scenario, the neural network will try to predict the average `y`. This is the best that it can do. Of course, this doesn't work very well. We need a smarter way to deal with this problem.
+
+## Mixture Density Networks
+
+We can tackle our problem with a Mixture Density Network. The key idea is to have the neural network output a few parameters. These parameters are used to create a few Gaussians. A Gaussian here represents a possible `y`.
+
+We can use a few of these Gaussians to represent the range of `ys` that the neural network can choose from. The neural network must output some parameters that allow us to recreate the Gaussians.
+
+The parameters for a Gaussian are:
+
+1. Mean: `mu`
+2. Standard Deviation: `sigma`
+3. Weight: `pi`
+
+The `mu` and `sigma` are the parameters we learn in school. The `pi` is a weight that represents the probability of the Gaussian. We multiply all the `pis` together to get 1. So, if we have 3 Gaussians, `[0.1, 0.3, 0.6]`, when we pick a `y`, we have a:
+
+1. 10% chance of picking the first Gaussian
+2. 30% chance of picking the second Gaussian
+3. 60% chance of picking the third Gaussian
+
+To recap, the neural network outputs 3 parameters: `mu`, `sigma` and `pi`. We use these parameters to recreate the Gaussians.
+
+Here is a PyTorch code snippet to show how it works.
+
+```python
+## the number of Gaussians
+N = 3
+
+## mixtures of Gaussians
+## 1. get parameters from neural network output
+pi, mu, sigma = x.split(N, dim=1)
+## 2. pi must add up to 1
+pi = F.softmax(pi, dim=1)
+## 3. use standard deviation instead of variance
+sigma = torch.exp(sigma)
+## 4. build a mixture of Gaussians
+m = MixtureSameFamily(
+    mixture_distribution=Categorical(pi),
+    component_distribution=Normal(loc=mu, scale=sigma))
+
+## samples from the mixture of Gaussians
+y = m.sample()
+```
+
+One interesting thing here is that we are calculating the `sigma` by taking the exponent of the neural network output. This is because the neural network output ranges from `[-∞, ∞]`. However, `sigma` must be positive. We use the `exp()` function to make it positive.
+
+Now that we have our Gaussians, we need a loss function. The loss function will tell our neural network how wrong it is. We are going to use the *negative log likelihood*. The negative log likelihood measures how likely a point is under a probability distribution. It is negative because we want to minimize our loss.
+
+In PyTorch, the negative log likelihood function is provided for us by the mixture of Gaussians object. We just have to call it.
+
+```python
+m.log_prob(y_true)
+```
+
+Alright, let's see what the MDN predicts.
+
+
+
+The line fits the data! If we sample from the Gaussians and plot it, we can see that the points match the original data.
+
+![Archived mixture density notebook plot.](/writings/mdn/mdn-14.png)
+
+## World Models
+
+I thought the MDN was really cool. It allowed us to express a distribution instead of a single point. That's really useful because we can use it to train a Recurrent Neural Network (RNN) on our MDN loss.
+
+I've attached the RNN and MDN to a simple World Model. Here is the code for the world model. It's really simple because I was just using it to get a feel for the MDN.
+
+## Final Thoughts
+
+This was a short post on my experiences with the MDN. I spent a week on this "sidequest" and I don't regret it. It felt like I was playing around with a Transformer. I played with it until I understood how it works. I'll apply this to my World Models work later. 🙂
+
+[My MDN and MDN-RNN notebooks](https://github.com/sksq96/pytorch-mdn)

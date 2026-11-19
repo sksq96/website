@@ -1,3 +1,4 @@
+import { PageHeading } from 'app/components/page-heading'
 import { BlogPosts } from 'app/components/posts'
 import { CenteredContent } from 'app/components/sidebar'
 
@@ -10,8 +11,8 @@ export const metadata = {
 export default function Page() {
   return (
     <CenteredContent>
-      <section className="max-w-[48rem]">
-        <h1 className="text-[24px] font-bold mb-8">writings</h1>
+      <section>
+        <PageHeading>writings</PageHeading>
         <BlogPosts />
       </section>
     </CenteredContent>

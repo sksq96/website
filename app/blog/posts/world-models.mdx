@@ -1,0 +1,93 @@
+---
+title: "World Models: Using PyTorch to rebuild the paper (WIP)"
+publishedAt: "2018-05-24"
+summary: "World Models: Using PyTorch to rebuild the paper (WIP)"
+---
+
+The paper [World Models](https://arxiv.org/abs/1803.10122) by David Ha and Jürgen Schmidhuber came out a few months ago, and since then I haven't been able to get it out of my mind. I've been following hardmaru (David Ha) since I heard about his great [sketch-rnn](https://github.com/hardmaru/sketch-rnn) model, which lets a machine draw like a human.
+
+In this post I'll explain the World Models paper in my own words. It's a work in progress since I'm still building my own version of it. The code lives on my [World Models experiments](https://github.com/sksq96/pytorch-mdn).
+
+### Summary
+
+World Models is an algorithm for RL agents that lets them learn inside their own imagination, with the help of a neural network. The paper shows that an agent can train inside its own "dream" and transfer what it learned in the dream back to the real environment.
+
+I thought the paper was hard to follow at first, and writing paper notes wasn't enough for me to really understand it. Building the model myself was a much better way to understand it. So I decided to share the process, and in future posts I'll take apart each model that makes up World Models.
+
+### The paper
+
+*(If you haven't seen the World Models paper yet, I suggest you read it before continuing.)*
+
+The core idea: train an RL agent inside its own "dream" (a neural network) instead of the real environment.
+
+![World Models overview](/writings/world-models/combined.png)
+
+The paper has three parts:
+
+1. V: A VAE that learns from an environment
+2. M: An RNN that predicts the future of an environment
+3. C: A controller for the environment that uses the VAE and the RNN
+
+#### V: A VAE that learns from an environment
+
+V (Variational Autoencoder) is a generative neural network. We start by giving it a frame of the environment, and V encodes it into a smaller vector `z`. This is lossy compression: `z` holds only the important parts of the frame. A vector is easier to reason about than a frame, and that's why we want `z`. We then decode `z` back into a frame.
+
+![VAE reconstruction](/writings/world-models/vae-cnn-16.png)
+
+The example above is from the Google CarRacing-v0 environment. It's a frame of the track that the VAE reconstructed. You can see a little lossiness in the details.
+
+#### M: An RNN that predicts the future of an environment
+
+M (Recurrent Neural Network) is a predictive neural network. We give it a sequence of `z` vectors and `a` vectors (`a` is the action we took). In the paper `z` has 32 dimensions and `a` has 3. M learns to predict the next `z`.
+
+M is a Mixture Density Network (MDN-RNN). MDN-RNN can predict more than one possible outcome, which is what we want, since the "future" is never certain. The RNN part is LSTM.
+
+![MDN-RNN](/writings/world-models/mdn-rnn-15.png)
+
+The example above is the MDN-RNN predicting a single possible future in CarRacing-v0.
+
+#### C: A controller (very simple NN?!)
+
+C (Controller) is the simplest model. It's a single dense layer. In the paper C has 3 inputs and 867 parameters. C takes the current `z` and `h` as input. `z` is the VAE output for the current frame, and `h` is the RNN's hidden state. C returns the action `a` that the agent will take in the environment. The agent then interacts with the environment using `a`.
+
+This is the most astonishing part of the paper to me. C is so simple that I couldn't believe it could act as a policy for the agent.
+
+### MDN-RNN
+
+The part that was hardest for me to understand was the M of World Models, the MDN-RNN. M is the neural net that predicts the next frame. So I want to explain it a little more.
+
+From the paper, M uses a mixture density LSTM network (mdn-LSTM).
+
+![mdn-LSTM](/writings/world-models/rnn.png)
+
+The code below shows how the MDN-RNN predicts the next frame. `h`, `c`, `z`, `a` are its inputs. `a` is the action. `h` and `c` are the RNN cell states. `z` is the compressed image, the output of the VAE. Here's the code with some explanation of what it does:
+
+```
+h, c = self.lstm(torch.cat([z, a], dim=1), (h, c)) # (batch, HIDDEN_SIZE)
+z_pi, z_mu, z_sigma = mdn(h) # (batch, MDN_NUM_MIXTURES), (batch, MDN_NUM_MIXTURES, Z_SIZE), (batch, MDN_NUM_MIXTURES, Z_SIZE)
+```
+
+1. Concatenate `z` and `a`, then feed them into the LSTM. The LSTM returns hidden states `h` and `c`.
+2. Feed `h` into `mdn`. The `mdn` function computes `z_pi`, `z_mu`, `z_sigma`.
+
+`mdn` is the part I didn't understand at first. It's the mixture density network that makes M predict more than one possible outcome. `mdn` takes a 512-dimensional vector and returns `z_pi` (5), `z_mu` (5, 32), and `z_sigma` (5, 32). `z_mu` and `z_sigma` describe 5 separate distributions, one per possible future. `z_pi` is the coefficient of each distribution.
+
+### Update
+
+Thanks for the feedback. I realized my model wasn't working because of a simple mistake. I was scaling the images to between -1 and 1 instead of between 0 and 1. After fixing it, the VAE started predicting good frames.
+
+![Predicted frames](/writings/world-models/vae-cnn-16.png)
+
+### Next Steps
+
+I've built both 'V' and 'M' of the model. Next I'll build 'C' and train the whole thing in the environment. The VAE and RNN are based on [my World Models experiments](https://github.com/sksq96/pytorch-mdn), and I've converted them to PyTorch.
+
+### Closing Notes
+
+Rebuilding an ML paper with your own hands is a lot of fun. If you're interested in doing something similar, here's how I went about it:
+
+1. Read the paper a few times and get a general sense of it.
+2. Write paper notes and fill in the gaps.
+3. Implement the code while reading the paper.
+
+On another note, I'd appreciate any feedback on the post. I'm trying to get better at explaining ML concepts and the math behind them.
