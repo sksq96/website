@@ -180,3 +180,52 @@ input[type='email'] {
   .writing-body pre { padding: 1rem; font-size: 12px; }
   .writing-body h2 { font-size: 23px; }
 }
+
+.writing-body .code-block {
+  margin-block: 1.75rem;
+  overflow: hidden;
+  border: 1px solid color-mix(in srgb, var(--fg) 16%, transparent);
+  border-radius: 6px;
+  background: color-mix(in srgb, var(--fg) 3%, var(--bg));
+  font-weight: 400;
+}
+.code-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: .65rem 1.25rem;
+  border-bottom: 1px solid color-mix(in srgb, var(--fg) 12%, transparent);
+  font: 12px/1.5 ui-monospace, 'SFMono-Regular', Consolas, monospace;
+  color: color-mix(in srgb, var(--fg) 65%, var(--bg));
+}
+.code-toolbar button { cursor: pointer; padding: .1rem .3rem; color: inherit; }
+.code-toolbar button:hover { color: var(--fg); }
+.code-toolbar button:focus-visible { outline: 2px solid currentColor; outline-offset: 3px; }
+.writing-body .code-block pre {
+  margin: 0;
+  padding: 1.25rem;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  font-size: 14px;
+  line-height: 1.75;
+}
+.writing-body .hljs { color: #24292e; }
+.hljs-comment { color: #64717d; }
+.hljs-keyword, .hljs-literal { color: #a32670; }
+.hljs-string, .hljs-doctag { color: #186944; }
+.hljs-number { color: #a65312; }
+.hljs-title, .hljs-title.function_ { color: #6f42c1; }
+.hljs-built_in, .hljs-type { color: #075caa; }
+.hljs-params, .hljs-subst { color: inherit; }
+.hljs-meta { color: #81510c; }
+.dark .writing-body .hljs { color: #e0e6ed; }
+.dark .hljs-comment { color: #9ca8b6; }
+.dark .hljs-keyword, .dark .hljs-literal { color: #ff83b8; }
+.dark .hljs-string, .dark .hljs-doctag { color: #98d99d; }
+.dark .hljs-number { color: #ffbd7a; }
+.dark .hljs-title, .dark .hljs-title.function_ { color: #d2a8ff; }
+.dark .hljs-built_in, .dark .hljs-type { color: #79c0ff; }
+.dark .hljs-meta { color: #e9c583; }
+.writing-body .code-copy-error { font: 12px/1.5 sans-serif; padding: 0 1.25rem 1rem; }
+@media(max-width:600px) { .writing-body .code-block pre {font-size:13px;padding:1rem} .code-toolbar {padding:.6rem 1rem} }

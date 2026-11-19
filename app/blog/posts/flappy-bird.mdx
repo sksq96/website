@@ -71,7 +71,7 @@ So here’s the bit of code that actually does the learning. There are a lot of 
 def train_minibatch(self):
     """Train on a single minibatch of data from memory"""
     # If we don't have enough memory stored yet, just return
-    if self.replay_memory.size &lt; self.minibatch_size:
+    if self.replay_memory.size < self.minibatch_size:
         return
 
     # Sample a minibatch to train on

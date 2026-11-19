@@ -62,7 +62,7 @@ From the paper, M uses a mixture density LSTM network (mdn-LSTM).
 
 The code below shows how the MDN-RNN predicts the next frame. `h`, `c`, `z`, `a` are its inputs. `a` is the action. `h` and `c` are the RNN cell states. `z` is the compressed image, the output of the VAE. Here's the code with some explanation of what it does:
 
-```
+```python
 h, c = self.lstm(torch.cat([z, a], dim=1), (h, c)) # (batch, HIDDEN_SIZE)
 z_pi, z_mu, z_sigma = mdn(h) # (batch, MDN_NUM_MIXTURES), (batch, MDN_NUM_MIXTURES, Z_SIZE), (batch, MDN_NUM_MIXTURES, Z_SIZE)
 ```

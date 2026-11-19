@@ -1,7 +1,11 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import { MDXRemote } from 'next-mdx-remote/rsc'
-import { highlight } from 'sugar-high'
+import hljs from 'highlight.js/lib/core'
+import python from 'highlight.js/lib/languages/python'
+import { CodeBlock } from './code-block'
+
+hljs.registerLanguage('python', python)
 import React from 'react'
 
 function Table({ data }: { data: { headers: string[]; rows: string[][] } }) {
@@ -48,9 +52,23 @@ function RoundedImage(props: any) {
   return <Image alt={props.alt} className="rounded-lg" {...props} />
 }
 
-function Code({ children, ...props }: { children: string }) {
-  let codeHTML = highlight(children)
-  return <code dangerouslySetInnerHTML={{ __html: codeHTML }} {...props} />
+function Code({ children, ...props }: React.ComponentProps<'code'>) {
+  return <code {...props}>{children}</code>
+}
+
+function Pre({ children }: { children: React.ReactNode }) {
+  const child = React.Children.toArray(children)[0]
+  if (!React.isValidElement<{ children?: string; className?: string }>(child)) {
+    return <pre>{children}</pre>
+  }
+  const code = String(child.props.children ?? '')
+  const requested = child.props.className?.replace('language-', '') ?? 'plaintext'
+  const language = requested === 'py' ? 'python' : requested
+  const supported = hljs.getLanguage(language)
+  const html = supported
+    ? hljs.highlight(code, { language }).value
+    : code.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+  return <CodeBlock code={code} html={html} language={supported ? language : 'plaintext'} />
 }
 
 function slugify(str: string) {
@@ -103,6 +121,7 @@ const components = {
   Image: RoundedImage,
   a: CustomLink,
   code: Code,
+  pre: Pre,
   Table,
   Callout
 }
