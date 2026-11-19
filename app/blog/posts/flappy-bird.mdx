@@ -16,6 +16,8 @@ The idea is, in any given state of the game, the bird has two actions to choose 
 
 But, what is state in FlappyBird? It can't be just one frame. If it was one frame, it would be impossible to know if the bird is going up or down. We need to know if the bird is going up or down in order to make a better prediction of what action to take. Fortunately, it is possible to use multiple frames to represent the state, and that's exactly what the code does. It uses 4 frames to represent a state.
 
+<Comic src="/writings/conversations/flappy.svg" alt="One person asks which way the bird is moving from one frame. The other replies: that's why we keep four. Four positions show its motion." />
+
 Here's how the 4 frames look:
 
 ![Four frames representing the game state](/writings/flappy-bird/four-game-frames.png)

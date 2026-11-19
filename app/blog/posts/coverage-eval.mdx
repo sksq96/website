@@ -44,6 +44,8 @@ Code coverage is a software testing metric that helps you understand how thoroug
 
 Language models are being used to generate software tests. The generated tests are then used to find bugs and improve code quality. One way to measure the quality of the generated tests is to measure their code coverage. But can language models understand code coverage?
 
+<Comic src="/writings/conversations/coverage.svg" alt="One person: but the test passed. The other: which lines did it touch? Only two lines in a code listing have check marks." />
+
 ## Our benchmark: COVERAGEEVAL
 
 With Michele Tufano, Anisha Agarwal, Neel Sundaresan, and Colin Clement, I worked on COVERAGEEVAL to evaluate language models’ ability to reason about code coverage. It starts from HumanEval programs and tests; the experiments use 478 nontrivial test cases after filtering. For each example, the model’s task is to predict which lines of code are covered by the test case.

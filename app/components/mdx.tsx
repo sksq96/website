@@ -127,7 +127,12 @@ function Callout({ children }: { children: React.ReactNode }) {
   );
 }
 
+function Comic({ src, alt }: { src: string; alt: string }) {
+  return <figure className="writing-comic"><img src={src} alt={alt} width={520} height={340} loading="lazy" /></figure>
+}
+
 const components = {
+  Comic,
   h1: createHeading(1),
   h2: createHeading(2),
   h3: createHeading(3),

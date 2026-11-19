@@ -32,6 +32,8 @@ There are several ways of selecting which masked token to fill in at each step. 
 
 The order that we choose to fill in the tokens can matter. Once a word has been sampled, it becomes context for the next prediction. Different selection rules can therefore give us different distributions over the completed sentence.
 
+<Comic src="/writings/conversations/bert.svg" alt="One person: same blanks, same model. The other: different order, different distribution. Arrows show two possible orders for filling blanks." />
+
 ## Text infilling
 
 BERT can also fill in discontinuous spans from a sentence. We can mask several words, then use the surrounding text to fill them back in. Sampling from the predicted distribution gives us alternatives instead of always taking the most likely word.

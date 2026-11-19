@@ -240,3 +240,7 @@ input[type='email'] {
 /* Keep long equations within the reading column on narrow screens. */
 .writing-body .katex { font-size: 1.05em; }
 .writing-body .katex-display { overflow-x: auto; overflow-y: hidden; padding: 0.4rem 0; }
+
+.writing-body .writing-comic { margin: 2.5rem auto; max-width: 36rem; }
+.writing-comic img { display: block; width: 100%; height: auto; }
+.dark .writing-comic img { filter: invert(1); }
