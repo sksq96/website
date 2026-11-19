@@ -1,0 +1,123 @@
+---
+title: 'Writing a Flappy Bird bot with Deep Q-learning and TensorFlow'
+publishedAt: "2026-11-19"
+summary: "Writing a Flappy Bird bot with Deep Q-learning and TensorFlow."
+---
+
+*(Note: I wrote this in Feb 2016)*
+
+![](https://imgs.xkcd.com/comics/machine_learning.png) *( [source](https://xkcd.com/1838/) )*
+
+So I’m a 4th-year undergraduate at the moment, and a few weeks ago I stumbled across a [video](https://www.youtube.com/watch?v=qv6UVOQ0F44) of someone who had trained a computer to play Flappy Bird using Deep Q-learning.
+
+Flappy Bird is a game where you can only do one thing… “flap”, which makes you go up a bit.
+
+![](https://draft.f.cloud.github.com/assets/1300385/12761003/10cf611e-cb98-11e5-8f1c-3d8f439f5ff9.gif)
+
+The aim is to keep the bird flying through the gaps between the pipes.
+
+Soon after, I found Google DeepMind’s paper on [playing Atari games using Deep Reinforcement Learning](http://www.nature.com/nature/journal/v518/n7540/full/nature14236.html). I couldn’t sleep that night because I was so excited. I had to figure out how this worked!
+
+I have to be honest and say that I have **NO** experience with deep learning, or reinforcement learning, or really any of this stuff. I spent this whole month figuring things out as I went along: learning TensorFlow, getting a feel for the code by hacking at other people’s code, and reading a chapter about Q-learning from a textbook. There were a lot of things I did wrong, and it took me until last night to get it working. But I’m pretty happy with the results :’)
+
+Here’s what I did.
+
+### The learning algorithm
+
+The algorithm I used is based on the DeepMind paper. It’s called “Deep Q-learning”. The idea is to learn a Q-value for each action in a given state (a screen image). A Q-value is just a number that tells us how good an action is in a given state.
+
+In the case of Flappy Bird, there are two possible actions:
+
+1. No-op (do nothing)
+2. Flap (go up a bit)
+
+The Q-values are learned based on a reward: staying alive is good (+1 reward), but hitting a pipe is bad (-1000 reward).
+
+So in order to predict the Q-values, we need a function that can take 4 images and output 2 numbers, the Q-values.
+
+The images are input to a Convolutional Neural Net, which then feeds into a Fully Connected Network which does the actual prediction of the Q-values.
+
+### Preprocessing
+
+One of the things that was initially confusing to me was that a single frame isn’t enough to make a prediction about what the next best action should be. For example, the bird’s velocity isn’t shown, and it’s not possible to tell if the bird is going up or down by looking at a static image.
+
+To solve this, we use the last 4 frames as input to the network.
+
+![](https://draft.f.cloud.github.com/assets/1300385/12761161/c4a0c5f5-cbc0-11e5-8b36-8d42741b5d7d.png)
+
+The images are input in grayscale, and resized to 80x80 before they are fed into the network.
+
+### Training
+
+The first thing I did was to train the network based on a single frame. This was a bad decision, and it didn’t work. I spent a lot of time reading other people’s code, and found that using a few frames (e.g. 4) as input was standard practice.
+
+After fixing that, the network was still training very slowly. I suspected that this was because my initial reward values were badly chosen. I gave a reward of -1000 for dying, +1000 for passing a pipe, and +0.1 for staying alive. However, since the rewards are used to update the Q-values at each time-step, they are a lot more sensitive to scaling than I realized. I changed the rewards to -1 for dying, +1 for passing a pipe, and +0.1 for staying alive, and the network started to train much faster.
+
+I also had an experience replay memory which was a lot smaller than it should have been, but I changed the size from 512 to 2000 and that seemed to improve the learning rate as well.
+
+One of the struggles during training was that the network only saw a single pipe in any given training example. This meant that there wasn’t a lot of variety in the training data, which resulted in the network not learning a very general model. It would sometimes get through ~10 pipes and then die.
+
+To solve this, I just set the gap between the top and bottom pipe to be random. This resulted in a much more general model, and the bird can now get through many pipes!
+
+### The code
+
+So here’s the bit of code that actually does the learning. There are a lot of parts to this that I’m glossing over, so please refer to the full code for more details.
+
+```python
+def train_minibatch(self):
+    """Train on a single minibatch of data from memory"""
+    # If we don't have enough memory stored yet, just return
+    if self.replay_memory.size &lt; self.minibatch_size:
+        return
+
+    # Sample a minibatch to train on
+    minibatch = self.replay_memory.sample(self.minibatch_size)
+
+    # Get the screens and their next screens, and preprocess them
+    screen_batch = np.array(
+        [self.preprocess_image(d[0]) for d in minibatch])
+    screen_batch_new = np.array(
+        [self.preprocess_image(d[3]) for d in minibatch])
+
+    # Compute Q values for all actions
+    Q_batch = self.Q_network.predict(screen_batch)
+    Q_batch_new = self.Q_network.predict(screen_batch_new)
+
+    # Start populating the y_batch vector
+    y_batch = np.zeros((self.minibatch_size,))
+
+    for i in range(0, self.minibatch_size):
+        terminal = minibatch[i][4]
+
+        # There's no future reward to add if the game ended
+        if terminal:
+            y_batch[i] = minibatch[i][2]
+        else:
+            # Calculate the future reward discounted by factor gamma
+            max_Q = np.max(Q_batch_new[i])
+            y_batch[i] = minibatch[i][2] + self.gamma * max_Q
+
+    self.Q_network.train(screen_batch, minibatch, y_batch)
+```
+
+This function samples a minibatch of data from memory, and trains on it. It’s where the actual Q-learning happens.
+
+First, we predict the Q values of the current screens and the next screens. We then loop through the minibatch, and if the episode ended at the next screen, the Q-value for that state is just the reward. Otherwise, we add the discounted future reward to the current reward, and use that as our Q-value.
+
+Finally, we train the network on the current screens and their corresponding Q-values.
+
+### The results
+
+Last night, I decided to run the code for 10,000 episodes to see if it would train successfully. Boy, was I in for a surprise!
+
+It actually worked!
+
+![](https://draft.f.cloud.github.com/assets/1300385/12761131/c72a2908-cbba-11e5-8c16-c001cd4a5e6c.gif)
+
+The full code is available at: [https://github.com/yenchenlin/DeepLearningFlappyBird](https://github.com/yenchenlin/DeepLearningFlappyBird)
+
+It’s been a long few weeks, but I’m pretty hooked on deep learning now.
+
+There are definitely a few things that I could have done better, but I’m pretty happy with the results.
+
+Thanks for reading!

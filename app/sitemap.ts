@@ -4,12 +4,12 @@ export const baseUrl = 'https://shubham.lol/'
 
 export default async function sitemap() {
   let blogs = getBlogPosts().map((post) => ({
-    url: `${baseUrl}/blog/${post.slug}`,
+    url: new URL(`/blog/${post.slug}`, baseUrl).href,
     lastModified: post.metadata.publishedAt,
   }))
 
-  let routes = ['', '/blog', '/links'].map((route) => ({
-    url: `${baseUrl}${route}`,
+  let routes = ['', '/writings', '/links'].map((route) => ({
+    url: new URL(route, baseUrl).href,
     lastModified: new Date().toISOString().split('T')[0],
   }))
 

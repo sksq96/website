@@ -24,7 +24,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     image,
   } = post.metadata
 
-  let ogImage = image ? image : `${baseUrl}/og?title=${encodeURIComponent(title)}`
+  let ogImage = image ? image : new URL(`/og?title=${encodeURIComponent(title)}`, baseUrl).href
 
   return {
     title,
@@ -34,7 +34,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       description,
       type: 'article',
       publishedTime,
-      url: `${baseUrl}/blog/${post.slug}`,
+      url: new URL(`/blog/${post.slug}`, baseUrl).href,
       images: [
         {
           url: ogImage,
@@ -59,7 +59,8 @@ export default async function Blog({ params }: { params: Promise<{ slug: string 
   }
 
   return (
-    <section>
+    <section className="max-w-[46rem] mx-auto">
+      <a href="/writings" className="inline-block underline text-sm mb-8">← writings</a>
       <script
         type="application/ld+json"
         suppressHydrationWarning
@@ -74,7 +75,7 @@ export default async function Blog({ params }: { params: Promise<{ slug: string 
             image: post.metadata.image
               ? `${baseUrl}${post.metadata.image}`
               : `/og?title=${encodeURIComponent(post.metadata.title)}`,
-            url: `${baseUrl}/blog/${post.slug}`,
+            url: new URL(`/blog/${post.slug}`, baseUrl).href,
             author: {
               '@type': 'Person',
               name: 'shubham',
@@ -90,7 +91,7 @@ export default async function Blog({ params }: { params: Promise<{ slug: string 
           {formatDate(post.metadata.publishedAt)}
         </p>
       </div>
-      <article className="prose dark:prose-invert">
+      <article className="writing-body">
         <CustomMDX source={post.content} />
       </article>
     </section>
