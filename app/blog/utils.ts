@@ -7,6 +7,7 @@ type Metadata = {
   summary: string
   image?: string
   draft?: string
+  reviewDraft?: string
 }
 
 function parseFrontmatter(fileContent: string) {
@@ -28,7 +29,7 @@ function parseFrontmatter(fileContent: string) {
 }
 
 function getMDXFiles(dir) {
-  return fs.readdirSync(dir).filter((file) => path.extname(file) === '.mdx')
+  return fs.readdirSync(dir).filter((file) => ['.mdx', '.md'].includes(path.extname(file)))
 }
 
 function readMDXFile(filePath) {
@@ -44,6 +45,7 @@ function getMDXData(dir) {
 
     return {
       metadata,
+      format: path.extname(file),
       slug,
       content,
     }
@@ -56,6 +58,7 @@ export function getBlogPosts() {
 }
 
 export function formatDate(date: string, includeRelative = false) {
+  if (/^\d{4}$/.test(date)) return date
   let currentDate = new Date()
   if (!date.includes('T')) {
     date = `${date}T00:00:00`

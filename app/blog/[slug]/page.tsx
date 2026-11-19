@@ -1,4 +1,5 @@
 import { notFound } from 'next/navigation'
+import { DraftMarkdown } from 'app/components/draft-markdown'
 import { CustomMDX } from 'app/components/mdx'
 import { formatDate, getBlogPosts } from 'app/blog/utils'
 import { baseUrl } from 'app/sitemap'
@@ -33,7 +34,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       title,
       description,
       type: 'article',
-      publishedTime,
+      publishedTime: publishedTime.length === 4 ? undefined : publishedTime,
       url: new URL(`/blog/${post.slug}`, baseUrl).href,
       images: [
         {
@@ -69,8 +70,8 @@ export default async function Blog({ params }: { params: Promise<{ slug: string 
             '@context': 'https://schema.org',
             '@type': 'BlogPosting',
             headline: post.metadata.title,
-            datePublished: post.metadata.publishedAt,
-            dateModified: post.metadata.publishedAt,
+            datePublished: post.metadata.publishedAt.length === 4 ? undefined : post.metadata.publishedAt,
+            dateModified: post.metadata.publishedAt.length === 4 ? undefined : post.metadata.publishedAt,
             description: post.metadata.summary,
             image: post.metadata.image
               ? `${baseUrl}${post.metadata.image}`
@@ -91,8 +92,9 @@ export default async function Blog({ params }: { params: Promise<{ slug: string 
           {formatDate(post.metadata.publishedAt)}
         </time>
       </div>
+      {post.metadata.reviewDraft === 'true' && <p className="mb-8 text-[13px] font-normal text-neutral-500">Reconstructed voice draft · historical year, not original publication date · open for revision</p>}
       <article className="writing-body">
-        <CustomMDX source={post.content} />
+        {post.format === '.md' ? <DraftMarkdown source={post.content} /> : <CustomMDX source={post.content} />}
       </article>
     </section>
   )
