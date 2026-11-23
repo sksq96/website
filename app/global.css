@@ -40,6 +40,8 @@ mark {
 body {
   font-family: 'Alegreya', serif;
   font-weight: 450;
+  /* Alegreya's x-height is small; match the old Helvetica's so sizes read the same */
+  font-size-adjust: .53;
   background-color: var(--bg);
   color: var(--fg);
 }
