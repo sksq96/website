@@ -88,9 +88,13 @@ input[type='email'] {
 .writing-body {
   font-family: inherit;
   font-size: 18px;
-  line-height: 1.5;
+  line-height: 1.42;
   font-weight: inherit;
   overflow-wrap: break-word;
+  /* greene.sh book setting: justified, hyphenated, oldstyle figures, indented paragraphs */
+  text-align: justify;
+  hyphens: auto;
+  font-variant-numeric: oldstyle-nums;
   --sh-class: #6b4f9c;
   --sh-identifier: #253b50;
   --sh-sign: #5d6470;
@@ -113,11 +117,14 @@ input[type='email'] {
   --sh-comment: #9ba2ae;
 }
 .writing-body > * + * { margin-top: 1.1em; }
+.writing-body > p + p { margin-top: 0; text-indent: 1.5em; }
 .writing-body :is(h2, h3, h4) {
   font-family: 'Alegreya SC', serif;
   line-height: 1.3;
-  letter-spacing: .06em;
-  font-weight: 650;
+  letter-spacing: .11em;
+  text-transform: lowercase;
+  font-weight: 400;
+  text-align: left;
   scroll-margin-top: 2rem;
 }
 .writing-body h2 { font-size: 26px; margin-top: 2.5em; }
