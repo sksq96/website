@@ -9,7 +9,7 @@
 
 .dark {
   --bg: #171717;
-  --fg: #e8e6df;
+  --fg: #f8f8f6;
 }
 
 /* greene.sh: Alegreya body, Alegreya SC letter-spaced small caps for name/nav/headings, Courier Prime code */
@@ -39,7 +39,7 @@ mark {
 
 body {
   font-family: 'Alegreya', serif;
-  font-weight: 450;
+  font-weight: 550;
   /* Alegreya's x-height is small; match the old Helvetica's so sizes read the same */
   font-size-adjust: .53;
   background-color: var(--bg);
