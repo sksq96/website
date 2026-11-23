@@ -39,8 +39,8 @@ export const metadata: Metadata = {
 // phone browser chrome matches the page ground
 export const viewport: Viewport = {
   themeColor: [
-    { media: '(prefers-color-scheme: light)', color: '#f4f4f4' },
-    { media: '(prefers-color-scheme: dark)', color: '#111111' },
+    { media: '(prefers-color-scheme: light)', color: '#fff' },
+    { media: '(prefers-color-scheme: dark)', color: '#171717' },
   ],
 }
 
@@ -52,6 +52,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@0,400..900;1,400..900&family=Alegreya+SC:wght@400;500;700;800&family=Courier+Prime&display=swap" />
         <script
           dangerouslySetInnerHTML={{
             __html: `try{if(localStorage.theme==='dark')document.documentElement.classList.add('dark')}catch(e){}`,

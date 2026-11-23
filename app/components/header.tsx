@@ -11,8 +11,8 @@ export default function Header() {
 
   return (
     <header className="flex flex-wrap justify-between items-center gap-x-4 gap-y-2 p-5 md:px-6 md:pt-6">
-      <a href="/" className="text-[17px] font-bold">Shubham</a>
-      <nav className="flex flex-wrap items-center gap-3 md:gap-4 text-[15px] md:text-[17px] font-bold">
+      <a href="/" className="sc text-[17px] font-bold">Shubham</a>
+      <nav className="sc flex flex-wrap items-center gap-3 md:gap-4 text-[15px] md:text-[17px] font-bold">
         <a href="/writings" className="underline">writings</a>
         <a href="/links" className="underline">links</a>
         <a href="/photos" className="underline">photos</a>
