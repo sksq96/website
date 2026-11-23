@@ -10,9 +10,9 @@ export default function Header() {
   }
 
   return (
-    <header className="flex flex-wrap justify-between items-center gap-x-4 gap-y-1 p-5 pb-3 md:px-6 md:pt-6">
-      <a href="/" className="text-[17px] font-bold">Shubham</a>
-      <nav className="flex flex-wrap items-center gap-x-3 gap-y-1 md:gap-4 text-[15px] md:text-[17px] font-bold">
+    <header className="flex justify-between items-center gap-x-3 p-5 pb-3 md:px-6 md:pt-6 text-[13px] md:text-[17px] font-bold whitespace-nowrap">
+      <a href="/">Shubham</a>
+      <nav className="flex items-center gap-x-2 md:gap-4">
         <a href="/writings" className="underline">writings</a>
         <a href="/links" className="underline">links</a>
         <a href="/photos" className="underline">photos</a>
@@ -21,7 +21,7 @@ export default function Header() {
         <button
           onClick={toggle}
           aria-label="toggle black and white theme"
-          className="w-4 h-4 mt-px rounded-full border border-current bg-current cursor-pointer"
+          className="w-3.5 h-3.5 md:w-4 md:h-4 mt-px rounded-full border border-current bg-current cursor-pointer"
         />
       </nav>
     </header>
