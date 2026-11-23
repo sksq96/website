@@ -12,8 +12,6 @@
   --fg: #f8f8f6;
 }
 
-/* greene.sh: Alegreya body, Alegreya SC letter-spaced small caps for name/nav/headings, Courier Prime code */
-.sc { font-family: 'Alegreya SC', serif; letter-spacing: .12em; text-transform: lowercase; }
 
 ::selection {
   background-color: var(--fg);
