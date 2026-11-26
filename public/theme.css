@@ -1,24 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@0,400..900;1,400..900&family=Courier+Prime&display=swap');
 /* shubham.lol theme — one stylesheet, two tones. https://shubham.lol/theme.css
-   Light: #f4f4f4 on #111. Dark: the same two values swapped. Everything else is color-mix of --fg.
+   Light: #000 on #fff. Dark: #f8f8f6 on #171717. Alegreya body, Courier Prime code. Everything else is color-mix of --fg.
    Use: <link rel="stylesheet" href="https://shubham.lol/theme.css"> (+ theme.js for the toggle)
    Dark applies with .dark on <html> (the site's toggle) or with prefers-color-scheme when no class is set. */
 
 :root{
-  --bg:#f4f4f4;--fg:#111;
+  --bg:#fff;--fg:#000;
   --mute:color-mix(in srgb,var(--fg) 62%,transparent);
   --line:color-mix(in srgb,var(--fg) 12%,transparent);
   --card:color-mix(in srgb,var(--fg) 3.5%,transparent);
-  --sans:-apple-system,BlinkMacSystemFont,'Helvetica Neue',Helvetica,Arial,sans-serif;
-  --mono:ui-monospace,SFMono-Regular,Menlo,monospace;
+  --sans:'Alegreya',serif;
+  --mono:'Courier Prime',monospace;
   --measure:48rem;--side:24rem;
   color-scheme:light;
 }
-.dark{--bg:#111;--fg:#f4f4f4;color-scheme:dark}
-@media(prefers-color-scheme:dark){:root:not(.light){--bg:#111;--fg:#f4f4f4;color-scheme:dark}}
+.dark{--bg:#171717;--fg:#f8f8f6;color-scheme:dark}
+@media(prefers-color-scheme:dark){:root:not(.light){--bg:#171717;--fg:#f8f8f6;color-scheme:dark}}
 
 *{box-sizing:border-box}[hidden]{display:none!important}
 html{overflow-x:clip}
-body{margin:0;background:var(--bg);color:var(--fg);font:600 17px/1.5 var(--sans);-webkit-font-smoothing:antialiased}
+body{margin:0;background:var(--bg);color:var(--fg);font:550 17px/1.5 var(--sans);font-size-adjust:.53;-webkit-font-smoothing:antialiased}
 ::selection{background:var(--fg);color:var(--bg)}
 a{color:inherit;text-decoration:underline;text-underline-offset:3px}
 b,strong{font-weight:700}
@@ -38,7 +39,7 @@ input,textarea,button{font:inherit;color:inherit}
 /* text roles */
 .mute{color:var(--mute)}
 .small{font-size:13px;line-height:1.6}
-.label{font-size:13px;font-weight:600;text-transform:uppercase;letter-spacing:.04em;color:var(--mute)}
+.label{font-size:13px;font-weight:600;color:var(--mute)}
 .label-row{display:flex;justify-content:space-between;align-items:baseline}
 .kv span:first-child{color:var(--mute)}           /* "Email: " label rows */
 .pre{white-space:pre-wrap}

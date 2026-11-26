@@ -91,7 +91,7 @@ export default function Page() {
         <div className="text-[13px] text-neutral-500 mt-1">chapter 1</div>
       </blockquote>
 
-      <h2 className="text-[13px] uppercase tracking-[.04em] text-neutral-500 mb-4">Contents</h2>
+      <h2 className="text-[14px] text-neutral-500 mb-4">contents</h2>
       <ol className="space-y-7 mb-10">
         {CHAPTERS.map((c, i) => (
           <li key={c.title}>

@@ -24,7 +24,7 @@ Personal site for Shubham Chandel, deployed at https://shubham.lol.
 
 Redesigned 2026-09-06 after bratton.info: light gray `#f4f4f4` page, system Helvetica/SF sans at weight 600, black underlined links, tight top-left margins, B&W portrait + gray-label contact rows in a left sidebar. Dark theme is a pure `--bg`/`--fg` inversion.
 
-Restyled 2026-11-23 after greene.sh: Alegreya body (weight 550, `font-size-adjust: .53` to match the old Helvetica x-height), Alegreya SC spaced small caps for name/nav/headings, Courier Prime code. Dark `#171717`/`#f8f8f6`, light `#fff`/`#000`. Posts set book-style: justified, hyphenated, indented paragraphs, oldstyle figures.
+Restyled 2026-11-23 after greene.sh: Alegreya body (weight 550, `font-size-adjust: .53` to match the old Helvetica x-height), Alegreya everywhere (lowercase bold nav/headings), Courier Prime for code only. public/theme.css mirrors the same tokens for other apps. Dark `#171717`/`#f8f8f6`, light `#fff`/`#000`. Posts set book-style: justified, hyphenated, indented paragraphs, oldstyle figures.
 
 ## File tree
 
