@@ -12,8 +12,8 @@ export default function Page() {
         <p>
           Hiii, I&rsquo;m Shubham! I&rsquo;m a researcher and co-founder of{' '}
           <A href="https://www.strangeintelligence.ai/">Strange Intelligence</A>,
-          where I&rsquo;m building <A href="https://tryhue.app">Hue</A> and
-          exploring social AI. I&rsquo;d like to build a future where humans and
+          where I&rsquo;m building <A href="https://tryhue.app">Hue</A>{' '}
+          and exploring social AI. I&rsquo;d like to build a future where humans and
           AI coexist, preferably one where humans aren&rsquo;t rendered obsolete
           in the process.
         </p>
