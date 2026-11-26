@@ -42,6 +42,12 @@ const projects: { name: string; href: string; date: string; desc: string }[] = [
     date: 'Aug 2026',
     desc: 'the hugging face incident of july 2026 as a narrative timeline.',
   },
+  {
+    name: 'pytorch-summary',
+    href: 'https://github.com/sksq96/pytorch-summary',
+    date: '2018',
+    desc: 'model summaries in pytorch, à la keras. 4.1k★ on github.',
+  },
 ]
 
 export default function Projects() {

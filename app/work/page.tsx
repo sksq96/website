@@ -13,43 +13,33 @@ type Item = { year: string; name: string; href?: string; desc: string }
 const items: Item[] = [
   {
     year: '2025–now',
-    name: 'Hue',
-    href: 'https://tryhue.app',
-    desc: 'personal intelligence. like ai, but it actually knows you. building it at Strange Intelligence, the company i founded.',
+    name: 'Strange Intelligence',
+    href: 'https://www.strangeintelligence.ai/',
+    desc: 'co-founder. building hue and exploring social ai.',
   },
   {
     year: '2025',
     name: 'Frontier Language Models',
     href: 'https://www.youtube.com/playlist?list=PLxebUzBtXdb3c5OXSG_1F7VXqcmh9Xdnz',
-    desc: 'taught a course on llms from the ground up. all lectures on youtube.',
+    desc: 'taught a course on llms from the ground up.',
   },
   {
     year: '2022–2024',
     name: 'Vatic Labs',
-    desc: 'ai research at a quant trading firm. language models meet markets.',
+    href: 'https://www.vaticlabs.com',
+    desc: 'quantitative ai research.',
   },
   {
-    year: '2020–2022',
-    name: 'GitHub Copilot',
+    year: '2019–2022',
+    name: 'GitHub Copilot, Microsoft',
     href: 'https://github.com/features/copilot',
-    desc: 'trained the language models behind copilot.',
-  },
-  {
-    year: '2019–2020',
-    name: 'Microsoft',
-    desc: 'shipped intellisense into vs code.',
+    desc: 'pretrained the code language models behind copilot.',
   },
   {
     year: '2017–2019',
     name: 'NYU',
     href: 'https://scholar.google.com/citations?user=wyuSCNgAAAAJ&hl=en',
-    desc: 'masters with yann lecun. research on language models and reinforcement learning.',
-  },
-  {
-    year: '2018',
-    name: 'pytorch-summary',
-    href: 'https://github.com/sksq96/pytorch-summary',
-    desc: 'model summaries in pytorch, à la keras. 4.1k★ on github.',
+    desc: 'rl research with yann lecun.',
   },
 ]
 

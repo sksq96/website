@@ -53,7 +53,7 @@ app/
     gallery.tsx           client. dense tiling grid (3 cols phone full-bleed / 5 cols desktop, hash-picked 2×2 features) + fullscreen lightbox slideshow (arrows/keys/esc, neighbor preload)
 
   work/
-    page.tsx              /work — sidebar + year-labeled timeline (hue, FLM course, vatic, copilot, microsoft, nyu, pytorch-summary). NOTE: year ranges are inferred, unconfirmed
+    page.tsx              /work — year-labeled career (strange intelligence, FLM course, vatic, copilot/microsoft, nyu); pytorch-summary lives under projects. NOTE: year ranges are inferred, unconfirmed
 
   blog/
     page.tsx              /blog list (unlinked)
