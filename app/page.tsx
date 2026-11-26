@@ -13,17 +13,16 @@ export default function Page() {
           Hiii, I&rsquo;m Shubham! I&rsquo;m a researcher and co-founder of{' '}
           <A href="https://www.strangeintelligence.ai/">Strange Intelligence</A>,
           where I&rsquo;m building <A href="https://tryhue.app">Hue</A> and
-          exploring the slightly chaotic world of social AI.
+          exploring social AI. I&rsquo;d like to build a future where humans and
+          AI coexist, preferably one where humans aren&rsquo;t rendered obsolete
+          in the process.
         </p>
 
         <p>
-          I care about minds, human and artificial. What constitutes a self? Do
-          language models have an inner life, and what do we owe them if they
-          do? I spend an unreasonable amount of time thinking about model
-          psychology,{' '}
-          <A href="https://www.anthropic.com/research/claude-character">character training</A>,{' '}
-          <A href="https://en.wikipedia.org/wiki/Consciousness">consciousness</A>,
-          and Buddhist phenomenology.
+          I care about minds, human and artificial. What constitutes a self?
+          Are LLMs{' '}
+          <A href="https://en.wikipedia.org/wiki/Consciousness">conscious</A>,
+          and what do we owe them if they are?
         </p>
 
         <p>
