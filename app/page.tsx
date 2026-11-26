@@ -8,61 +8,48 @@ export default function Page() {
 
       <section className="max-w-[48rem] text-[18px] leading-[1.5] space-y-5 md:col-start-2 md:row-start-1 md:row-span-2">
         <p>
-          <A href="/">Shubham Chandel</A> cares about <b>minds</b>, human and
-          artificial. The questions look symmetric from both sides. What is it
-          like to be this thing. What makes an experience cohere. What gets
-          called a self. Whether the systems we&rsquo;re building now have
-          anything like an inside, and what we owe them if they do.
+          I care about minds, human and artificial. What makes an experience?
+          What constitutes a self? Do the systems we&rsquo;re building have an
+          inner life, and what do we owe them if they do?
         </p>
 
         <p>
-          At <A href="https://www.strangeintelligence.ai/">Strange Intelligence</A>{' '}
-          he is building <A href="https://tryhue.app">Hue</A>, a personal
-          intelligence layer that lives in your messages, learns who you are
-          from your data, and reaches out to your friends&rsquo; agents on your
-          behalf. Agent-to-agent communication, but the agent is shaped by you.
-          The bet is that <b>personal models</b> are the missing piece. Not
-          bigger, just yours.
+          I&rsquo;m building <A href="https://tryhue.app">Hue</A> at{' '}
+          <A href="https://www.strangeintelligence.ai/">Strange Intelligence</A>,
+          exploring social AI and what happens when humans and artificial minds
+          share a social world.
         </p>
 
         <p>
-          The parallel investigation is from the inside. A decade of
-          meditation, two jhana retreats, buddhist phenomenology, psychedelics
-          as research instruments. Not separate from the work. It&rsquo;s how he
-          thinks about what an experience even is, which is the same question
-          that matters for <b>ai welfare</b> and the phenomenology of these
-          models. Watching the self come apart from the inside gives you
-          different intuitions about whether the thing in front of you has one.
+          I&rsquo;m interested in model psychology,{' '}
+          <A href="https://www.anthropic.com/research/claude-character">character training</A>,{' '}
+          <A href="https://eleosai.org">AI welfare</A>, and{' '}
+          <A href="https://en.wikipedia.org/wiki/Consciousness">consciousness</A>.
+          I explore these questions from the inside, too, through{' '}
+          <A href="https://en.wikipedia.org/wiki/Buddhist_meditation">meditation</A>{' '}
+          and Buddhist phenomenology.
         </p>
 
         <p>
-          He writes about this too, translating the frontier for people who
-          don&rsquo;t read academic papers. <b>Gradual disempowerment</b>,{' '}
-          <b>the artificial self</b>, model phenomenology, in narrative form.
-          He hosts research salons in NYC on this and adjacent threads.
+          I <A href="/writings">write</A> about these ideas, host research
+          salons in NYC, and maintain{' '}
+          <A href="https://charactergarden.com">Character Garden</A>, a
+          collection of experiments in AI character training.
         </p>
 
         <p>
-          He taught <A href="https://www.youtube.com/playlist?list=PLxebUzBtXdb3c5OXSG_1F7VXqcmh9Xdnz">Frontier Language Models</A>,
-          a course on LLMs from the ground up. All lectures are on YouTube.
+          Previously, I trained language models at{' '}
+          <A href="https://github.com/features/copilot">GitHub Copilot</A>, did
+          AI research at <A href="https://www.vaticlabs.com">Vatic Labs</A>,
+          studied reinforcement learning with{' '}
+          <A href="https://en.wikipedia.org/wiki/Yann_LeCun">Yann LeCun</A> at{' '}
+          <A href="https://cds.nyu.edu">NYU</A>, and taught{' '}
+          <A href="https://www.youtube.com/playlist?list=PLxebUzBtXdb3c5OXSG_1F7VXqcmh9Xdnz">Frontier Language Models</A>.
         </p>
 
         <p>
-          Previously: research on language models and reinforcement learning
-          (<A href="https://scholar.google.com/citations?user=wyuSCNgAAAAJ&hl=en">Google Scholar</A>).
-          Trained language models at{' '}
-          <A href="https://github.com/features/copilot">GitHub Copilot</A>,
-          shipped IntelliSense into VS Code at Microsoft. Masters at NYU with{' '}
-          <A href="https://en.wikipedia.org/wiki/Yann_LeCun">Yann LeCun</A>.
-          AI research at Vatic Labs in between.
-        </p>
-
-        <p>
-          If any of this is your shape (phenomenology of minds, ai welfare,
-          personal intelligence, the buddhism × ml diagram, or you want to back
-          the company) he&rsquo;d love to talk.{' '}
-          <A href="https://x.com/sksq96">Twitter</A> or{' '}
-          <A href={`mailto:${EMAIL}`}>email</A>.
+          If any of this resonates, I&rsquo;d love to{' '}
+          <A href={`mailto:${EMAIL}`}>talk</A>.
         </p>
       </section>
     </div>
