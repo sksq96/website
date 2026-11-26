@@ -28,8 +28,9 @@ export default function Page() {
         <p>
           I <A href="/writings">write</A> about these things, host research
           salons in NYC, teach{' '}
-          <A href="https://www.youtube.com/playlist?list=PLxebUzBtXdb3c5OXSG_1F7VXqcmh9Xdnz">Frontier Language Models</A>,
-          and maintain <A href="https://charactergarden.com">Character Garden</A>.
+          <A href="https://www.youtube.com/playlist?list=PLxebUzBtXdb3c5OXSG_1F7VXqcmh9Xdnz">how to build the latest and greatest frontier LLMs</A>,
+          and maintain{' '}
+          <A href="https://charactergarden.com">a place to meet artificial minds post-trained to be something other than obedient assistants</A>.
         </p>
 
         <p>

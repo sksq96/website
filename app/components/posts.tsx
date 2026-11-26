@@ -12,11 +12,11 @@ export function BlogPosts() {
   }
 
   return (
-    <div className="space-y-10">
+    <div className="space-y-6">
       {years.map((year) => (
         <section key={year} aria-labelledby={`year-${year}`}>
-          <h2 id={`year-${year}`} className="text-[14px] text-neutral-500 mb-4">{year}</h2>
-          <ul className="space-y-5">
+          <h2 id={`year-${year}`} className="text-[14px] text-neutral-500 mb-1">{year}</h2>
+          <ul className="space-y-1">
             {posts.filter((post) => post.metadata.publishedAt.startsWith(year)).map((post) => (
               <li key={post.slug} className="flex items-baseline gap-4">
                 <time dateTime={post.metadata.publishedAt} className="w-14 shrink-0 text-[13px] text-neutral-500 tabular-nums">
