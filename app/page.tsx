@@ -34,12 +34,15 @@ export default function Page() {
         </p>
 
         <p>
-          Previously, I trained language models at{' '}
+          Previously, I pretrained code language models at{' '}
           <A href="https://github.com/features/copilot">GitHub Copilot</A>, did
-          AI research at <A href="https://www.vaticlabs.com">Vatic Labs</A>,
-          worked on reinforcement learning with{' '}
+          quantitative AI research at{' '}
+          <A href="https://www.vaticlabs.com">Vatic Labs</A>, worked on{' '}
+          <A href="https://kyunghyuncho.me/bert-has-a-mouth-and-must-speak-but-it-is-not-an-mrf/">BERT</A>{' '}
+          as a <A href="/blog/bert-out-of-equilibrium">non-autoregressive generative model</A>,
+          and did RL research with{' '}
           <A href="https://en.wikipedia.org/wiki/Yann_LeCun">Yann LeCun</A> at{' '}
-          <A href="https://cds.nyu.edu">NYU</A>, and taught{' '}
+          <A href="https://cds.nyu.edu">NYU</A>. I also taught{' '}
           <A href="https://www.youtube.com/playlist?list=PLxebUzBtXdb3c5OXSG_1F7VXqcmh9Xdnz">Frontier Language Models</A>.
         </p>
 
