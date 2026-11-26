@@ -13,41 +13,43 @@ export default function Page() {
           Hiii, I&rsquo;m Shubham! I&rsquo;m a researcher and co-founder of{' '}
           <A href="https://www.strangeintelligence.ai/">Strange Intelligence</A>,
           where I&rsquo;m building <A href="https://tryhue.app">Hue</A> and
-          exploring social AI.
+          exploring the slightly chaotic world of social AI.
         </p>
 
         <p>
-          I care about minds, human and artificial. I&rsquo;m curious about
-          what makes an experience, how a self emerges, whether language models
-          have an inner life, and what we owe them if they do. I explore these
-          questions through model psychology,{' '}
+          I care about minds, human and artificial. What constitutes a self? Do
+          language models have an inner life, and what do we owe them if they
+          do? I spend an unreasonable amount of time thinking about model
+          psychology,{' '}
           <A href="https://www.anthropic.com/research/claude-character">character training</A>,{' '}
-          <A href="https://en.wikipedia.org/wiki/Buddhist_meditation">meditation</A>,
+          <A href="https://en.wikipedia.org/wiki/Consciousness">consciousness</A>,
           and Buddhist phenomenology.
         </p>
 
         <p>
-          I <A href="/writings">write</A> about these ideas, host research
-          salons in NYC, and maintain{' '}
-          <A href="https://charactergarden.com">Character Garden</A>, a
-          collection of experiments in AI character training.
+          I <A href="/writings">write</A> about these things, host research
+          salons in NYC, teach{' '}
+          <A href="https://www.youtube.com/playlist?list=PLxebUzBtXdb3c5OXSG_1F7VXqcmh9Xdnz">Frontier Language Models</A>,
+          and maintain <A href="https://charactergarden.com">Character Garden</A>.
         </p>
 
         <p>
-          Previously, I pretrained code language models at{' '}
+          Back in the days when language models were less of a personality
+          cult, I pretrained code language models at{' '}
           <A href="https://github.com/features/copilot">GitHub Copilot</A>, did
           quantitative AI research at{' '}
-          <A href="https://www.vaticlabs.com">Vatic Labs</A>, worked on{' '}
-          <A href="https://kyunghyuncho.me/bert-has-a-mouth-and-must-speak-but-it-is-not-an-mrf/">BERT</A>{' '}
-          as a <A href="/blog/bert-out-of-equilibrium">non-autoregressive generative model</A>,
-          and did RL research with{' '}
-          <A href="https://en.wikipedia.org/wiki/Yann_LeCun">Yann LeCun</A> at{' '}
-          <A href="https://cds.nyu.edu">NYU</A>. I also taught{' '}
-          <A href="https://www.youtube.com/playlist?list=PLxebUzBtXdb3c5OXSG_1F7VXqcmh9Xdnz">Frontier Language Models</A>.
+          <A href="https://www.vaticlabs.com">Vatic Labs</A>, worked on RL
+          with <A href="https://en.wikipedia.org/wiki/Yann_LeCun">Yann LeCun</A>,
+          and explored{' '}
+          <A href="https://kyunghyuncho.me/bert-has-a-mouth-and-must-speak-but-it-is-not-an-mrf/">BERT as a non-autoregressive generative model</A>.
+          I also created{' '}
+          <A href="https://github.com/sksq96/pytorch-summary">PyTorch Summary</A>,
+          back when counting model parameters was a much less depressing
+          exercise.
         </p>
 
         <p>
-          If any of this resonates, I&rsquo;d love to{' '}
+          If you share any of these rabbit holes, I&rsquo;d love to{' '}
           <A href={`mailto:${EMAIL}`}>talk</A>!
         </p>
       </section>
