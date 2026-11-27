@@ -1,0 +1,560 @@
+[
+ {
+  "title": "San Francisco, drawn",
+  "kind": [
+   "Illustration"
+  ],
+  "media": [
+   [
+    "https://pbs.twimg.com/media/HYBBvB0a4AALwSM?format=jpg&name=small",
+    510,
+    680
+   ],
+   [
+    "https://pbs.twimg.com/media/HYBBwYOaMAA5zbb?format=jpg&name=small",
+    510,
+    680
+   ]
+  ],
+  "note": "Sunlit drawings of San Francisco packed with tiny houses, towers and the bay.",
+  "maker": "kiu",
+  "via": "@kiuzyx",
+  "post": "https://x.com/kiuzyx/status/2125771418709418368"
+ },
+ {
+  "title": "UI feed",
+  "kind": [
+   "UI"
+  ],
+  "media": [
+   [
+    "/vibes/art/ui-feed.jpg",
+    680,
+    357
+   ]
+  ],
+  "note": "A vertical feed of 89 live interface demos, each stock control restyled as a physical object.",
+  "maker": "",
+  "via": "",
+  "post": "https://ui-feed.dev/",
+  "try": "https://ui-feed.dev/"
+ },
+ {
+  "title": "King tide flood map",
+  "kind": [
+   "Data"
+  ],
+  "clip": true,
+  "media": [
+   [
+    "https://pbs.twimg.com/amplify_video_thumb/2125051339587948544/img/hKfQM8eoWIJuiXzo?format=jpg&name=small",
+    654,
+    680
+   ]
+  ],
+  "note": "A flood model of San Francisco wired to live 311 reports of clogged drains, on a miniature 3D city.",
+  "maker": "Danielle Fong 🔆",
+  "via": "@DanielleFong",
+  "post": "https://x.com/DanielleFong/status/2125051736406770029"
+ },
+ {
+  "title": "Hand-drawn login",
+  "kind": [
+   "Animation"
+  ],
+  "clip": true,
+  "media": [
+   [
+    "https://pbs.twimg.com/amplify_video_thumb/2123425719199891456/img/GbmTGTdOSAoSAFKm?format=jpg&name=small",
+    680,
+    425
+   ]
+  ],
+  "note": "A login screen with a sketchy character and scribbled fields, all animated in Rive.",
+  "maker": "Anna Sin",
+  "via": "@anna_si3231",
+  "post": "https://x.com/anna_si3231/status/2123426871240974721"
+ },
+ {
+  "title": "Pixel plant",
+  "kind": [
+   "Generative"
+  ],
+  "clip": true,
+  "media": [
+   [
+    "https://pbs.twimg.com/amplify_video_thumb/2123387672508899328/img/XK36nracAsIfYepz?format=jpg&name=small",
+    680,
+    383
+   ]
+  ],
+  "note": "A pixel-art houseplant made by pointing an agent at a technique and letting an image model draw references.",
+  "maker": "fofr",
+  "via": "@fofrAI",
+  "post": "https://x.com/fofrAI/status/2123387752058368315"
+ },
+ {
+  "title": "Pixel splats",
+  "kind": [
+   "Generative"
+  ],
+  "clip": true,
+  "media": [
+   [
+    "https://pbs.twimg.com/amplify_video_thumb/2123198332441075712/img/9rHhJmOiHyNKVN_N?format=jpg&name=small",
+    680,
+    425
+   ]
+  ],
+  "note": "Gaussian splat scenes broken into glowing pixel-art dots.",
+  "maker": "Silicon Jungle",
+  "via": "@JungleSilicon",
+  "post": "https://x.com/JungleSilicon/status/2123198696867373386"
+ },
+ {
+  "title": "WebGPU brushes",
+  "kind": [
+   "Toy"
+  ],
+  "clip": true,
+  "media": [
+   [
+    "https://pbs.twimg.com/amplify_video_thumb/2123089243996073984/img/pQm2UxNqNAHPSL9l?format=jpg&name=small",
+    680,
+    383
+   ]
+  ],
+  "note": "Paint thick, multicolored strokes in the browser with brushes built on WebGPU.",
+  "maker": "Luis Bizarro",
+  "via": "@LuisBizarro",
+  "post": "https://x.com/LuisBizarro/status/2123089427954368967",
+  "try": "https://brushes.bizar.ro"
+ },
+ {
+  "title": "Sunset ride",
+  "kind": [
+   "Generative"
+  ],
+  "clip": true,
+  "media": [
+   [
+    "https://pbs.twimg.com/amplify_video_thumb/2123080986409783296/img/Q6LYSs-H064ialqc?format=jpg&name=small",
+    640,
+    360
+   ]
+  ],
+  "note": "A cyclist rides through a sunset city in a video made from 10KB of shader code.",
+  "maker": "gokaygokay",
+  "via": "@gokayfem",
+  "post": "https://x.com/gokayfem/status/2123083869562003745",
+  "try": "https://gokayfem.github.io/sunset-ride/"
+ },
+ {
+  "title": "Screenshots to game",
+  "kind": [
+   "Game"
+  ],
+  "clip": true,
+  "media": [
+   [
+    "https://pbs.twimg.com/amplify_video_thumb/2122726346006609920/img/R1fHu-ZDdMhE9rDu?format=jpg&name=small",
+    678,
+    680
+   ]
+  ],
+  "note": "A set of dreamy landscape screenshots turned into a playable game by Fable 5.2.",
+  "maker": "Pallav Agarwal",
+  "via": "@pallavmac",
+  "post": "https://x.com/pallavmac/status/2122726390160363922"
+ },
+ {
+  "title": "Rubber hose UI",
+  "kind": [
+   "UI"
+  ],
+  "clip": true,
+  "media": [
+   [
+    "https://pbs.twimg.com/amplify_video_thumb/2122433368767807488/img/bSaLyXz1EUdLycsg?format=jpg&name=small",
+    680,
+    383
+   ]
+  ],
+  "note": "A UI kit where every control is a 1930s cartoon character. The slider is a trombone and the toast is a toaster.",
+  "maker": "FinkTheArtist",
+  "via": "@crtvTeknologist",
+  "post": "https://x.com/crtvTeknologist/status/2122433522166124616",
+  "try": "https://rubber-hose-ui.vercel.app"
+ },
+ {
+  "title": "Four ways to loop",
+  "kind": [
+   "Animation"
+  ],
+  "clip": true,
+  "media": [
+   [
+    "https://pbs.twimg.com/amplify_video_thumb/2121533918583365632/img/7pkWqikDAwDP705N?format=jpg&name=small",
+    680,
+    680
+   ]
+  ],
+  "note": "One photo carousel animated four different ways, starting with a spiral trail.",
+  "maker": "Divan Raj",
+  "via": "@desdivj",
+  "post": "https://x.com/desdivj/status/2121551213112009164"
+ },
+ {
+  "title": "Poster recap",
+  "kind": [
+   "Poster"
+  ],
+  "media": [
+   [
+    "https://pbs.twimg.com/media/HW9ssQgXgAAQlbf?format=jpg&name=small",
+    510,
+    680
+   ],
+   [
+    "https://pbs.twimg.com/media/HW9ssQHXsAAotIJ?format=jpg&name=small",
+    510,
+    680
+   ]
+  ],
+  "note": "Recent poster designs, including a melting candle for Lyon's Fête des Lumières.",
+  "maker": "soba",
+  "via": "@soba_louis",
+  "post": "https://x.com/soba_louis/status/2121033474643574881"
+ },
+ {
+  "title": "Notebook machines",
+  "kind": [
+   "Illustration"
+  ],
+  "clip": true,
+  "media": [
+   [
+    "https://pbs.twimg.com/amplify_video_thumb/2120689479119675392/img/1lFZ-qnSelIVCnWZ?format=jpg&name=small",
+    680,
+    453
+   ]
+  ],
+  "note": "Dense pen drawings of eyes, wings and diagrams that flicker like a notebook coming alive.",
+  "maker": "☁",
+  "via": "@canekzapata",
+  "post": "https://x.com/canekzapata/status/2120689728593015294"
+ },
+ {
+  "title": "Human art is the new luxury",
+  "kind": [
+   "Animation"
+  ],
+  "clip": true,
+  "media": [
+   [
+    "https://pbs.twimg.com/amplify_video_thumb/2120503448190005248/img/1k_p1oJtQW2DywBF?format=jpg&name=small",
+    680,
+    383
+   ]
+  ],
+  "note": "Hand-made anime-style city scenes: sunlit streets, crossings and train lines.",
+  "maker": "hachimi",
+  "via": "@HakimiHamizi",
+  "post": "https://x.com/HakimiHamizi/status/2120503513835041056"
+ },
+ {
+  "title": "TICK watch ad",
+  "kind": [
+   "Animation"
+  ],
+  "clip": true,
+  "media": [
+   [
+    "https://pbs.twimg.com/amplify_video_thumb/2119897940068343808/img/xvyvZSygGTf0Nkmp?format=jpg&name=small",
+    680,
+    383
+   ]
+  ],
+  "note": "A 20-second ad for a made-up analog smartwatch, with a stippled printed-paper texture. Made with Claude and Blender.",
+  "maker": "とある / ago",
+  "via": "@Toarukanshiin",
+  "post": "https://x.com/Toarukanshiin/status/2119898654609920095"
+ },
+ {
+  "title": "Spoon rowboat",
+  "kind": [
+   "Generative"
+  ],
+  "media": [
+   [
+    "https://pbs.twimg.com/media/HWso-3aWMAAoVYu?format=jpg&name=small",
+    680,
+    381
+   ],
+   [
+    "https://pbs.twimg.com/media/HWspCTZXwAEWEkr?format=jpg&name=small",
+    680,
+    381
+   ]
+  ],
+  "note": "Tiny found objects alone in huge empty fields, made with Midjourney's thinking mode.",
+  "maker": "Tatiana Tsiguleva",
+  "via": "@ciguleva",
+  "post": "https://x.com/ciguleva/status/2119833530293428613"
+ },
+ {
+  "title": "Redacted motion",
+  "kind": [
+   "Type"
+  ],
+  "clip": true,
+  "media": [
+   [
+    "https://pbs.twimg.com/amplify_video_thumb/2119779292947349504/img/tP8HVL8B0Vs4A-sm?format=jpg&name=small",
+    383,
+    680
+   ]
+  ],
+  "note": "Kinetic type over declassified documents, with redaction bars and struck-out stamps.",
+  "maker": "Mamun",
+  "via": "@mamunrabbe",
+  "post": "https://x.com/mamunrabbe/status/2119779316238307719"
+ },
+ {
+  "title": "Pen-plotted postcards",
+  "kind": [
+   "Illustration"
+  ],
+  "media": [
+   [
+    "/vibes/art/plot-1.jpg",
+    510,
+    680
+   ],
+   [
+    "/vibes/art/plot-2.jpg",
+    510,
+    680
+   ]
+  ],
+  "note": "Small landscape cards drawn line by line in colored ink: a swing tree, a cottage, a lighthouse.",
+  "maker": "",
+  "via": "",
+  "post": "/vibes/art/plot-1.jpg"
+ },
+ {
+  "title": "Kanso disk map",
+  "kind": [
+   "UI"
+  ],
+  "media": [
+   [
+    "/vibes/art/kanso.jpg",
+    680,
+    482
+   ]
+  ],
+  "note": "A disk cleaner that draws your storage as soft grey pebbles, sized by what fills them.",
+  "maker": "",
+  "via": "",
+  "post": "/vibes/art/kanso.jpg"
+ },
+ {
+  "title": "Blank page",
+  "kind": [
+   "Tool"
+  ],
+  "clip": true,
+  "media": [
+   [
+    "https://pbs.twimg.com/amplify_video_thumb/2118000457217925120/img/RdEIu2C2FR_cahiT?format=jpg&name=small",
+    680,
+    383
+   ]
+  ],
+  "note": "A skill that expands a rough idea into first drafts of motion graphics, like Midjourney for motion.",
+  "maker": "Blake Shao",
+  "via": "@blak3shao",
+  "post": "https://x.com/blak3shao/status/2118040585336676378",
+  "try": "https://github.com/StewdioAI/blank-page"
+ },
+ {
+  "title": "Jung on the stairs",
+  "kind": [
+   "Poster"
+  ],
+  "clip": true,
+  "media": [
+   [
+    "https://pbs.twimg.com/amplify_video_thumb/2117341974323949568/img/tSdUq82q6Th1XzcM?format=jpg&name=small",
+    383,
+    680
+   ]
+  ],
+  "note": "Quote cards that pair Jung with melting red-and-yellow textures, from an account nobody could identify.",
+  "maker": "",
+  "via": "@noampomsky",
+  "post": "https://x.com/noampomsky/status/2117342085892444359"
+ },
+ {
+  "title": "Initialis",
+  "kind": [
+   "Type"
+  ],
+  "media": [
+   [
+    "/vibes/art/initialis.jpg",
+    680,
+    440
+   ]
+  ],
+  "note": "An endless canvas of ornamental drop caps and illuminated letters to wander through.",
+  "maker": "azlen",
+  "via": "",
+  "post": "https://github.com/azlen/initialis",
+  "try": "https://initialis.azlen.me"
+ },
+ {
+  "title": "Santori Labs",
+  "kind": [
+   "UI"
+  ],
+  "media": [
+   [
+    "/vibes/art/santori.jpg",
+    680,
+    357
+   ]
+  ],
+  "note": "A consultancy site set like a book, with a pen sketch of a mountain camp.",
+  "maker": "",
+  "via": "",
+  "post": "https://santori.ai/",
+  "try": "https://santori.ai/"
+ },
+ {
+  "title": "Tempo",
+  "kind": [
+   "UI"
+  ],
+  "media": [
+   [
+    "/vibes/art/tempo.jpg",
+    680,
+    357
+   ]
+  ],
+  "note": "A team-decision tool whose landing page sets big type over a forest canopy.",
+  "maker": "",
+  "via": "",
+  "post": "https://tempo.so/",
+  "try": "https://tempo.so/"
+ },
+ {
+  "title": "Lamp-lit homepage",
+  "kind": [
+   "UI"
+  ],
+  "clip": true,
+  "media": [
+   [
+    "https://pbs.twimg.com/amplify_video_thumb/2115336506634330112/img/aRy2LTvoINlEtrTv?format=jpg&name=small",
+    680,
+    415
+   ]
+  ],
+  "note": "A personal site where a desk lamp shines its beam across the menu.",
+  "maker": "",
+  "via": "@zarazhangrui",
+  "post": "https://x.com/zarazhangrui/status/2115336629770707254"
+ },
+ {
+  "title": "Where design ideas live",
+  "kind": [
+   "Tool"
+  ],
+  "clip": true,
+  "media": [
+   [
+    "https://pbs.twimg.com/amplify_video_thumb/2080583014367789056/img/KZuQaHb59ExApDkF?format=jpg&name=small",
+    680,
+    425
+   ]
+  ],
+  "note": "A list of galleries for when you run out of ideas: decks, logos, OG images and minimal sites. The links are in the post.",
+  "maker": "Tran Mau Tri Tam ✪",
+  "via": "@tranmautritam",
+  "post": "https://x.com/tranmautritam/status/2080583043929223469"
+ },
+ {
+  "title": "Inspiration sites",
+  "kind": [
+   "Tool"
+  ],
+  "clip": true,
+  "media": [
+   [
+    "https://pbs.twimg.com/amplify_video_thumb/2031558682941730820/img/V99sVvHvZGn8UTag?format=jpg&name=small",
+    680,
+    440
+   ]
+  ],
+  "note": "A list of sites for film stills, imagery, transitions and web design references. The links are in the post.",
+  "maker": "beech",
+  "via": "@beechinour",
+  "post": "https://x.com/beechinour/status/2031558826672140556"
+ },
+ {
+  "title": "Music sphere",
+  "kind": [
+   "Toy"
+  ],
+  "clip": true,
+  "media": [
+   [
+    "https://pbs.twimg.com/amplify_video_thumb/2029050359164116992/img/qW3-9vTJ9YIDAqLW?format=jpg&name=small",
+    680,
+    462
+   ]
+  ],
+  "note": "Twelve years of SoundCloud and Bandcamp, 11,484 tracks, browsable as a glowing sphere.",
+  "maker": "ESCHA (๑ˊ͈ ^ˋ͈)",
+  "via": "@eschadiol",
+  "post": "https://x.com/eschadiol/status/2029050475732189370"
+ },
+ {
+  "title": "Web-native modernism",
+  "kind": [
+   "UI"
+  ],
+  "media": [
+   [
+    "https://pbs.twimg.com/media/HB-Ui2JWcAAcg9p?format=jpg&name=small",
+    680,
+    353
+   ]
+  ],
+  "note": "Why the EA and progress magazines have some of the best design online: minimalist, modernist and not pastiche.",
+  "maker": "",
+  "via": "@Afinetheorem",
+  "post": "https://x.com/Afinetheorem/status/2026505051087233487"
+ },
+ {
+  "title": "The jhanas, visualised",
+  "kind": [
+   "Animation"
+  ],
+  "clip": true,
+  "media": [
+   [
+    "https://pbs.twimg.com/ext_tw_video_thumb/1882778302940651520/pu/img/DIJtFyjU2DJp2YLx?format=jpg&name=small",
+    383,
+    680
+   ]
+  ],
+  "note": "Animations of the eight jhanas, the deep meditative states, from rapture to the formless.",
+  "maker": "Roger This",
+  "via": "@RogerThisdell",
+  "post": "https://x.com/RogerThisdell/status/1882779644635513072"
+ }
+]
