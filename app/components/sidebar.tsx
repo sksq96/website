@@ -48,7 +48,7 @@ export function Contacts({ className = '' }: { className?: string }) {
 
 export function CenteredContent({ children }: { children: React.ReactNode }) {
   return (
-    <div className="w-full max-w-[46rem] mx-auto [&>*]:w-full [&>*]:max-w-none">
+    <div className="grid grid-cols-[1fr_min(46rem,100%)_1fr] [&>*]:col-start-2 [&>*]:min-w-0">
       {children}
     </div>
   )

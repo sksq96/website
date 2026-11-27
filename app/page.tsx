@@ -1,5 +1,4 @@
 import { A, EMAIL, Photo, Contacts } from './components/sidebar'
-import { PageHeading } from './components/page-heading'
 
 export default function Page() {
   return (
@@ -8,7 +7,7 @@ export default function Page() {
       <Contacts className="order-last md:order-none md:col-start-1 md:row-start-2" />
 
       <section className="max-w-[48rem] text-[18px] leading-[1.5] space-y-5 md:col-start-2 md:row-start-1 md:row-span-2">
-        <PageHeading>about</PageHeading>
+        <h1 className="text-[24px] leading-tight font-bold mb-8">about</h1>
         <p>
           Hiii, I&rsquo;m Shubham! I&rsquo;m a researcher and co-founder of{' '}
           <A href="https://www.strangeintelligence.ai/">Strange Intelligence</A>,

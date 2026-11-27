@@ -11,8 +11,8 @@ export const metadata = {
 export default function Page() {
   return (
     <CenteredContent>
+      <PageHeading>writings</PageHeading>
       <section>
-        <PageHeading>writings</PageHeading>
         <BlogPosts />
       </section>
     </CenteredContent>

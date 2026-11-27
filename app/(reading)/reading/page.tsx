@@ -30,8 +30,9 @@ const PIECES = [
 
 export default function Page() {
   return (
+    <>
+    <PageHeading>reading</PageHeading>
     <section>
-      <PageHeading>reading</PageHeading>
       <ul className="space-y-6">
         {PIECES.map((p) => (
           <li key={p.href}>
@@ -44,5 +45,6 @@ export default function Page() {
         ))}
       </ul>
     </section>
+    </>
   )
 }

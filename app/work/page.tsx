@@ -46,8 +46,8 @@ const items: Item[] = [
 export default function Page() {
   return (
     <CenteredContent>
+      <PageHeading>work</PageHeading>
       <section>
-        <PageHeading>work</PageHeading>
         <Tabs
           tabs={[
             {

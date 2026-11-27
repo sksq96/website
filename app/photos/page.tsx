@@ -1,6 +1,7 @@
 import fs from 'fs'
 import path from 'path'
 import Gallery, { type Group, type Photo } from './gallery'
+import { PageHeading } from 'app/components/page-heading'
 
 export const metadata = {
   title: 'photos',
@@ -30,6 +31,8 @@ export default function Page() {
   }
 
   return (
+    <>
+    <PageHeading>photos</PageHeading>
     <section className="w-full max-w-[96rem] mx-auto">
       {photos.length === 0 ? (
         <p className="text-[15px] text-neutral-500">Coming soon.</p>
@@ -37,5 +40,6 @@ export default function Page() {
         <Gallery groups={groups} />
       )}
     </section>
+    </>
   )
 }

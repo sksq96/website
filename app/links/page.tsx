@@ -12,8 +12,8 @@ export const metadata = {
 export default function Page() {
   return (
     <CenteredContent>
+      <PageHeading>links</PageHeading>
       <section>
-        <PageHeading>links</PageHeading>
         <p className="mb-8 text-[18px] leading-[1.5]">
           Things I&rsquo;ve read, saved, and thought about. Search any of
           my 2000+ links.
