@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react'
 
-type Tab = { id: string; panel: React.ReactNode }
+type Tab = { id: string; panel?: React.ReactNode; href?: string }
 
 // First tab is the default and owns the bare URL; the others are addressable
 // as #<id> (e.g. /links#curated, /work#projects).
@@ -24,7 +24,9 @@ export default function Tabs({ tabs }: { tabs: Tab[] }) {
   return (
     <div>
       <div className="flex gap-4 mb-6 text-[17px] font-bold">
-        {tabs.map((t) => (
+        {tabs.map((t) => t.href ? (
+          <a key={t.id} href={t.href} className="text-neutral-500 hover:text-neutral-900 dark:hover:text-neutral-100">{t.id}</a>
+        ) : (
           <button
             key={t.id}
             onClick={() => select(t.id)}

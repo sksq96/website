@@ -22,6 +22,7 @@ export default function Page() {
           tabs={[
             { id: 'all', panel: <LinksClient /> },
             { id: 'curated', panel: <Curated /> },
+            { id: 'vibes', href: '/vibes/index.html' },
           ]}
         />
       </section>
