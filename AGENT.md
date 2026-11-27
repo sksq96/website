@@ -48,8 +48,6 @@ app/
     page.tsx              /links — sidebar on desktop + LinksClient
     links-client.tsx      client component — loads every /api/links page, filters them in memory as you type; month headers with counts, shuffle/by-date toggle
 
-  photos/
-    page.tsx              reads public/photos/manifest.json, groups by EXIF year
     gallery.tsx           client. dense tiling grid (3 cols phone full-bleed / 5 cols desktop, hash-picked 2×2 features) + fullscreen lightbox slideshow (arrows/keys/esc, neighbor preload)
 
   work/
@@ -69,7 +67,8 @@ app/
 public/
   image/me.jpg            profile photo (Twitter avatar, 400px; rendered grayscale via CSS)
   photos/
-    manifest.json         [{name, w, h, date}] — thumb dimensions + EXIF date, newest first
+    manifest.json         [{name, w, h, date}] — thumb dimensions + EXIF date, newest first; /photos is public/vibes/index.html (rewrite) building tiles from it
+  vibes/                  Tasty Vibes engine (index.html) + data.js + art/; served at /vibes and /photos via next.config rewrites
     thumbs/*.webp         800px q72 thumbnails (~30KB each, generated with PIL)
     full/*.jpg            untouched originals (4896px Fuji JPGs, no GPS EXIF)
 ```

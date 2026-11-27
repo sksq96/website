@@ -32,9 +32,9 @@ svg.i{width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:1.8;stro
 .round{all:unset;cursor:pointer;width:36px;height:36px;border-radius:50%;display:grid;place-items:center;flex:none;transition:background .2s}
 .round:hover{background:var(--line)}
 .round:focus-visible,.pill:focus-visible,.seg button:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
-.hero{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;padding:22px 24px 30px}
+.hero{display:flex;flex-direction:column;align-items:center;gap:10px;padding:22px 24px 30px;text-align:center}
 h1{font:italic 800 clamp(58px,11.5vw,156px)/.84 var(--disp);letter-spacing:-.03em;margin:0}
-.count{font-size:14px;color:var(--soft);padding-bottom:10px;white-space:nowrap}
+.count{font-size:14px;color:var(--soft);white-space:nowrap}
 
 /* the grid: every tile is placed by script, so filtering, shuffling and resizing all glide */
 .stage{position:relative;padding:0 24px 150px}
@@ -199,7 +199,23 @@ body.canvas .board{position:absolute;left:0;top:0;transition:none}
 
 <script src="/vibes/data.js"></script>
 <script>
-(function () {
+/* /photos is served by this same page: it builds its entries from the photo manifest, one filter per year */
+var PHOTOS = location.pathname.replace(/\/$/, "") === "/photos", UNIT = PHOTOS ? "photo" : "save";
+if (PHOTOS) {
+  document.title = "photos"; document.getElementById("title").textContent = "photos";
+  fetch("/photos/manifest.json").then(function (r) { return r.json(); }).then(function (ps) {
+    var M = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"], C = ["#FF5A36","#2F6BFF","#16A56E","#E9B200","#7B5CFF","#E8479B","#00A9C7"];
+    KC = {};
+    VIBES = ps.map(function (p) {
+      var d = (p.date || "").split(/[: ]/), y = /^\d{4}$/.test(d[0]) ? d[0] : "Undated";
+      if (!KC[y]) KC[y] = C[Object.keys(KC).length % C.length];
+      return { title: y === "Undated" ? "Untitled" : M[+d[1] - 1] + " " + +d[2] + ", " + y, kind: [y], note: "", maker: "Shubham", via: "",
+        media: [["/photos/thumbs/" + p.name + ".webp", p.w, p.h]], post: "/photos/full/" + p.name + ".jpg" };
+    });
+    start();
+  });
+}
+function start() {
   var $ = function (id) { return document.getElementById(id); };
   var calm = matchMedia("(prefers-reduced-motion: reduce)").matches;
   var fine = matchMedia("(hover: hover) and (pointer: fine)").matches;
@@ -210,7 +226,7 @@ body.canvas .board{position:absolute;left:0;top:0;transition:none}
   var S = { kind: "All", cols: 0, cur: 3, view: "grid", scale: 1, px: 0, py: 0, order: VIBES.slice() };
   var shown = [], moved = false;
   function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; }); }
-  function big(u) { return u.replace("name=small", "name=large"); }
+  function big(u) { return u.replace("name=small", "name=large").replace(/\/photos\/thumbs\/(.*)\.webp/, "/photos/full/$1.jpg"); }
   function ratio(v) { return v.media.reduce(function (s, m) { return s + m[1] / m[2]; }, 0); }
   function rnd(v, k) { var x = Math.sin((VIBES.indexOf(v) + 1) * 12.9898 + k * 78.233) * 43758.5453; return x - Math.floor(x); }
   function clamp(x, a, b) { return Math.max(a, Math.min(b, x)); }
@@ -326,7 +342,7 @@ body.canvas .board{position:absolute;left:0;top:0;transition:none}
       s.transform = "translate(" + p[0].toFixed(1) + "px," + p[1].toFixed(1) + "px)";
       s.width = p[2].toFixed(1) + "px"; s.height = p[3].toFixed(1) + "px";
     });
-    $("count").textContent = shown.length + (shown.length === 1 ? " save" : " saves");
+    $("count").textContent = shown.length + " " + UNIT + (shown.length === 1 ? "" : "s");
   }
   document.documentElement.classList.add("snap"); layout(false); void board.offsetHeight;   /* first placement: no glide */
   document.documentElement.classList.remove("snap");
@@ -442,7 +458,7 @@ body.canvas .board{position:absolute;left:0;top:0;transition:none}
     if (v.quote) { $("lb-q1").textContent = v.quote.text; $("lb-q1").lang = v.quote.lang; $("lb-q2").textContent = v.quote.en; }
     var links = [];
     if (v.try) links.push(["Try it ↗", v.try]);
-    if (v.post !== v.try) links.push([v.clip ? "Watch the clip ↗" : "See the post ↗", v.post]);
+    if (v.post !== v.try) links.push([v.clip ? "Watch the clip ↗" : v.via ? "See the post ↗" : "Open ↗", v.post]);
     if (v.also) links.push([v.also[0] + " ↗", v.also[1]]);
     $("lb-links").innerHTML = links.map(function (l) { return '<a href="' + esc(l[1]) + '" target="_blank" rel="noopener">' + esc(l[0]) + "</a>"; }).join("");
     if (v.mp4) {
@@ -531,7 +547,8 @@ body.canvas .board{position:absolute;left:0;top:0;transition:none}
       });
     });
   }
-})();
+}
+if (!PHOTOS) start();
 </script>
 </body>
 </html>
