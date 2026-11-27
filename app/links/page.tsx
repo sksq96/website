@@ -1,7 +1,6 @@
 import { PageHeading } from 'app/components/page-heading'
 import LinksClient from './links-client'
 import Curated from './curated'
-import Vibes from './vibes'
 import Tabs from '../components/tabs'
 import { CenteredContent } from '../components/sidebar'
 
@@ -23,7 +22,6 @@ export default function Page() {
           tabs={[
             { id: 'all', panel: <LinksClient /> },
             { id: 'curated', panel: <Curated /> },
-            { id: 'vibes', panel: <Vibes /> },
           ]}
         />
       </section>

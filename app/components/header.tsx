@@ -10,14 +10,15 @@ export default function Header() {
   }
 
   return (
-    <header className="flex justify-between items-center gap-x-3 p-5 pb-3 md:px-6 md:pt-6 text-[13px] md:text-[17px] font-bold whitespace-nowrap">
+    <header className="flex justify-between items-center gap-x-3 px-4 pt-5 pb-3 md:px-6 md:pt-6 text-[12px] md:text-[17px] font-bold whitespace-nowrap">
       <a href="/">Shubham</a>
-      <nav className="flex items-center gap-x-2 md:gap-4">
+      <nav className="flex items-center gap-x-[5px] md:gap-4">
         <a href="/links" className="underline">links</a>
         <a href="/writings" className="underline">writings</a>
         <a href="/photos" className="underline">photos</a>
         <a href="/work" className="underline">work</a>
         <a href="/reading" className="underline">reading</a>
+        <a href="/vibes" className="underline">vibes</a>
         <button
           onClick={toggle}
           aria-label="toggle black and white theme"
